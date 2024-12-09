@@ -187,10 +187,15 @@ button:focus:not(:focus-visible) {
 	text-transform: capitalize;
 	transition: all 0.3s ease-in-out;
 }
-.btn.active:focus, .btn:active:focus {
+
+.btn.active:focus, .btn:active:focus 
+{
 	box-shadow: none !important;
 }
-.btn-fill-out {
+
+.btn-fill-out 
+{
+	border-radius: 30px;
 	background-color: transparent;
 	border: 1px solid #FF324D;
 	color: #fff;
@@ -198,8 +203,10 @@ button:focus:not(:focus-visible) {
 	overflow: hidden;
 	z-index: 1;
 }
+
 .btn-fill-out::before,
-.btn-fill-out::after {
+.btn-fill-out::after 
+{
 	content: "";
 	position: absolute;
 	left: 0;
@@ -210,12 +217,16 @@ button:focus:not(:focus-visible) {
 	transition: all 0.3s ease-in-out;
 	width: 51%;
 }
-.btn-fill-out::after {
+
+.btn-fill-out::after 
+{
 	right: 0;
 	left: auto;
 }
+
 .btn-fill-out:hover:before,
-.btn-fill-out:hover:after {
+.btn-fill-out:hover:after 
+{
 	width: 0;
 }
 .btn-fill-out:hover {
@@ -6039,6 +6050,7 @@ label.label_info {
   24.START ELEMENT DESIGN
 *===================================*/
 .form-control {
+	border-radius: 30px;
 	color: #000;
 	box-shadow: none;
 	height: 50px;
