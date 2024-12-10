@@ -4713,6 +4713,11 @@ footer .widget_title {
 	background: #d33d2b;
 	border-color: #d33d2b;
 }
+
+.login-block {
+	margin-top: 30px;
+}
+
 /*===================================*
   20.END LOGIN REGISTER STYLE
 *===================================*/
@@ -7242,6 +7247,7 @@ blockquote p:last-child {
     display: block;
     width: 100%;
 }
+
 .nav-link {
     color: #292b2c;
 }
