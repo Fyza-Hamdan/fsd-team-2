@@ -62,9 +62,10 @@
 <link rel="stylesheet" href="./assets/css/responsive.css">
 
 <!-- End of Cascading Style Sheet -->
+
 </head>
 
-<body>
+<body onload="displayShoppingCart();">
 
 <!-- LOADER -->
 <div class="preloader">
@@ -126,23 +127,23 @@
                             </form>
                         </div><div class="search_overlay"></div>
                     </li>
-                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">2</span></a>
+                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">1</span></a>
                         <div class="cart_box dropdown-menu dropdown-menu-right">
                             <ul class="cart_list">
                                 <li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb1.jpg" alt="cart_thumb1">Variable product 001</a>
-                                    <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>78.00</span>
+                                    <a href="#"><img src="assets/images/cart_thamb1.jpg" alt="cart_thumb1"><span id="drpDwnProductName">Variable product 001</span></a>
+                                    <span class="cart_quantity"> 1 x </span><span class="cart_amount"></span> <span class="price_symbole">$</span><span id="drpDwnProductPrice">78.00</span>
                                 </li>
-                                <li>
+                               <!-- <li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
                                     <a href="#"><img src="assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed consequat</a>
                                     <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>81.00</span>
-                                </li>
+                                </li> -->
                             </ul>
                             <div class="cart_footer">
-                                <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"> <span class="price_symbole">$</span></span>159.00</p>
-                                <p class="cart_buttons"><a href="#" class="btn btn-fill-line view-cart">View Cart</a><a href="#" class="btn btn-fill-out checkout">Checkout</a></p>
+                                <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"></span> <span class="price_symbole">$</span><span id="drpDwnFooterProductPrice">78.00</span></p>
+                                <p class="cart_buttons"><a href="./addToCart.html" class="btn btn-fill-line view-cart">View Cart</a><a href="./checkout.html" class="btn btn-fill-out checkout">Checkout</a></p>
                             </div>
                         </div>
                     </li>
@@ -183,7 +184,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive shop_cart_table">
-                	<table class="table">
+                	
+                 <!--  Product Selection Table List (Dynamic Data) -->   
+                    <table class="table">
                     	<thead>
                         	<tr>
                             	<th class="product-thumbnail">&nbsp;</th>
@@ -196,41 +199,18 @@
                         </thead>
                         <tbody>
                         	<tr>
-                            	<td class="product-thumbnail"><a href="#"><img src="assets/images/product_img1.jpg" alt="product1"></a></td>
-                                <td class="product-name" data-title="Product"><a href="#">Blue Dress For Woman</a></td>
-                                <td class="product-price" data-title="Price">$45.00</td>
+                            	<td class="product-thumbnail" id="tblProductImage"><a href="#"><img src="assets/images/product_img1.jpg" alt="product1"></a></td>
+                                <td class="product-name" id="tblProductName" data-title="Product"><a href="#">Blue Dress For Woman</a></td>
+                                <td class="product-price" id="tblProductPrice" data-title="Price">$45.00</td>
                                 <td class="product-quantity" data-title="Quantity"><div class="quantity">
-                                <input type="button" value="-" class="minus">
-                                <input type="text" name="quantity" value="2" title="Qty" class="qty" size="4">
-                                <input type="button" value="+" class="plus">
+                                <input type="button" value="-" class="minus" onclick="updateShoppingCart('Minus');">
+                                <input type="text" name="quantity" value="1" title="Qty" id="txtProductQuantity" class="qty" size="4" >
+                                <input type="button" value="+" class="plus" onclick="updateShoppingCart('Plus');">
                               </div></td>
-                              	<td class="product-subtotal" data-title="Total">$90.00</td>
+                              	<td class="product-subtotal" id="tblProductTotalCost" data-title="Total" >$90.00</td>
                                 <td class="product-remove" data-title="Remove"><a href="#"><i class="ti-close"></i></a></td>
                             </tr>
-                            <tr>
-                            	<td class="product-thumbnail"><a href="#"><img src="assets/images/product_img2.jpg" alt="product2"></a></td>
-                                <td class="product-name" data-title="Product"><a href="#">Lether Gray Tuxedo</a></td>
-                                <td class="product-price" data-title="Price">$55.00</td>
-                                <td class="product-quantity" data-title="Quantity"><div class="quantity">
-                                <input type="button" value="-" class="minus">
-                                <input type="text" name="quantity" value="1" title="Qty" class="qty" size="4">
-                                <input type="button" value="+" class="plus">
-                              </div></td>
-                              	<td class="product-subtotal" data-title="Total">$55.00</td>
-                                <td class="product-remove" data-title="Remove"><a href="#"><i class="ti-close"></i></a></td>
-                            </tr>
-                            <tr>
-                            	<td class="product-thumbnail"><a href="#"><img src="assets/images/product_img3.jpg" alt="product3"></a></td>
-                                <td class="product-name" data-title="Product"><a href="#">woman full sliv dress</a></td>
-                                <td class="product-price" data-title="Price">$68.00</td>
-                                <td class="product-quantity" data-title="Quantity"><div class="quantity">
-                                <input type="button" value="-" class="minus">
-                                <input type="text" name="quantity" value="3" title="Qty" class="qty" size="4">
-                                <input type="button" value="+" class="plus">
-                              </div></td>
-                              	<td class="product-subtotal" data-title="Total">$204.00</td>
-                                <td class="product-remove" data-title="Remove"><a href="#"><i class="ti-close"></i></a></td>
-                            </tr>
+                         
                         </tbody>
                         <tfoot>
                         	<tr>
@@ -547,7 +527,7 @@
                             <tbody>
                                 <tr>
                                     <td class="cart_total_label">Cart Subtotal</td>
-                                    <td class="cart_total_amount">$349.00</td>
+                                    <td class="cart_total_amount" id="lblCartSubTotal">$349.00</td>
                                 </tr>
                                 <tr>
                                     <td class="cart_total_label">Shipping</td>
@@ -555,7 +535,7 @@
                                 </tr>
                                 <tr>
                                     <td class="cart_total_label">Total</td>
-                                    <td class="cart_total_amount"><strong>$349.00</strong></td>
+                                    <td class="cart_total_amount" id="lblCartGrandTotal"><strong>$349.00</strong></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -567,28 +547,6 @@
     </div>
 </div>
 <!-- END SECTION SHOP -->
-
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
-<div class="section bg_default small_pt small_pb">
-	<div class="container">	
-    	<div class="row align-items-center">	
-            <div class="col-md-6">
-                <div class="heading_s1 mb-md-0 heading_light">
-                    <h3>Subscribe Our Newsletter</h3>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="newsletter_form">
-                    <form>
-                        <input type="text" required="" class="form-control rounded-0" placeholder="Enter Email Address">
-                        <button type="submit" class="btn btn-dark rounded-0" name="submit" value="Submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
 </div>
 <!-- END MAIN CONTENT -->
@@ -619,11 +577,9 @@
                 	<div class="widget">
                         <h6 class="widget_title">Useful Links</h6>
                         <ul class="widget_links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Location</a></li>
-                            <li><a href="#">Affiliates</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="./about.html">About Us</a></li>
+                            <li><a href="./faq.html">FAQ</a></li>
+                            <li><a href="#" onclick="alert('Sorry,this feature is still under development.');">Blog</a></li>
                         </ul>
                     </div>
                 </div>
@@ -631,11 +587,9 @@
                 	<div class="widget">
                         <h6 class="widget_title">Category</h6>
                         <ul class="widget_links">
-                            <li><a href="#">Men</a></li>
-                            <li><a href="#">Woman</a></li>
-                            <li><a href="#">Kids</a></li>
-                            <li><a href="#">Best Saller</a></li>
-                            <li><a href="#">New Arrivals</a></li>
+                            <li><a href="#" onclick="alert('Sorry,this feature is still under development.');">Dogs</a></li>
+                            <li><a href="#" onclick="alert('Sorry,this feature is still under development.');">Cats</a></li>
+                            <li><a href="#" onclick="alert('Sorry,this feature is still under development.');">Parrots</a></li>                            
                         </ul>
                     </div>
                 </div>
@@ -643,11 +597,9 @@
                 	<div class="widget">
                         <h6 class="widget_title">My Account</h6>
                         <ul class="widget_links">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Discount</a></li>
-                            <li><a href="#">Returns</a></li>
-                            <li><a href="#">Orders History</a></li>
-                            <li><a href="#">Order Tracking</a></li>
+                            <li><a href="./my-account.html" onclick="alert('Sorry,this feature is still under development.');">My Account</a></li>
+                            <li><a href="./my-account.html" onclick="alert('Sorry,this feature is still under development.');">Orders History</a></li>
+                            <li><a href="./my-account.html" onclick="alert('Sorry,this feature is still under development.');">Order Tracking</a></li>
                         </ul>
                     </div>
                 </div>
@@ -677,16 +629,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="mb-md-0 text-center text-md-start">© 2020 All Rights Reserved by Bestwebcreator</p>
-                </div>
-                <div class="col-md-6">
-                    <ul class="footer_payment text-center text-lg-end">
-                        <li><a href="#"><img src="assets/images/visa.png" alt="visa"></a></li>
-                        <li><a href="#"><img src="assets/images/discover.png" alt="discover"></a></li>
-                        <li><a href="#"><img src="assets/images/master_card.png" alt="master_card"></a></li>
-                        <li><a href="#"><img src="assets/images/paypal.png" alt="paypal"></a></li>
-                        <li><a href="#"><img src="assets/images/amarican_express.png" alt="amarican_express"></a></li>
-                    </ul>
+                    <p class="mb-md-0 text-center text-md-start"><center>Copyright © 2024. <a href="./index.html"><span style="color:yellow">PetsPerk eCommerce Ltd.</span></a> All Rights Reserved.</p></center>
                 </div>
             </div>
         </div>
@@ -742,6 +685,9 @@
 
 <!-- scripts js --> 
 <script src="./assets/js/scripts.js"></script>
+
+<!-- Custom Javascript -->
+<script defer src="./assets/js/pets_scripts.js"></script>
 
 <!-- End of Javascript -->
 

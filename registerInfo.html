@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>RegistrationInformation</title>
+    <link rel="stylesheet" href="./assets1/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets1/css/styles.css">
+     
+    <!-- Custom Javascript -->
+     <script src="./assets/js/pets_scripts.js"></script>
+</head>
+
+<body onload="getWeekDayDateTime();">
+    <div class="alert alert-success" role="alert"><span id="lblRegistrationSuccessful" style="font-size: 30px;text-align: center;text-decoration: underline;"><strong>Registration Successfully</strong></span></div>
+    
+    <div><span id="currentWeekdayDateTime"></span></div>
+
+    <br/>
+
+    <div>
+        <p id="lblEmail" style="text-align: left;"><strong>Email:&nbsp;</strong></p>
+    </div>
+
+    <div>
+        <p id="lblPassword"><strong>Paragraph:</strong></p>
+    </div>
+
+    <div>
+        <div class="col text-center align-self-center"><button class="btn btn-primary" id="btnAccept" type="button" style="border-radius: 30px;width: 100px;font-family: bold;font-weight: bold;" onclick="sys_signIn();">Accept</button></div>
+    </div>
+    
+    <script defer src="assets/bootstrap/js/bootstrap.min.js"></script>
+    
+
+    <script>
+        let userEmail = window.localStorage.getItem("user-email");
+        let userPassword = window.localStorage.getItem("user-password");
+
+        document.getElementById("lblEmail").textContent = "Email: " + userEmail;
+        document.getElementById("lblPassword").textContent = "Email: " + userPassword;
+    </script>
+</body>
+
+</html>

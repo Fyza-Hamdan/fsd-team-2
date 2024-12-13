@@ -37,6 +37,23 @@ Version      : 1.4
 /*===================================*
   01.GENERAL STYLE
 *===================================*/
+
+.alert-success {
+  text-align: center;
+}
+
+#lblEmail {
+  margin-left: 20px;
+  color: #000;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+#lblPassword {
+  margin-left: 20px;
+  color: #000;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
 html, body {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
@@ -5471,6 +5488,12 @@ footer .widget_title {
 .list_brand .custome-checkbox .form-check-label {
 	color: #292b2c;
 }
+
+/* Add to Cart Button for listed product item on Products page */
+.cart_btn{
+    margin-top: 10px;
+}
+
 .cart_btn .add_wishlist, .cart_btn .add_compare {
     font-size: 20px;
     display: inline-block;
