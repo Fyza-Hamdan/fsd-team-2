@@ -36,7 +36,7 @@ const displayRegInfo =() =>
       window.localStorage.setItem("user-email",email);  // User's Email
       window.localStorage.setItem("user-password",password); // User's Password
 
-      window.location.href = "./registerinfo.html";
+      window.location.href = "./registerInfo.html";
 } // End of const displayRegInfo =()
 
 const getWeekDayDateTime = () =>
