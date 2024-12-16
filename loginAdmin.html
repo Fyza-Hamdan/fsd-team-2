@@ -1,17 +1,17 @@
-<!-- ***************************************************************************************** 
-     * Filename: orderCompleted.html                                                         *
-     * Objective: Displays an ordered product successfully completion message.               *
-     * Remarks: Generation SG Full Stack Developer FSD05 Capstone Project                    *
-     * Developer:                                                                            *
-     * Date: 04/12/2024                                                                      *
-     ***************************************************************************************** -->
+<!-- ****************************************************************************************** 
+     * Filename: loginA.html                                                                  *
+     * Objective: Provide an Administrator login form to sign-in to the Account Profile page. *
+     * Remarks: Generation SG Full Stack Developer FSD05 Capstone Project                     *
+     * Developer:                                                                             *
+     * Date: 04/12/2024                                                                       *
+     ****************************************************************************************** -->
 
 <!DOCTYPE public html>
 <html lang="en">
 <head>
 
 <!-- SITE TITLE -->
-<title>PetPerks BootStrap eCommerce Webstore</title>    
+<title>PetPerks BootStrap eCommerce Webstore</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -45,13 +45,9 @@
 <!--- owl carousel CSS-->
 <link rel="stylesheet" href="./assets/owlcarousel/css/owl.carousel.min.css">
 <link rel="stylesheet" href="./assets/owlcarousel/css/owl.theme.css">
-<link rel="stylesheet" href="vassets/owlcarousel/css/owl.theme.default.min.css">
-
+<link rel="stylesheet" href="./assets/owlcarousel/css/owl.theme.default.min.css">
 <!-- Magnific Popup CSS -->
 <link rel="stylesheet" href="./assets/css/magnific-popup.css">
-
-<!-- jquery-ui CSS -->
-<link rel="stylesheet" href="./assets/css/jquery-ui.css">
 
 <!-- Slick CSS -->
 <link rel="stylesheet" href="./assets/css/slick.css">
@@ -61,11 +57,12 @@
 <link rel="stylesheet" href="./assets/css/style.css">
 <link rel="stylesheet" href="./assets/css/responsive.css">
 
-<!-- End of Cascading Style Sheets -->
+<!-- End of CASCADING STYLE SHEETS (CSS) -->
 
 </head>
 
 <body>
+
 <!-- LOADER -->
 <div class="preloader">
     <div class="lds-ellipsis">
@@ -78,16 +75,16 @@
 
 <!-- START HEADER -->
 <header class="header_wrap fixed-top header_with_topbar">
-	<div class="bottom_header dark_skin main_menu_uppercase">
+    <div class="bottom_header dark_skin main_menu_uppercase">
     	<div class="container">
             <nav class="navbar navbar-expand-lg"> 
                 <a class="navbar-brand" href="index.html">
-                  
-                   <!-- HEADER LOGO--> 
-                    <img class="logo_light" src="./assets/images/petperks_logo.png" alt="Pet Perks Logo" />
-                    <img class="logo_dark" src="./assets/images/petperks_logo.png" alt="Pet Perks Logo" />
-                   <!-- End of Header Logo -->  
-                    
+                   
+                    <!-- [HEADER LOGO] -->  
+                        <img class="logo_light" src="./assets/images/petperks_logo.png" alt="Pet Perks Logo" />
+                        <img class="logo_dark" src="./assets/images/petperks_logo.png" alt="Pet Perks Logo" />
+                    <!-- End of Header Logo -->    
+                     
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-expanded="false"> 
                     <span class="ion-android-menu"></span>
@@ -104,8 +101,9 @@
                         </li>
 
                         <li class="dropdown">
-                            <a class="nav-link nav_item" href="./products.html">Products</a>           
-                            
+                        
+                            <a class="dropdown-toggle nav-link nav_item" href="./products.html">Products</a>               
+
                             <div class="dropdown-menu dropdown-reverse">
                                     
                                 <!-- Cats Category -->  
@@ -182,7 +180,7 @@
                         <!--<li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li> -->
                     </ul>
                     <ul class="header_list">
-                        <li><a href="login.html"><i class="ti-user"></i><span>Login</span></a></li>
+                        <li><a href="./index.html"><i class="ti-user"></i><span>Login</span></a></li>
                     </ul>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">
@@ -195,13 +193,13 @@
                             </form>
                         </div><div class="search_overlay"></div>
                     </li>
-                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">2</span></a>
+                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">1</span></a>
                         <div class="cart_box dropdown-menu dropdown-menu-right">
                             <ul class="cart_list">
                                 <li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
                                     <a href="#"><img src="assets/images/cart_thamb1.jpg" alt="cart_thumb1">Variable product 001</a>
-                                    <span class="cart_quantity" id="drpDwnProductQuantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span id="drpDwnProductPrice"></span>78.00</span>
+                                    <span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="cart_amount"></span> <span class="price_symbole">$</span><span id="drpDwnProductPrice">78.00</span>
                                 </li>
                                 <!--<li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
@@ -224,18 +222,18 @@
 
 <!-- START SECTION BREADCRUMB -->
 <div class="breadcrumb_section bg_gray page-title-mini">
-    <div class="container"><!-- STRART CONTAINER -->
+    <div class="container"><!-- START CONTAINER -->
         <div class="row align-items-center">
         	<div class="col-md-6">
                 <div class="page-title">
-            		<h1>Order Completed</h1>
+            		<h1>Login (For Administrator)</h1>
                 </div>
             </div>
             <div class="col-md-6">
                 <ol class="breadcrumb justify-content-md-end">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active">Order Completed</li>
+                    <li class="breadcrumb-item active">Login</li>
                 </ol>
             </div>
         </div>
@@ -246,25 +244,37 @@
 <!-- START MAIN CONTENT -->
 <div class="main_content">
 
-<!-- START SECTION SHOP -->
-<div class="section">
-	<div class="container">
+<!-- START LOGIN SECTION -->
+<div class="login_register_wrap section">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="text-center order_complete">
-                	<i class="fas fa-check-circle"></i>
-                    <div class="heading_s1">
-                  	<h3>Your order is completed!</h3>
+            <div class="col-xl-6 col-md-10">
+                <div class="login_wrap">
+            		<div class="padding_eight_all bg-white">
+                        <div class="heading_s1">
+                            <h3>Login</h3>
+                        </div>
+                        <form method="post">
+                            <div class="form-group mb-3">
+                                <input type="text" required="" class="form-control" name="email" placeholder="Your Email">
+                            </div>
+                            <div class="form-group mb-3">
+                                <input class="form-control" required="" type="password" name="password" placeholder="Password">
+                            </div>
+                            <div class="form-group mb-3">
+                                <button type="submit" class="btn btn-fill-out btn-block login-block" name="login">Log in</button>
+                            </div>
+                        </form>
+                
+                        <div class="form-note text-center">Don't Have an Account? <a href="./signUp.html">Sign up now</a></div>
                     </div>
-                  	<p>Thank you for your order! Your order is being processed and will be completed within 3-6 hours. You will receive an email confirmation when your order is completed.</p>
-                    <a href="./index.html" class="btn btn-fill-out">Continue Shopping</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- END SECTION SHOP -->
- 
+<!-- END LOGIN SECTION -->
+
 </div>
 <!-- END MAIN CONTENT -->
 
@@ -321,32 +331,32 @@
                     </div>
                 </div>
                 
-<!-- Contact Info -->  
-<div class="col-lg-3 col-md-4 col-sm-6">
-    <div class="widget">
-        <h6 class="widget_title">Contact Info</h6>
-        <ul class="contact_info contact_info_light">
-            <li>
-                <i class="ti-location-pin"></i>
-                <p>123 Street, Old Trafford, New South London , UK</p>
-            </li>
-            <li>
-                <i class="ti-email"></i>
-                <a href="mailto:info@sitename.com">info@sitename.com</a>
-            </li>
-            <li>
-                <i class="ti-mobile"></i>
-                <p>+ 457 789 789 65</p>
-            </li>
-            <l1>
-                <ul class="widget_links">
-                    <li><a href="./contact.html">Contact Us</a></li>
-                </ul>
-            </l1>
-        </ul>
-    </div>
-</div> 
-<!-- End of Contact Info -->
+                <!-- Contact Info -->  
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                	<div class="widget">
+                        <h6 class="widget_title">Contact Info</h6>
+                        <ul class="contact_info contact_info_light">
+                            <li>
+                                <i class="ti-location-pin"></i>
+                                <p>123 Street, Old Trafford, New South London , UK</p>
+                            </li>
+                            <li>
+                                <i class="ti-email"></i>
+                                <a href="mailto:info@sitename.com">info@sitename.com</a>
+                            </li>
+                            <li>
+                                <i class="ti-mobile"></i>
+                                <p>+ 457 789 789 65</p>
+                            </li>
+                            <l1>
+                                <ul class="widget_links">
+                                    <li><a href="./contact.html">Contact Us</a></li>
+                                </ul>
+                            </l1>
+                        </ul>
+                    </div>
+                </div> 
+                <!-- End of Contact Info -->
 
             </div>
         </div>
@@ -366,12 +376,9 @@
 <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
 
 <!-- [JAVASCRIPT] -->
+
 <!-- Latest jQuery --> 
-
 <script src="./assets/js/jquery-3.7.1.min.js"></script>
-
-<!-- jquery-ui --> 
-<script src="./assets/js/jquery-ui.js"></script>
 
 <!-- popper min js -->
 <script src="./assets/js/popper.min.js"></script>
@@ -413,5 +420,6 @@
 <script src="./assets/js/scripts.js"></script>
 
 <!-- End of Javascript -->
+
 </body>
 </html>
