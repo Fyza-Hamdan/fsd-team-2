@@ -1,0 +1,71 @@
+<!-- ************************************************************************************ 
+     * Filename: addCategory.html                                                       *
+     * Objective: A Form to allow the creation of product category information.         *
+     * Remarks: Generation SG Full Stack Developer FSD05 Capstone Project               *
+     * Developer:                                                                       *
+     * Date: 09/12/2024                                                                 *
+     ************************************************************************************ -->
+
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+        <title>Add Category Form</title>
+
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=true">
+         
+         <!-- Bootstrap CSS -->
+         <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">-->
+         <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+         
+         <!-- Customized Style CSS -->
+         <link rel="stylesheet" href="./assets/css/pets_styles.css" type="text/css">
+
+     </head>
+     <body>
+         <div class="container mt-5">
+             <div class="card">
+                 <div class="card-header text-center">
+                     <h3>New Category</h3>
+                 </div>
+                 <div class="card-body">
+                     <form>
+                        <!-- Category ID -->
+                         <div class="mb-3">
+                             <label for="categoryId" class="form-label">ID:</label>
+                             <input type="text" class="form-control" id="txtCategoryId" name=""txtCategoryId placeholder="Enter Category ID" title="Please provide the product category Id here.">
+                         </div>
+
+                         <!-- Category Name -->
+                         <div class="mb-3">
+                            <label for="categoryId" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="txtCategoryName" placeholder="Enter Category Name" title="Please provide the product category name here.">
+                        </div>
+                        
+                        <!-- Category Description -->
+                         <div class="mb-3">
+                             <label for="description" class="form-label">Description:</label>
+                             <textarea class="form-control" id="txtCategoryDescription" name="txtCategoryDescription" rows="3" placeholder="Enter description" title="Please provide the product category description here."></textarea>
+                         </div>
+
+                         <!-- Category Tag -->
+                         <div class="mb-3">
+                             <label for="tag" class="form-label">Tag</label>
+                             <input type="text" class="form-control" id="txtCategoryTag" name="txtCategoryTag" placeholder="Enter tag" title="Please provide the product category tag here.">
+                         </div>
+
+                         <div class="text-center">
+                            <button type="submit" class="btn btn-primary" title="PLease click this button to create this product's category information.">Add Category</button>
+                             <button type="reset" class="btn btn-secondary" title="Please click this button to clear all the product's category information fields.">Reset</button>
+                         </div>
+                         
+                     </form>
+                 </div>
+             </div>
+         </div>
+         <!-- Bootstrap JS -->
+         <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>-->
+         <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+     </body>
+     </html>
+     
