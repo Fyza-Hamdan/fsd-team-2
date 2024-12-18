@@ -1,0 +1,40 @@
+<!-- ************************************************************************************************ 
+     * Filename: signUpFailed.html                                                                  *
+     * Objective: Displays a Registeration Falled Message for all normal sign-in customers/users.   *
+     * Remarks: Generation SG Full Stack Developer FSD05 Capstone Project                           *
+     * Developer:                                                                                   *
+     * Date: 04/12/2024                                                                             *
+     ************************************************************************************************ -->
+     
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+        <title>SignUp (User) Failed</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=true/">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    
+     </head>
+     <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Sorry, </strong> There is some error with you Customer Account Registration. Please Try Again.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="signUpFailedRoute('customer');"></button>
+                      </div>
+                </div>
+            </div>
+        </div>
+        
+     </body>
+
+     <!-- Bootstrap Bundle JS -->
+     <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+
+     <!-- Custom Javascript -->
+     <script defer src="./assets/js/pets_scripts.js"></script>
+
+     </html>

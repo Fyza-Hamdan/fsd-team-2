@@ -63,9 +63,6 @@
 
 <!-- End of Cascading Style Sheet-->
 
-<!-- Custom Javascript -->
-<script src="./assets/js/pets_scripts.js"></script>
-
 </head>
 
 <body>
@@ -288,6 +285,8 @@
                         </div>
                     </div>
                 </div> 
+                <!-- data-item to show the total number of product images per page -->
+                <!-- data-item-show to show how many product images per row --> 
                 <div class="row shop_container loadmore" data-item="8" data-item-show="4" data-finish-message="No More Item to Show" data-btn="Load More">
                     <div class="col-lg-3 col-md-4 col-6 grid_item">
                         
@@ -314,17 +313,15 @@
                                 <h6 class="product_title" id="firstProductName" onclick="captureFirstProductInfo('ProductDetail');" ><a href="#">Dog Food #1</a></h6>
                                 <div class="product_price">
                                     <span class="price" id="firstProductPrice">$18.00</span>
-                                    <del>$58.00</del> <!-- Displays a Strikethrough Text -->
-                                    <div class="on_sale">
-                                        <span>35% Off</span>
-                                    </div>
                                 </div>
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:80%"></div> <!-- Rating Stars -->
-                                    </div>
-                                    <span class="rating_num">(21)</span>  <!-- Rating Number -->
+                               
+                                <!-- Brief Product description -->
+                                <div>
+                                   <span>
+                                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                   </span> 
                                 </div>
+                                <!-- End of Brief Product Description --> 
 
                                 <center>
                                        <!-- Insert a "Add to Cart Button Here" -->
@@ -376,18 +373,15 @@
                                 
                                 <div class="product_price">
                                     <span class="price" id="secondProductPrice">$8.80</span>
-                                    <del>$26.50</del>
-                                    <div class="on_sale">
-                                        <span>25% Off</span>
-                                    </div>
                                 </div>
-                                
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:68%"></div>
-                                    </div>
-                                    <span class="rating_num">(15)</span>
-                                </div>
+
+                                <!-- Brief Product description -->
+                                <div>
+                                    <span>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </span> 
+                                 </div>
+                                <!-- End of Brief Product Description --> 
                                 
                                <center>
                                        <!-- Insert a "Add to Cart Button Here" -->
@@ -434,16 +428,19 @@
                             </div>
                             <div class="product_info">
                                 <h6 class="product_title" id="thirdProductName" onclick="captureThirdProductInfo('ProductDetail');" ><a href="#">Cat Food #1</a></h6>
+                                
                                 <div class="product_price">
                                     <span class="price" id="thirdProductPrice">$8.00</span>
-                                    <del>$20.00</del>
                                 </div>
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:87%"></div>
-                                    </div>
-                                    <span class="rating_num">(25)</span>
-                                </div>
+                                
+                                <!-- Brief Product description -->
+                                <div>
+                                    <span>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </span> 
+                                 </div>
+                                <!-- End of Brief Product Description --> 
+                                
 
                                 <center>
                                     <!-- Insert a "Add to Cart Button Here" -->
@@ -488,20 +485,18 @@
                             </div>
                             <div class="product_info">
                                 <h6 class="product_title" id="fourthProductName" onclick="captureFourthProductInfo('ProductDetail');" ><a href="#">Cat Treat #1</a></h6>
+                                
                                 <div class="product_price">
                                     <span class="price" id="fourthProductPrice">$6.80</span>
-                                    <del>$30.00</del>
-                                    <div class="on_sale">
-                                        <span>20% Off</span>
-                                    </div>
                                 </div>
 
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:70%"></div>
-                                    </div>
-                                    <span class="rating_num">(22)</span>
-                                </div>
+                                <!-- Brief Product description -->
+                                <div>
+                                    <span>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </span> 
+                                 </div>
+                                <!-- End of Brief Product Description -->  
 
                                 <center>
                                     <!-- Insert a "Add to Cart Button Here" -->
@@ -546,20 +541,18 @@
                             </div>
                             <div class="product_info">
                                 <h6 class="product_title" id="fifthProductName" onclick="captureFifthProductInfo('ProductDetail');" ><a href="#">Blue Dress For Woman</a></h6>
+                                
                                 <div class="product_price">
                                     <span class="price" id="fifthProductPrice">$45.00</span>
-                                    <del>$55.25</del>
-                                    <div class="on_sale">
-                                        <span>35% Off</span>
-                                    </div>
                                 </div>
 
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:80%"></div>
-                                    </div>
-                                    <span class="rating_num">(21)</span>
-                                </div>
+                                <!-- Brief Product description -->
+                                <div>
+                                    <span>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </span> 
+                                 </div>
+                                <!-- End of Brief Product Description -->  
 
                                 <center>
                                     <!-- Insert a "Add to Cart Button Here" -->
@@ -607,19 +600,16 @@
                                 <h6 class="product_title" id="sixthProductName" onclick="captureSixthProductInfo('ProductDetail');" ><a href="#">Blue casual check shirt</a></h6>
                                 
                                 <div class="product_price">
-                                    <span class="price" id="sixthProductPrice">$55.00</span>
-                                    <del>$95.00</del>
-                                    <div class="on_sale">
-                                        <span>25% Off</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:68%"></div>
-                                    </div>
-                                    <span class="rating_num">(15)</span>
-                                </div>
+                                    <span class="price" id="sixthProductPrice">$55.00</span>                                    
+                                </div>                                
+
+                                <!-- Brief Product description -->
+                                <div>
+                                    <span>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </span> 
+                                 </div>
+                                <!-- End of Brief Product Description -->  
                                 
                                 <center>
                                     <!-- Insert a "Add to Cart Button Here" -->
@@ -667,18 +657,15 @@
                                 
                                 <div class="product_price">
                                     <span class="price" id="seventhProductPrice">$68.00</span>
-                                    <del>$99.00</del>
-                                    <div class="on_sale">
-                                        <span>20% Off</span>
-                                    </div>
                                 </div>
 
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:87%"></div>
-                                    </div>
-                                    <span class="rating_num">(25)</span>
-                                </div>
+                                  <!-- Brief Product description -->
+                                  <div>
+                                    <span>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </span> 
+                                 </div>
+                                <!-- End of Brief Product Description -->  
                                 
                                 <center>
                                     <!-- Insert a "Add to Cart Button Here" -->
@@ -725,19 +712,16 @@
                                 <h6 class="product_title" id="eighthProductName" onclick="captureEighthProductInfo('ProductDetail');"><a href="#">Men blue jins Shirt</a></h6>
                                 
                                 <div class="product_price">
-                                    <span class="price" id="eighthProductPrice">$69.00</span>
-                                    <del>$89.00</del>
-                                    <div class="on_sale">
-                                        <span>20% Off</span>
-                                    </div>
+                                    <span class="price" id="eighthProductPrice">$69.00</span>                                    
                                 </div>
-                                
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:70%"></div>
-                                    </div>
-                                    <span class="rating_num">(22)</span>
-                                </div>
+
+                                  <!-- Brief Product description -->
+                                  <div>
+                                    <span>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </span> 
+                                 </div>
+                                <!-- End of Brief Product Description -->  
                                 
                                 <center>
                                     <!-- Insert a "Add to Cart Button Here" -->
@@ -1293,7 +1277,7 @@
                             </li>
                             <li>
                                 <i class="ti-email"></i>
-                                <a href="mailto:info@sitename.com">info@sitename.com</a>
+                                <a href="mailto:info@sitename.com">info@petpurely.pets</a>
                             </li>
                             <li>
                                 <i class="ti-mobile"></i>
@@ -1374,6 +1358,9 @@
 
 <!-- scripts js --> 
 <script src="./assets/js/scripts.js"></script>
+
+<!-- Custom Javascript -->
+<script defer src="./assets/petpurely/js/pets_scripts.js"></script>
 
 <!-- End fo Javascript -->
 
