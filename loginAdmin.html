@@ -1,17 +1,17 @@
-<!-- ****************************************************************************************** 
-     * Filename: loginA.html                                                                  *
-     * Objective: Provide an Administrator login form to sign-in to the Account Profile page. *
-     * Remarks: Generation SG Full Stack Developer FSD05 Capstone Project                     *
-     * Developer:                                                                             *
-     * Date: 04/12/2024                                                                       *
-     ****************************************************************************************** -->
+<!-- ******************************************************************************************** 
+     * Filename: loginAdmin.html                                                                *
+     * Objective: Provide an Administrator login form to sign-in to the Account Profile page.   *
+     * Remarks: Generation SG Full Stack Developer FSD05 Capstone Project                       *
+     * Developer:                                                                               *
+     * Date: 04/12/2024                                                                         *
+     ******************************************************************************************** -->
 
 <!DOCTYPE public html>
 <html lang="en">
 <head>
 
 <!-- SITE TITLE -->
-<title>PetPerks BootStrap eCommerce Webstore</title>
+<title>Login (Administrators)</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -180,7 +180,7 @@
                         <!--<li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li> -->
                     </ul>
                     <ul class="header_list">
-                        <li><a href="./index.html"><i class="ti-user"></i><span>Login</span></a></li>
+                        <li><a href="./index.html"><i class="ti-user"></i><span id="lnkLogin">Login</span></a></li>
                     </ul>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">
@@ -262,7 +262,7 @@
                                 <input class="form-control" required="" type="password" name="password" placeholder="Password">
                             </div>
                             <div class="form-group mb-3">
-                                <button type="submit" class="btn btn-fill-out btn-block login-block" name="login">Log in</button>
+                                <button type="submit" class="btn btn-fill-out btn-block login-block" name="login" onclick="loginSuccessRoute('administrator')">Log in</button>
                             </div>
                         </form>
                 
@@ -342,7 +342,7 @@
                             </li>
                             <li>
                                 <i class="ti-email"></i>
-                                <a href="mailto:info@sitename.com">info@petpurely.pets</a>
+                                <a href="mailto:info@petpurely.pets">info@petpurely.pets</a>
                             </li>
                             <li>
                                 <i class="ti-mobile"></i>
@@ -380,46 +380,14 @@
 <!-- Latest jQuery --> 
 <script src="./assets/js/jquery-3.7.1.min.js"></script>
 
-<!-- popper min js -->
-<script src="./assets/js/popper.min.js"></script>
-
-<!-- Latest compiled and minified Bootstrap --> 
-<script src="./assets/bootstrap/js/bootstrap.min.js"></script> 
-
-<!-- owl-carousel min js  --> 
-<script src="./assets/owlcarousel/js/owl.carousel.min.js"></script> 
-
-<!-- magnific-popup min js  --> 
-<script src="./assets/js/magnific-popup.min.js"></script> 
-
-<!-- waypoints min js  --> 
-<script src="./assets/js/waypoints.min.js"></script> 
-
-<!-- parallax js  --> 
-<script src="./assets/js/parallax.js"></script> 
-
-<!-- countdown js  --> 
-<script src="./assets/js/jquery.countdown.min.js"></script> 
-
-<!-- imagesloaded js --> 
-<script src="./assets/js/imagesloaded.pkgd.min.js"></script>
-
-<!-- isotope min js --> 
-<script src="./assets/js/isotope.min.js"></script>
-
-<!-- jquery.dd.min js -->
-<script src="./assets/js/jquery.dd.min.js"></script>
-
-<!-- slick js -->
-<script src="./assets/js/slick.min.js"></script>
-
-<!-- elevatezoom js -->
-<script src="./assets/js/jquery.elevatezoom.js"></script>
+<!-- jquery-ui --> 
+<script src="./assets/js/jquery-ui.js"></script>
 
 <!-- scripts js --> 
-<script src="./assets/js/scripts.js"></script>
+<script src="./assets/js/scripts.js"></script>  
 
-<!-- End of Javascript -->
+<!-- Custom Javascript -->
+<script defer src="./assets/petpurely/js/pets_scripts.js"></script>
 
 </body>
 </html>

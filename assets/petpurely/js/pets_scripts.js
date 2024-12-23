@@ -19,6 +19,7 @@ let day = weekday[d.getDay()]; // Requests for service to determine and retrieve
 
 // [USER ACCOUNT]
 // ---------------
+let name = "";
 let email = "";
 let password = "";
 
@@ -50,23 +51,30 @@ function getWeekDayDateTime()
    
 } // End of function getWeekDay()
 
-
 // ***************************
 // * USER ACCOUNT MANAGEMENT *
 // ***************************
+
+function getName() 
+{
+  // Objective: Receives the provided name data.
+  // --------------------------------------------
+     name = document.getElementById("txtSignUpName").value;
+} // End of function getEmail()
+
 
 function getEmail() 
 {
   // Objective: Receives the provided email data.
   // --------------------------------------------
-   email = document.getElementById("txtEmail").value;
+   email = document.getElementById("txtSignUpEmail").value;
 } // End of function getEmail()
 
 function getPassword() 
 {    
   // Objective: Receives the provided password data.
   // -----------------------------------------------
-     password = document.getElementById("txtPassword").value;
+     password = document.getElementById("txtSignUpPassword").value;
 } // End of function getPassword()
 
 function displayRegInfo()
@@ -89,10 +97,68 @@ function sys_signIn()
 
 } // End of function sys_signIn()
 
+function getLoginStatus()
+{
+ // Objective: Reads the login status from Web browser memory and displays the login/logout link accordingly
+ // ----------------------------------------------------------------------------------------------------------
+    loginStatus = window.localStorage.getItem('_loginState');
+
+    if(loginStatus === "success")
+    {
+      document.querySelector("#lnkLogin").textContent = "Logout"; // Displays the Logout Link.
+    }
+    else
+    {
+      document.querySelector("#lnkLogin").textContent = "Login"; // Displays the Login Link.
+    } // End of if-else statement
+  
+} // End of function getLoginStatus()
+
+function updateLoginStatus(loginMode)
+{
+  
+ // Objective: Stores the login state based on the current login status (Login State: SUCCESS:Logout; FAILED:Login) 
+ // ----------------------------------------------------------------------------------------------------------------
+
+   if(loginMode === "success")
+   {
+     window.localStorage.setItem("_loginState","success"); // Change the link to Logout, if sign-in is succesful.
+     // window.location.replace("./logout.html"); // Changes the Login link to logout link.
+     window.location.href = "./accountDashboard.html";
+   }
+   else
+   {
+    window.localStorage.setItem("_loginState","failed"); // Otherwise remain as it is.    
+    window.location.replace("./login.html"); // Reverts back to the login page again for re-entry
+   } // End of if-else statement
+
+  
+} // End of function updateLoginStatus()
+
+function loginSuccessRoute(userMode)
+{
+// Objective: To display the appropriate login message based on the user mode login -> based on User Mode
+// -------------------------------------------------------------------------------------------------------
+  
+  if(userMode === "customer")
+    {
+     window.location.href = "./loginSuccess.html";
+    }
+    else
+    {
+     window.location.href = "loginAdminSuccess.html";
+    } // End of if-else statement
+
+    document.querySelector("#lnkLogin").textContent = "Logout";
+
+} // End of   function loginSuccessRoute(userMode)
+
 function loginFailedRoute(userMode)
 {
 // Objective: For routing back to the login page for failed login attempt. -> based on User Mode
-// ------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------
+
+alert("Login Failed. Please Try Again.");
 
  if(userMode === "customer")
  {
@@ -103,12 +169,32 @@ function loginFailedRoute(userMode)
   window.location.href = "./loginAdmin.html";
  } // End of if-else statement
 
+ document.querySelector("#lnkLogin").textContent = "Login";
+
 } // End of function loginFailedRoute(userMode)
 
+function signUpSuccessRoute(userMode)
+{
+// Objective: For routing back to the sign-up page for successful registration attempt -> based on User Mode
+// -----------------------------------------------------------------------------------------------------------
+
+  if(userMode === "customer")
+  {
+    window.location.href = "./login.html";
+  }
+  else
+  {
+    window.location.href = "./loginAdmin.html";
+  } // End of if-else statement
+
+  document.querySelectorAll("#lnkLogin").textContent = "Login";
+
+} // End of function signUpSuccessRoute(userMode)
+  
 function signUpFailedRoute(userMode)
 {
 // Objective: For routing back to the sign-up page for failed registration attempt -> based on User Mode
-// --------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------
 
   if(userMode === "customer")
   {
@@ -119,6 +205,8 @@ function signUpFailedRoute(userMode)
     window.location.href = "./signUpAdmin.html";
   } // End of if-else statement
 
+  document.querySelectorAll("#lnkLogin").textContent = "Login";
+
 } // End of function signUpFailedRoute(userMode)
   
 function displayWishListMessage()
@@ -128,7 +216,6 @@ function displayWishListMessage()
 
    alert("Your selected product item has been added to the Wishlist Successsully. ");
 } // End of const displayWishListMessage =()
-
 
 // *********************************************
 // * PRODUCTS PURCHASE EVENT HANDLING ROUTINES *
@@ -469,7 +556,6 @@ function captureThirdteenthProductInfo(productDisplayMode)
      window.location.href = "./addToCart.html"; // Displays information in the Add To Cart page.
    } // End of if-slse statement
 
-
 } // End of function captureThirdteenthProductInfo()
 
 // Fourteenth Product
@@ -566,7 +652,7 @@ function updateProductDetails()
  // ---------------------------------------------------------------------
    document.querySelector("#product_title_details").innerText = window.localStorage.getItem("prodName");
    document.querySelector("#product_price_details").innerText = window.localStorage.getItem("prodPrice");
-
+ 
 } // End of const updateProductDetails =()
 
 function displayShoppingCart()  // Targets Add to Cart page
@@ -635,3 +721,48 @@ function displayShoppingCart()  // Targets Add to Cart page
     document.querySelector("#tblCheckoutGrandTotal").innerText = window.localStorage.getItem("prodGrandTotal");
     
   } // End of function updateCheckout()
+
+  // ******************************
+  // * ACCOUNTS PROFILE DASHBOARD *
+  // ******************************
+  function displayDashboard()
+  {
+   // Objective: For displaying the various features of the user account profile dashboard.
+   // --------------------------------------------------------------------------------------
+      
+    // JavaScript for navigation and profile image upload.
+    // ====================================================
+    
+    document.querySelectorAll('.nav-link[data-target]').forEach(link => 
+     {
+        link.addEventListener('click', function () {
+          document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+          document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
+  
+          this.classList.add('active');
+          document.getElementById(this.getAttribute('data-target')).classList.add('active');
+        });
+      });
+  
+      document.getElementById("imageUpload").addEventListener("change", function () 
+      {
+        const file = this.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            document.getElementById("profile-image").src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+  
+      // Simulate fetching username dynamically.
+      // ---------------------------------------
+         const username = "Somename"; // Replace this with actual user data
+         document.getElementById("username").textContent = username;   
+
+  } // End of function displayDashboard()
+
+  // ********************************************
+  // * PRODUCTS PURCHASE TRANSACTION MANAGEMENT *
+  // ********************************************

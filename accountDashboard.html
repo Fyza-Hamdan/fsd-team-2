@@ -1,0 +1,199 @@
+<!-- ****************************************************************************************************************** 
+     * Filename: accountDashboard.html                                                                                *
+     * Objective: A multi-link Dashboard for user account management, product managenent and orders history preview.  *
+     * Remarks: Generation SG Full Stack Developer FSD05 Capstone Project                                             *
+     * Developer:                                                                                                     *
+     * Date: 10/12/2024                                                                                               *
+     ****************************************************************************************************************** -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PetPurely - My Account</title>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalabe=true/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Favicon Icon -->
+  <link rel="shortcut icon" type="image/x-icon" href="./assets/images/petperks_favicon.png">
+
+  <!-- [CASCADING STYLE SHEETS (CSS)] -->
+  
+  <!-- Latest Bootstrap min CSS -->
+  <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
+
+  <!-- Customized Style CSS -->
+  <link rel="stylesheet" href="./assets/petpurely/css/pets_styles.css" type="text/css">
+
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/responsive.css">
+
+  <!-- End of Cascading Style Sheet -->
+
+</head>
+<body onload="displayDashboard();">
+
+  <!-- LOADER  (For Spinner) -->
+  <div class="preloader">
+    <div class="lds-ellipsis">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+  </div>
+  <!-- END LOADER -->
+
+ <!-- Header Section -->
+ <div class="header">
+  
+  <h1 class="header-title">My Account</h1>
+  <nav class="breadcrumb">
+    <span>Home</span> > <span>Pages</span> > <span>My Account</span>
+  </nav>
+
+</div>
+
+  <!-- Full Width Container -->
+  <div class="container-fluid">
+    
+    <div class="row align-items-center">
+
+      <!-- Left Sidebar -->
+      <div class="col-md-3 sidebar">
+        
+        <div class="text-center">
+
+          <!-- Default Avatar -->
+          <img id="profile-image" src="https://via.placeholder.com/120" alt="Avatar" class="profile-avatar mb-3">
+
+          <!-- Username -->
+          <div id="username" name="username">Username</div>
+
+          <!-- Upload Button -->
+          <label class="btn btn-outline-secondary btn-sm">
+            Upload Photo
+            <input type="file" id="imageUpload" hidden>
+          </label>
+        
+        </div>
+
+        <hr>
+        <!-- Navigation Links -->
+
+        <nav class="nav flex-column">
+          <a class="nav-link" href="./logout.html">Home</a> <!-- Home Page with Logout Link -->
+          <a class="nav-link active" data-target="dashboard">Dashboard</a> <!-- Default Page -->
+          <a class="nav-link" data-target="edit-profile">Edit Profile</a>  <!-- User Profile -->
+          <a class="nav-link" data-target="change-password">Change Password</a> <!-- Change Password -->
+          <a class="nav-link" data-target="orders">Orders</a> <!-- Orders -->
+          <a class="nav-link" href="./addCategory.html">Category</a> <!-- Category -->
+          <a class="nav-link" href="./addProduct.html">Product</a> <!-- Product -->
+          <a class="nav-link" href="./login.html">Logout</a> <!-- Logout -->
+        </nav>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="col-md-9">
+        <!-- Dashboard Page -->
+        <div id="dashboard" class="content active">
+          <div class="p-4">
+            <h3>Welcome to Your Profile</h3>
+            <p>Here you can manage your account details, update your profile, and review your activity.</p>
+          </div>
+        </div>
+        <!-- Edit Profile Page -->
+        <div id="edit-profile" class="content">
+          <div class="p-4">
+            <h3>Edit Profile</h3>
+            <form>
+              <!-- Profile Name -->
+              <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" id="txtProfileName" name="txtProfileName" class="form-control" placeholder="Enter your name" title="Please provide your name here.">
+              </div>
+              
+              <!-- Profile Email -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="txtProfileEmail" name="txtProfileEmail" class="form-control" placeholder="Enter your email" title="Please provide your email here.">
+              </div>
+
+              <!-- Profile Password -->
+              <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="email" id="txtProfilePassword" name="txtProfilePassword" class="form-control" placeholder="Enter your email" title="Please provide your password here.">
+              </div>
+
+              <button type="submit" class="btn btn-primary" title="Please click this button to save your new profile information.">Save Changes</button>
+            </form>
+          </div>
+        </div>
+        <!-- Change Password Page -->
+        <div id="change-password" class="content">
+          <div class="p-4">
+            <h3>Change Password</h3>
+            <form>
+              
+              <!-- Current Password -->
+              <div class="mb-3">
+                <label for="current-password" class="form-label">Current Password:</label>
+                <input type="text" id="txtCurrentPassword" name="txtCurrentPassword" class="form-control" placeholder="Enter current password", title="Please provide your current password here.">
+              </div>
+
+             <!-- New Password --> 
+              <div class="mb-3">
+                <label for="new-password" class="form-label">New Password:</label>
+                <input type="text" id="txtNewPassword" name="txtNewPassword" class="form-control" placeholder="Enter new password", title="Please provide your new password here.">
+              </div>
+
+              <!-- Confirmed Password --> 
+              <div class="mb-3">
+                <label for="confirm-new-password" class="form-label">Confirm New Password:</label>
+                <input type="text" id="txtConfirmNewPassword" name="txtConfirmNewPassword" class="form-control" placeholder="Enter confirmed new password", title="Please provide your new password here again.">
+              </div>
+
+              <button type="submit" class="btn btn-primary" title="Please click this button to save your changed password.">Save Changes</button>
+            </form>
+          </div>
+        </div>
+        <!-- Orders Page -->
+        <div id="orders" class="content">
+          <div class="p-4">
+            <h3>Orders</h3>
+            <p>Here are your recent orders:</p>
+            <ul>
+              <li>Order #12345 - Delivered</li>
+              <li>Order #67890 - Pending</li>
+              <li>Order #11223 - Cancelled</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- [JAVASCRIPT] -->
+
+<!-- Latest jQuery --> 
+<script src="./assets/js/jquery-3.7.1.min.js"></script>
+
+<!-- jquery-ui --> 
+<script src="./assets/js/jquery-ui.js"></script>
+
+<!-- scripts js --> 
+<script src="./assets/js/scripts.js"></script>  
+
+<!-- Custom Javascript -->
+<script defer src="./assets/petpurely/js/pets_scripts.js"></script>
+
+  <script>
+    
+  </script>
+</body>
+</html>
