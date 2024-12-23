@@ -12,17 +12,46 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=true/">
 
-        <!-- Bootstrap CSS -->
+        <!-- Favicon Icon -->
+        <link rel="shortcut icon" type="image/x-icon" href="./assets/images/petperks_favicon.png">
+
+        <!-- [CASCADING STYLE SHEETS (CSS)] -->
+        
+        <!-- Latest Bootstrap min CSS -->
         <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
+
+        <!-- Customized Style CSS -->
+        <link rel="stylesheet" href="./assets/petpurely/css/pets_styles.css" type="text/css">
+
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/css/responsive.css">
+
+        <!-- End of Cascading Style Sheet -->
     
      </head>
      <body>
-        <div class="container">
+
+        <!-- LOADER -->
+        <div class="preloader">
+            <div class="lds-ellipsis">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- END LOADER -->
+         
+        <div class="container-fluid" id="loginAdminSuccessDialog">
             <div class="row">
                 <div class="col">
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Congratulations!</strong> You have logged in successfully as an Administrator.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="alert('Message was closed.');"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="verifyLogin();"></button>
                       </div>
                 </div>
             </div>
@@ -30,6 +59,18 @@
         
      </body>
 
-     <!-- Bootstrap Bundle JS -->
-     <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+     <!-- [JAVASCRIPT] -->
+
+    <!-- Latest jQuery --> 
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+
+    <!-- jquery-ui --> 
+    <script src="./assets/js/jquery-ui.js"></script>
+
+    <!-- scripts js --> 
+    <script src="./assets/js/scripts.js"></script>  
+
+    <!-- Custom Javascript -->
+    <script defer src="./assets/petpurely/js/pets_scripts.js"></script>
+
      </html>

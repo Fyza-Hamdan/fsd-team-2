@@ -9,22 +9,18 @@
 <!DOCTYPE public html>
 <html lang="en">
 <head>
+    <title>PetPurely - Product Details</title> 
+
 <!-- Meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Nature's Whiskers is a pet product supplier dedicated to providing high-quality product for all pets">
 
-<!-- SITE TITLE -->
-<title>Shopwise - eCommerce Bootstrap 5 HTML Template</title>
-
 <!-- Favicon Icon -->
 <link rel="shortcut icon" type="image/x-icon" href="./assets/images/petperks_favicon.png">
 
 <!-- [CASCADING STYLE SHEETS (CSS)] -->
-
-<!-- Animation CSS -->
-<link rel="stylesheet" href="./assets/css/animate.css">	
 
 <!-- Latest Bootstrap min CSS -->
 <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
@@ -33,28 +29,8 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
 
-<!-- Icon Font CSS -->
-<link rel="stylesheet" href="./assets/css/all.min.css">
-<link rel="stylesheet" href="./assets/css/ionicons.min.css">
-<link rel="stylesheet" href="./assets/css/themify-icons.css">
-<link rel="stylesheet" href="./assets/css/linearicons.css">
-<link rel="stylesheet" href="./assets/css/flaticon.css">
-<link rel="stylesheet" href="./assets/css/simple-line-icons.css">
-
-<!--- owl carousel CSS-->
-<link rel="stylesheet" href="./assets/owlcarousel/css/owl.carousel.min.css">
-<link rel="stylesheet" href="./assets/owlcarousel/css/owl.theme.css">
-<link rel="stylesheet" href="./assets/owlcarousel/css/owl.theme.default.min.css">
-
-<!-- Magnific Popup CSS -->
-<link rel="stylesheet" href="./assets/css/magnific-popup.css">
-
-<!-- jquery-ui CSS -->
-<link rel="stylesheet" href="./assets/css/jquery-ui.css">
-
-<!-- Slick CSS -->
-<link rel="stylesheet" href="./assets/css/slick.css">
-<link rel="stylesheet" href="./assets/css/slick-theme.css">
+<!-- Customized Style CSS -->
+<link rel="stylesheet" href="./assets/petpurely/css/pets_styles.css" type="text/css">
 
 <!-- Style CSS -->
 <link rel="stylesheet" href="./assets/css/style.css">
@@ -64,7 +40,8 @@
 
 </head>
 
-<body onload="updateProductDetails();">
+<!--<body onload="getLoginStatus();updateProductDetails();">-->
+<body onload="updateProductDetails();getLoginStatus();"></body>
 
 <!-- LOADER -->
 <div class="preloader">
@@ -182,7 +159,7 @@
                         <!--<li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li> -->
                     </ul>
                     <ul class="header_list">
-                        <li><a href="./index.html"><i class="ti-user"></i><span>Login</span></a></li>
+                        <li><a href="./index.html"><i class="ti-user"></i><span id="lnkLogin">Login</span></a></li>
                     </ul>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">
@@ -559,7 +536,7 @@
                             </li>
                             <li>
                                 <i class="ti-email"></i>
-                                <a href="mailto:info@sitename.com">info@petpurely.pets</a>
+                                <a href="mailto:info@petpurely.pets">info@petpurely.pets</a>
                             </li>
                             <li>
                                 <i class="ti-mobile"></i>
