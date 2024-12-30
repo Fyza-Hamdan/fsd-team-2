@@ -31,18 +31,26 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
 
-<!-- Customized Style CSS -->
-<link rel="stylesheet" href="./assets/css/petpurely/css/pets_styles.css" type="text/css">
+<!-- Icon Font CSS -->
+<link rel="stylesheet" href="./assets/css/all.min.css">
+<link rel="stylesheet" href="./assets/css/ionicons.min.css">
+<link rel="stylesheet" href="./assets/css/themify-icons.css">
+<link rel="stylesheet" href="./assets/css/linearicons.css">
+<link rel="stylesheet" href="./assets/css/flaticon.css">
+<link rel="stylesheet" href="./assets/css/simple-line-icons.css">
 
 <!-- Style CSS -->
 <link rel="stylesheet" href="./assets/css/style.css">
 <link rel="stylesheet" href="./assets/css/responsive.css">
 
+<!-- Customized Style CSS -->
+<link rel="stylesheet" href="./assets/css/pets_styles.css" type="text/css">
+
 <!-- End of Cascading Style Sheet -->
 
 </head>
 
-<body onload="getLoginStatus();">
+<body onload="getLoginStatus();displayLoginName();">
 <!-- LOADER -->
 <div class="preloader">
     <div class="lds-ellipsis">
@@ -154,12 +162,13 @@
                         </li>
                         
                         <li class="dropdown">
-                            <li><a class="nav-link nav_item" href="#">Services</a></li> 
+                            <li><a class="nav-link nav_item" href="#" onclick="alert('Sorry,this feature is still under development.');">Services</a></li> 
                         </li>
                         <!--<li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li> -->
                     </ul>
                     <ul class="header_list">
-                        <li><a href="login.html"><i class="ti-user"></i><span id="lnkLogin">Login</span></a></li>
+                        <span><img id="account-image" src="./assets/images/accountPicture.png" alt="Avatar" width="30px" height="30px" onclick="window.location.href='./accountDashboard.html'"></span>
+                        <li><a href="login.html"><!--<i class="ti-user"></i>--><span id="lnkLogin">Login</span></a></li>
                     </ul>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">
@@ -360,7 +369,7 @@
 <script src="./assets/js/scripts.js"></script>  
 
 <!-- Custom Javascript -->
-<script defer src="./assets/js/petpurely/js/pets_scripts.js"></script>
+<script defer src="./assets/js/pets_scripts.js"></script>
 
 <!-- End of Javascript -->
  

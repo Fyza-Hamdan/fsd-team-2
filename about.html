@@ -25,6 +25,9 @@
 
 <!-- [CASCADING STYLE SHEETS (CSS)] -->
 
+<!-- Animation CSS -->
+<link rel="stylesheet" href="./assets/css/animate.css">	
+
 <!-- Latest Bootstrap min CSS -->
 <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
 
@@ -32,18 +35,38 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
 
-<!-- Customized Style CSS -->
-<link rel="stylesheet" href="./assets/css/petpurely/css/pets_styles.css" type="text/css">
+<!-- Icon Font CSS -->
+<link rel="stylesheet" href="./assets/css/all.min.css">
+<link rel="stylesheet" href="./assets/css/ionicons.min.css">
+<link rel="stylesheet" href="./assets/css/themify-icons.css">
+<link rel="stylesheet" href="./assets/css/linearicons.css">
+<link rel="stylesheet" href="./assets/css/flaticon.css">
+<link rel="stylesheet" href="./assets/css/simple-line-icons.css">
+
+<!--- owl carousel CSS-->
+<link rel="stylesheet" href="./assets/owlcarousel/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./assets/owlcarousel/css/owl.theme.css">
+<link rel="stylesheet" href="./assets/owlcarousel/css/owl.theme.default.min.css">
+
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="./assets/css/magnific-popup.css">
+
+<!-- Slick CSS -->
+<link rel="stylesheet" href="./assets/css/slick.css">
+<link rel="stylesheet" href="assets/css/slick-theme.css">
 
 <!-- Style CSS -->
 <link rel="stylesheet" href="./assets/css/style.css">
 <link rel="stylesheet" href="./assets/css/responsive.css">
 
-<!-- End of Cascading Style Sheet -->
+<!-- Customized Style CSS -->
+<link rel="stylesheet" href="./assets/css/pets_styles.css" type="text/css">
+
+<!-- End of CASCADING STYLE SHEETS (CSS) -->
 
 </head>
 
-<body onload="getLoginStatus();">
+<body onload="getLoginStatus();displayLoginName();">
 
 <!-- LOADER -->
 <div class="preloader">
@@ -156,12 +179,13 @@
                         </li>
                         
                         <li class="dropdown">
-                            <li><a class="nav-link nav_item" href="#">Services</a></li> 
+                            <li><a class="nav-link nav_item" href="#" onclick="alert('Sorry,this feature is still under development.');">Services</a></li> 
                         </li>
                         <!--<li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li> -->
                     </ul>
                     <ul class="header_list">
-                        <li><a href="login.html"><i class="ti-user"></i><span id="lnkLogin">Login</span></a></li>
+                        <span><img id="account-image" src="./assets/images/accountPicture.png" alt="Avatar" width="30px" height="30px" onclick="window.location.href='./accountDashboard.html'"></span>
+                        <li><a href="login.html"><!--<i class="ti-user"></i>--><span id="lnkLogin">Login</span></a></li>
                     </ul>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">
@@ -231,15 +255,17 @@
     	<div class="row align-items-center">
         	<div class="col-lg-6">
             	<div class="about_img scene mb-4 mb-lg-0">
-                    <img src="assets/images/about_img.jpg" alt="about_img"/>
+                    <!--<img src="assets/images/about_img.jpg" alt="about_img"/>-->
+                    <img src="assets/images/Who_We_Are.jpg" alt="about_img"/>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="heading_s1">
                     <h2>Who We are</h2>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur quibusdam enim expedita sed nesciunt incidunt accusamus adipisci officia libero laboriosam!</p>
-                <p>Proin gravida nibh vel velit auctor aliquet. nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit amet nibh vultate cursus a sit amet mauris.</p>
+                <p>At PetPurely, we’re passionate fur parents who truly understand the joys and challenges of caring for our fur babies. We know how frustrating it can be to find the perfect products that are safe, natural, and environmentally friendly—especially for pets with sensitivities.</p>
+                <p>That’s why we’ve made it our mission to source only the best of the best. Every product we offer is 100% safe, crafted with natural ingredients, and completely free of harmful chemicals. From grooming essentials to wholesome treats and everything in between, we ensure you can give your fur babies the love and care they deserve.</p>
+                <p>Explore our carefully curated selection and rest assured—you’re giving your fur babies nothing less than the purest care. Because at PetPurely, we believe happy tails start with healthy choices.</p>        
             </div>
         </div>
     </div>
@@ -261,7 +287,8 @@
         	<div class="col-lg-3 col-sm-6">
             	<div class="team_box team_style1">
                 	<div class="team_img">
-                    	<img src="assets/images/team_img1.jpg" alt="team_img1">                        
+                    	<!--<img src="assets/images/team_img1.jpg" alt="team_img1">-->
+                        <img src="assets/images/jaslyn_loh.png" alt="team_img1">                
                     </ul>
                     </div> 
                     <div class="team_content">
@@ -275,7 +302,8 @@
             <div class="col-lg-3 col-sm-6">
             	<div class="team_box team_style1">
                 	 <div class="team_img">
-                    	<img src="assets/images/team_img2.jpg" alt="team_img2">    
+                    	<!--<img src="assets/images/team_img2.jpg" alt="team_img2"> -->
+                        <img src="assets/images/fizah.png" alt="team_img2">
                     </div> 
                     <div class="team_content">
                         <div class="team_title">
@@ -288,7 +316,8 @@
             <div class="col-lg-3 col-sm-6">
             	<div class="team_box team_style1">
                 	<div class="team_img">
-                    	<img src="assets/images/team_img3.jpg" alt="team_img3">                        
+                    	<!--<img src="assets/images/team_img3.jpg" alt="team_img3">-->
+                        <img src="assets/images/Michael_Tan.png" alt="team_img3">                        
                     </div> 
                     <div class="team_content">
                         <div class="team_title">
@@ -301,7 +330,8 @@
             <div class="col-lg-3 col-sm-6">
             	<div class="team_box team_style1">
                 	<div class="team_img">
-                    	<img src="assets/images/team_img4.jpg" alt="team_img4">
+                    	<!--<img src="assets/images/team_img4.jpg" alt="team_img4">-->
+                        <img src="assets/images/Rizal.png" alt="team_img4">
                     </div> 
                     <div class="team_content">
                         <div class="team_title">
@@ -482,22 +512,54 @@
 
 <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
 
-<!-- [JAVASCRIPT] -->
+<!-- [JAVASCRIPT]-->
 
-<!-- Bootstrap Bundle JS -->
-<script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+<a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
 
 <!-- Latest jQuery --> 
 <script src="./assets/js/jquery-3.7.1.min.js"></script>
 
-<!-- jquery-ui --> 
-<script src="./assets/js/jquery-ui.js"></script>
+<!-- popper min js -->
+<script src="./assets/js/popper.min.js"></script>
+
+<!-- Latest compiled and minified Bootstrap --> 
+<script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- owl-carousel min js  --> 
+<script src="./assets/owlcarousel/js/owl.carousel.min.js"></script>
+
+<!-- magnific-popup min js  --> 
+<script src="./assets/js/magnific-popup.min.js"></script>
+
+<!-- waypoints min js  --> 
+<script src="./assets/js/waypoints.min.js"></script>
+
+<!-- parallax js  --> 
+<script src="./assets/js/parallax.js"></script>
+
+<!-- countdown js  --> 
+<script src="./assets/js/jquery.countdown.min.js"></script>
+
+<!-- imagesloaded js --> 
+<script src="./assets/js/imagesloaded.pkgd.min.js"></script>
+
+<!-- isotope min js --> 
+<script src="./assets/js/isotope.min.js"></script>
+
+<!-- jquery.dd.min js -->
+<script src="./assets/js/jquery.dd.min.js"></script>
+
+<!-- slick js -->
+<script src="./assets/js/slick.min.js"></script>
+
+<!-- elevatezoom js -->
+<script src="./assets/js/jquery.elevatezoom.js"></script>
 
 <!-- scripts js --> 
-<script src="./assets/js/scripts.js"></script>  
+<script src="./assets/js/scripts.js"></script>
 
 <!-- Custom Javascript -->
-<script defer src="./assets/js/petpurely/js/pets_scripts.js"></script>
+<script defer src="./assets/js/pets_scripts.js"></script>
 
 <!-- End of Javascript -->
 

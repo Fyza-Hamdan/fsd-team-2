@@ -451,41 +451,63 @@ button:focus:not(:focus-visible) {
 	background-color: rgba(255,255,255,0.2);
 	color: #fff;
 }
-.btn-tran-light:hover {
+
+.btn-tran-light:hover 
+{
 	background-color: #fff;
 }
-.btn-radius {
+
+.btn-radius 
+{
 	border-radius: 40px;
 }
-.btn + .btn {
+
+.btn + .btn 
+{
 	margin-left: 10px;
 }
-.btn i {
+
+.btn i 
+{
 	font-size: 16px;
 	margin-right: 5px;
 	vertical-align: middle;
 	line-height: 1;
 }
-.btn span {
+
+.btn span 
+{
 	vertical-align: middle;
 }
-.btn-group-sm > .btn, .btn-sm {
+
+.btn-group-sm > .btn, .btn-sm 
+{
     padding: 8px 25px;
+	margin-top: 10px;
 }
-.btn-group-lg > .btn, .btn-lg {
+
+.btn-group-lg > .btn, .btn-lg 
+{
     padding: 16px 45px;
 }
-.btn-xs {
+
+.btn-xs 
+{
     padding: 4px 20px;
     font-size: 12px;
 }
-.btn-md {
+
+.btn-md 
+{
     padding: 12px 35px;
     font-size: 16px;
 }
-.btn.btn-xs i {
+
+.btn.btn-xs i 
+{
     font-size: 10px;
 }
+
 .btn.btn-sm i {
     font-size: 12px;
 }
@@ -7271,19 +7293,32 @@ blockquote p:last-child {
     width: 100%;
 }
 
-.nav-link {
+.nav-link
+ {
     color: #292b2c;
-}
-.nav-link:focus, .nav-link:hover {
+ }
+
+.nav-link:focus, .nav-link:hover
+ {
 	color: #FF324D;
+ }
+
+.nav-link:hover
+{
+  color: red!important;
 }
-.input-group-append {
+
+.input-group-append 
+{
     margin-left: -1px;
 }
-.input-group-append, .input-group-prepend {
+
+.input-group-append, .input-group-prepend 
+{
     display: -ms-flexbox;
     display: flex;
 }
+
 .input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child), .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;

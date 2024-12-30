@@ -30,9 +30,9 @@
 
 /* New Product Creation Form Header Title */
 
-#newProductHeaderTitle
+#newProductHeaderTitle, #newCategoryHeaderTitle
 {
-  color: #FFF;
+  color: #FFF!important;
 }
 
 /* **********************
@@ -92,6 +92,14 @@ body
 /******************************
  * ACCOUNTS PROFILE DASHBOARD *
 ******************************/
+
+/* Profile Name */
+#dvUsername
+{
+  /*color: #000;*/
+  color: #FFF;
+  font-weight: bold;
+}
 
 /* Header */
 .header 
@@ -186,6 +194,12 @@ body
   border-radius: 30px;
   color: #000;
 }
+
+/*#categoryLink, #productLink
+{
+  display: none;
+  color: #000!important;
+} */
 
 /***************************
  * ADMINISTRATOR DASHBOARD *

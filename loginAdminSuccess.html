@@ -12,6 +12,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=true/">
 
+        <!-- Delays for 5 seconds, before navigating to logout page automatically -->
+        <meta http-equiv = "refresh" content = "5; url = ./logout.html" /> 
+
+
+         <!-- Delays for 5 seconds, before navigating to logout page automatically -->
+         <meta http-equiv = "refresh" content = "5; url = ./logout.html" />
+
         <!-- Favicon Icon -->
         <link rel="shortcut icon" type="image/x-icon" href="./assets/images/petperks_favicon.png">
 
@@ -51,7 +58,7 @@
                 <div class="col">
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Congratulations!</strong> You have logged in successfully as an Administrator.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="verifyLogin();"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="updateLoginStatus('success');"></button>
                       </div>
                 </div>
             </div>

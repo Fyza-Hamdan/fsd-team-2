@@ -17,34 +17,61 @@
      <meta name="description" content="Nature's Whiskers is a pet product supplier dedicated to providing high-quality product for all pets">
      
      <!-- SITE TITLE -->
-     <title>PetPerks BootStrap eCommerce Webstore</title>
+     <title>PetPurely - BootStrap eCommerce Webstore</title>
      
      <!-- Favicon Icon -->
      <link rel="shortcut icon" type="image/x-icon" href="./assets/images/petperks_favicon.png">
      
      <!-- [CASCADING STYLE SHEETS (CSS)] -->
-
-    <!-- Latest Bootstrap min CSS -->
-    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
-
-    <!-- Customized Style CSS -->
-    <link rel="stylesheet" href="./assets/css/petpurely/css/pets_styles.css" type="text/css">
-
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/responsive.css">
-
-<!-- End of Cascading Style Sheet -->
-
+     
+     <!-- Animation CSS -->
+     <link rel="stylesheet" href="./assets/css/animate.css">	
+     
+     <!-- Latest Bootstrap min CSS -->
+     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+     
+     <!-- Google Font -->
+     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
+     
+     <!-- Icon Font CSS -->
+     <link rel="stylesheet" href="./assets/css/all.min.css">
+     <link rel="stylesheet" href="./assets/css/ionicons.min.css">
+     <link rel="stylesheet" href="./assets/css/themify-icons.css">
+     <link rel="stylesheet" href="./assets/css/linearicons.css">
+     <link rel="stylesheet" href="./assets/css/flaticon.css">
+     <link rel="stylesheet" href="./assets/css/simple-line-icons.css">
+     
+     <!--- owl carousel CSS-->
+     <link rel="stylesheet" href="./assets/owlcarousel/css/owl.carousel.min.css">
+     <link rel="stylesheet" href="./assets/owlcarousel/css/owl.theme.css">
+     <link rel="stylesheet" href="./assets/owlcarousel/css/owl.theme.default.min.css">
+     
+     <!-- Magnific Popup CSS -->
+     <link rel="stylesheet" href="./assets/css/magnific-popup.css">
+     
+     <!-- Slick CSS -->
+     <link rel="stylesheet" href="./assets/css/slick.css">
+     <link rel="stylesheet" href="assets/css/slick-theme.css">
+     
+     <!-- Style CSS -->
+     <link rel="stylesheet" href="./assets/css/style.css">
+     <link rel="stylesheet" href="./assets/css/responsive.css">
+     
+     <!-- End of CASCADING STYLE SHEETS (CSS) -->
+     
+     <script>
+       // Clears all the localstorage and sessionstorage web storage variables.  
+         // window.localStorage.clear();
+         // window.sessionStorage.clear();
+         window.localStorage.setItem("_loginState","success");  
+     </script>
+     
      </head>
      
-     <body>
+     <body onload="displayLoginName();">
      
-     <!-- LOADER -->
+     <!-- LOADER (For Spinner) -->
      <div class="preloader">
          <div class="lds-ellipsis">
              <span></span>
@@ -160,7 +187,8 @@
                                  <!--<li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li> -->
                              </ul>
                              <ul class="header_list">
-                                 <li><a href="./login.html"><i class="ti-user"></i><span id="lnkLogin" onclick="window.localStorage.clear();alert('All Local Storage Variables Cleared Successfully');">Logout</span></a></li>
+                                 <span><img id="account-image" src="./assets/images/accountPicture.png" alt="Avatar" width="30px" height="30px" onclick="window.location.href='./accountDashboard.html'"></span>
+                                 <li><a href="#"><!--<i class="ti-user">--></i><span id="lnkLogin" onclick="window.localStorage.clear();window.location.href='./login.html'">Logout</span></a></li>
                              </ul>
                          </div>
                          <ul class="navbar-nav attr-nav align-items-center">
@@ -200,56 +228,75 @@
      </header>
      <!-- END HEADER -->
      
-     <!-- START SECTION BANNER -->
+     <!-- START SECTION BANNER (Full-Width / Wide Span) -->
      <div class="banner_section slide_medium shop_banner_slider staggered-animation-wrap">
          <div id="carouselExampleControls" class="carousel slide carousel-fade light_arrow" data-bs-ride="carousel">
+            
              <div class="carousel-inner">
-                 <div class="carousel-item active background_bg" data-img-src="assets/images/banner1.jpg">
+     
+               <!-- First Carousell Image Banner -->  
+                 <!--<div class="carousel-item active background_bg" data-img-src="assets/images/banner1.jpg">-->
+                 <div class="carousel-item active background_bg" data-img-src="assets/images/Pets_Banner_5.png">     
                      <div class="banner_slide_content">
-                         <div class="container"><!-- STRART CONTAINER -->
+                         <div class="container"><!-- START CONTAINER -->
                              <div class="row">
                                  <div class="col-lg-7 col-9">
                                      <div class="banner_content overflow-hidden">
-                                         <h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s">Get up to 50% off Today Only!</h5>
-                                         <h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="1s">Woman Fashion</h2>
-                                         <a class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" href="#" data-animation="slideInLeft" data-animation-delay="1.5s">Shop Now</a>
+                                         <!--<h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s">Get up to 50% off Today Only!</h5>-->
+                                         <h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s"></h5>
+                                         <!--<h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="1s">Woman Fashion</h2>-->
+                                         <h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="0.5s"></h2>
+                                         <a class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" href="#" data-animation="slideInLeft" data-animation-delay="1s">Shop Now</a>
                                      </div>
                                  </div>
                              </div>
                          </div><!-- END CONTAINER-->
                      </div>
                  </div>
-                 <div class="carousel-item background_bg" data-img-src="assets/images/banner2.jpg">
+                <!-- End of First Carousell Image Banner -->
+                <!-- Second Carousell Image Banner -->  
+                 <!--<div class="carousel-item background_bg" data-img-src="assets/images/banner2.jpg">-->
+                 <div class="carousel-item active background_bg" data-img-src="assets/images/Pets_Banner_6.png">     
                      <div class="banner_slide_content">
                          <div class="container"><!-- STRART CONTAINER -->
                              <div class="row">
                                  <div class="col-lg-6">
                                      <div class="banner_content overflow-hidden">
-                                         <h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s">50% off in all products</h5>
-                                         <h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="1s">Man Fashion</h2>
-                                         <a class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" href="#" data-animation="slideInLeft" data-animation-delay="1.5s">Shop Now</a>
+                                         <!--<h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s">50% off in all products</h5>-->
+                                         <h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s"></h5>
+                                         <!--<h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="1s">Man Fashion</h2>-->
+                                         <h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="0.5s"></h2>
+                                         <a class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" href="#" data-animation="slideInLeft" data-animation-delay="1s">Shop Now</a>
                                      </div>
                                  </div>
                              </div>
                          </div><!-- END CONTAINER-->
                      </div>
                  </div>
-                 <div class="carousel-item background_bg" data-img-src="assets/images/banner3.jpg">
+                 <!-- End of Second Carousell Image Banner -->
+     
+                 <!-- Third Carousell Image Banner -->
+                 <!--<div class="carousel-item background_bg" data-img-src="assets/images/banner3.jpg">-->
+                 <div class="carousel-item active background_bg" data-img-src="assets/images/Pets_Banner_7.png">     
                      <div class="banner_slide_content">
                          <div class="container"><!-- STRART CONTAINER -->
                              <div class="row">
                                  <div class="col-lg-6">
                                      <div class="banner_content overflow-hidden">
-                                         <h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s">Taking your Viewing Experience to Next Level</h5>
-                                         <h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="1s">Summer Sale</h2>
-                                         <a class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" href="shop-left-sidebar.html" data-animation="slideInLeft" data-animation-delay="1.5s">Shop Now</a>
+                                         <!--<h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s">Taking your Viewing Experience to Next Level</h5>-->
+                                         <h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s"></h5>
+                                         <!--<h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="1s">Summer Sale</h2>-->
+                                         <h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="0.5s"></h2>
+                                         <a class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" href="#" data-animation="slideInLeft" data-animation-delay="1s">Shop Now</a>
                                      </div>
                                  </div>
                              </div>
                          </div><!-- END CONTAINER-->
                      </div>
                  </div>
+                <!-- End of Third Carousell Image Banner --> 
              </div>
+     
              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev"><i class="ion-chevron-left"></i></a>
              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next"><i class="ion-chevron-right"></i></a>
          </div>
@@ -259,30 +306,44 @@
      <!-- END MAIN CONTENT -->
      <div class="main_content">
      
-     <!-- START SECTION BANNER -->
+     <!-- START SECTION BANNER (2 Columns) -->
      <div class="section pb_20">
          <div class="container">
              <div class="row">
+             
+             <!-- Left Column -->
                  <div class="col-md-6">
                      <div class="single_banner">
-                         <img src="assets/images/shop_banner_img1.jpg" alt="shop_banner_img1"/>
+                         <!--<img src="assets/images/shop_banner_img1.jpg" alt="shop_banner_img1"/>-->
+                         <img src="assets/images/Pets_Food_1.png" alt="Pets Food Banner"/>
                          <div class="single_banner_info">
-                             <h5 class="single_bn_title1">Super Sale</h5>
-                             <h3 class="single_bn_title">New Collection</h3>
-                             <a href="shop-left-sidebar.html" class="single_bn_link">Shop Now</a>
+                             <!--<h5 class="single_bn_title1">Super Sale</h5>-->
+                             <h5 class="single_bn_title1"></h5>
+                             <h3 class="single_bn_title" style="margin-top:80px">New Stocks</h3>
+                             <!--<a href="shop-left-sidebar.html" class="single_bn_link">Shop Now</a>-->    
+                             <a class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" style="margin-left: 10px;" href="#" data-animation="slideInLeft" data-animation-delay="1s">Shop Now</a>                              
                          </div>
                      </div>
                  </div>
+     
+                 <!-- Right Column -->
                  <div class="col-md-6">
                      <div class="single_banner">
-                         <img src="assets/images/shop_banner_img2.jpg" alt="shop_banner_img2"/>
+                         <!--<img src="assets/images/shop_banner_img2.jpg" alt="shop_banner_img2"/>-->
+                         <img src="assets/images/Pets_Services_2.png" alt="Pets_Service_Banner"/>
                          <div class="single_banner_info">
-                             <h3 class="single_bn_title">New Season</h3>
-                             <h4 class="single_bn_title1">Sale 40% Off</h4>
-                             <a href="shop-left-sidebar.html" class="single_bn_link">Shop Now</a>
+                             
+                             <!--<h4 class="single_bn_title1">Sale 40% Off</h4>-->
+                             <h5 class="single_bn_title1"></h5>
+                             <h3 class="single_bn_title" style="margin-top:80px">New Services</h3>
+                                          
+                             <!--<a href="shop-left-sidebar.html" class="single_bn_link">Shop Now</a>-->
+                             <a class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" style="margin-left: 10px;" href="#" data-animation="slideInLeft" data-animation-delay="1s">Shop Now</a>
+     
                          </div>
                      </div>
                  </div>
+             <!-- End of Right Column -->    
              </div>
          </div>
      </div>
@@ -1613,7 +1674,7 @@
      <!-- END SECTION SHOP -->
      
      <!-- START SECTION SINGLE BANNER --> 
-     <div class="section bg_light_blue2 pb-0 pt-md-0">
+     <!--<div class="section bg_light_blue2 pb-0 pt-md-0">
          <div class="container">
              <div class="row align-items-center flex-row-reverse">
                  <div class="col-md-6 offset-md-1">
@@ -1635,7 +1696,7 @@
                  </div>
              </div>
          </div>
-     </div>
+     </div> -->
      <!-- END SECTION SINGLE BANNER --> 
      
      <!-- START SECTION SHOP -->
@@ -2035,26 +2096,56 @@
      </footer>
      <!-- END FOOTER -->
      
-        <!-- [JAVASCRIPT] -->
- 
-        <!-- Bootstrap Bundle JS -->
-        <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
-
-        <!-- Custom Javascript -->
-        <script defer src="./assets/js/pets_scripts.js"></script>
-
-        <!-- Latest jQuery --> 
-        <script src="./assets/js/jquery-3.7.1.min.js"></script>
-
-        <!-- jquery-ui --> 
-        <script src="./assets/js/jquery-ui.js"></script>
-
-        <!-- scripts js --> 
-        <script src="./assets/js/scripts.js"></script>  
-
-        <!-- Custom Javascript -->
-        <script defer src="./assets/js/petpurely/js/pets_scripts.js"></script>
-
-        <!-- End of Javascript -->
+     <!-- [JAVASCRIPT]-->
+     
+     <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
+     
+     <!-- Latest jQuery --> 
+     <script src="./assets/js/jquery-3.7.1.min.js"></script>
+     
+     <!-- popper min js -->
+     <script src="./assets/js/popper.min.js"></script>
+     
+     <!-- Latest compiled and minified Bootstrap --> 
+     <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+     
+     <!-- owl-carousel min js  --> 
+     <script src="./assets/owlcarousel/js/owl.carousel.min.js"></script>
+     
+     <!-- magnific-popup min js  --> 
+     <script src="./assets/js/magnific-popup.min.js"></script>
+     
+     <!-- waypoints min js  --> 
+     <script src="./assets/js/waypoints.min.js"></script>
+     
+     <!-- parallax js  --> 
+     <script src="./assets/js/parallax.js"></script>
+     
+     <!-- countdown js  --> 
+     <script src="./assets/js/jquery.countdown.min.js"></script>
+     
+     <!-- imagesloaded js --> 
+     <script src="./assets/js/imagesloaded.pkgd.min.js"></script>
+     
+     <!-- isotope min js --> 
+     <script src="./assets/js/isotope.min.js"></script>
+     
+     <!-- jquery.dd.min js -->
+     <script src="./assets/js/jquery.dd.min.js"></script>
+     
+     <!-- slick js -->
+     <script src="./assets/js/slick.min.js"></script>
+     
+     <!-- elevatezoom js -->
+     <script src="./assets/js/jquery.elevatezoom.js"></script>
+     
+     <!-- scripts js --> 
+     <script src="./assets/js/scripts.js"></script>
+     
+     <!-- Custom Javascript -->
+     <script defer src="./assets/js/pets_scripts.js"></script>
+     
+     <!-- End of Javascript -->
+     
      </body>
      </html>
