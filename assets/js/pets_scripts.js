@@ -1065,7 +1065,7 @@ function displayShoppingCart()  // Targets Add to Cart page
 
     // Prompts user for choice.
     // -------------------------    
-      let _deleteCategoryRequest = confirm("Confirm Delete current Product Category Data?");
+      let _deleteCategoryRequest = confirm("WARNING: THIS PROCESS IS IRREVERSIBLE AND ALL THE DATA WILL BE LOST!! Confirm Delete current Product Category Data?");
 
     // Obtains user's response
     // ------------------------ 
@@ -1096,7 +1096,7 @@ function displayShoppingCart()  // Targets Add to Cart page
 
    // Prompts user for choice.
    // -------------------------   
-      let _deleteProductRequest = confirm("Confirm Delete current Product Information Data?");
+      let _deleteProductRequest = confirm("WARNING: THIS PROCESS IS IRREVERSIBLE AND ALL THE DATA WILL BE LOST!! Confirm Delete current Product Information Data?");
 
     // Obtains user's response
     // ------------------------
