@@ -27,15 +27,25 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
 
-  <!-- Customized Style CSS -->
-  <link rel="stylesheet" href="./assets/css/petpurely/css/pets_styles.css" type="text/css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/responsive.css">
+<!-- Icon Font CSS -->
+<link rel="stylesheet" href="./assets/css/all.min.css">
+<link rel="stylesheet" href="./assets/css/ionicons.min.css">
+<link rel="stylesheet" href="./assets/css/themify-icons.css">
+<link rel="stylesheet" href="./assets/css/linearicons.css">
+<link rel="stylesheet" href="./assets/css/flaticon.css">
+<link rel="stylesheet" href="./assets/css/simple-line-icons.css">
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="./assets/css/style.css">
+<link rel="stylesheet" href="./assets/css/responsive.css">
+
+<!-- Customized Style CSS -->
+<link rel="stylesheet" href="./assets/css/pets_styles.css" type="text/css">
 
   <!-- End of Cascading Style Sheet -->
 
 </head>
-<body onload="displayDashboard();">
+<body onload="displayDashboard();displayProfileName();">
 
   <!-- LOADER  (For Spinner) -->
   <div class="preloader">
@@ -63,7 +73,7 @@
     <div class="row align-items-center">
 
       <!-- Left Sidebar -->
-      <div class="col-md-3 sidebar">
+      <div class="col-md-3 sidebar bg-dark">
         
         <div class="text-center">
 
@@ -71,7 +81,7 @@
           <img id="profile-image" src="https://via.placeholder.com/120" alt="Avatar" class="profile-avatar mb-3">
 
           <!-- Username -->
-          <div id="username" name="username">Username</div>
+          <div id="dvUsername" name="dvUsername">Username</div>
 
           <!-- Upload Button -->
           <label class="btn btn-outline-secondary btn-sm">
@@ -85,14 +95,14 @@
         <!-- Navigation Links -->
 
         <nav class="nav flex-column">
-          <a class="nav-link" href="./logout.html">Home</a> <!-- Home Page with Logout Link -->
-          <a class="nav-link active" data-target="dashboard">Dashboard</a> <!-- Default Page -->
-          <a class="nav-link" data-target="edit-profile">Edit Profile</a>  <!-- User Profile -->
-          <a class="nav-link" data-target="change-password">Change Password</a> <!-- Change Password -->
-          <a class="nav-link" data-target="orders">Orders</a> <!-- Orders -->
-          <a class="nav-link" href="./addCategory.html">Category</a> <!-- Category -->
-          <a class="nav-link" href="./addProduct.html">Product</a> <!-- Product -->
-          <a class="nav-link" href="./login.html">Logout</a> <!-- Logout -->
+          <a class="nav-link active text-dark" href="./logout.html">Home</a> <!-- Home Page with Logout Link -->
+          <a class="nav-link text-white" data-target="dashboard" onclick="dashboardRoute(document.querySelector('#dvUsername').innerText);">Dashboard</a> <!-- Default Page -->
+          <a class="nav-link text-white" data-target="edit-profile">Edit Profile</a>  <!-- User Profile -->
+          <a class="nav-link text-white" data-target="change-password">Change Password</a> <!-- Change Password -->
+          <a class="nav-link text-white" data-target="orders">Orders</a> <!-- Orders -->
+          <a class="nav-link text-white" href="./admin-account1.html"><span id="categoryLink" name="categoryLink">Category</span></a> <!-- Category -->
+          <a class="nav-link text-white" href="./admin-account1.html"><span id="productLink" name="productLink" >Product</span></a> <!-- Product -->
+          <a class="nav-link text-white" href="#" onclick="updateLoginLogoutState();">Logout</a> <!-- Logout -->
         </nav>
       </div>
 
@@ -194,7 +204,7 @@
 <script src="./assets/js/scripts.js"></script>  
 
 <!-- Custom Javascript -->
-<script defer src="./assets/js/petpurely/js/pets_scripts.js"></script>
+<script defer src="./assets/js/pets_scripts.js"></script>
 
 <!-- End of Javascript -->
 

@@ -1,3 +1,4 @@
+
 // ************************************************************************************************************
 // * Filename: pets_script.js                                                                                 *
 // * Objective: Provides the functionality to support the entire website event handling operations.           *
@@ -55,33 +56,60 @@ function getWeekDayDateTime()
 // * USER ACCOUNT MANAGEMENT *
 // ***************************
 
-function getName() 
+// [CUSTOMERS/USERS]
+// -----------------
+function getLoginName() 
 {
-  // Objective: Receives the provided name data.
-  // --------------------------------------------
-     name = document.getElementById("txtSignUpName").value;
-} // End of function getEmail()
+  // Objective: Receives the provided login name data.
+  // -------------------------------------------------
+     let _loginName = document.getElementById("txtLoginName").value;
+     window.localStorage.setItem("loginName",_loginName); // Stores the login name.
 
-function getName() 
+} // End of function getLoginName
+
+function getSignUpName() 
 {
-  // Objective: Receives the provided name information data.
-  // -------------------------------------------------------
-     name = document.getElementById("txtProfileName").value;
-} // End of function getEmail()
+  // Objective: Receives the provided signup name information data.
+  // ---------------------------------------------------------------
+     let _signUpName = document.getElementById("txtSignUpName").value;
+     window.localStorage.setItem("signUpName", _signUpName); // Stores the login name.
+} // End of function getSignUpName()
 
-function getEmail() 
+function getLoginEmail() 
 {
-  // Objective: Receives the provided email information data.
-  // ---------------------------------------------------------
-   email = document.getElementById("txtSignUpEmail").value;
-} // End of function getEmail()
+  // Objective: Receives the provided login email information data.
+  // --------------------------------------------------------------
+     let _loginEmail = document.getElementById("txtLoginEmail").value;
+     window.localStorage.setItem("loginEmail",_loginEmail); // Stores the login email.
 
-function getPassword() 
+} // End of function getLoginEmail()
+
+function getSignUpEmail() 
+{
+  // Objective: Receives the provided signUp email information data.
+  // ---------------------------------------------------------------
+     let _signUpEmail = document.getElementById("txtSignUpEmail").value;
+     window.localStorage.setItem("signUpEmail", _signUpEmail); // Stores the signUp email.
+
+} // End of function getLoginEmail()
+
+function getLoginPassword() 
 {    
-  // Objective: Receives the provided password information data.
-  // ------------------------------------------------------------
-     password = document.getElementById("txtSignUpPassword").value;
-} // End of function getPassword()
+  // Objective: Receives the provided login password information data.
+  // ------------------------------------------------------------------
+
+       let _loginPassword = document.getElementById("txtLoginPassword").value;
+       window.localStorage.setItem("loginPassword",_loginPassword); // Stores the login password.
+   
+} // End of function getLoginPassword()
+
+function getSignUpPassword() 
+{    
+  // Objective: Receives the provided signup password information data.
+  // ------------------------------------------------------------------
+     let _signUpPassword = document.getElementById("txtSignUpPassword").value;
+     window.localStorage.setItem("signUpPassword", _signUpPassword); // Stores the signUp password.
+} // End of function getSignUpPassword()
 
 function getContact() 
 {
@@ -101,19 +129,239 @@ function displayRegInfo()
       window.location.href = "./registerInfo.html";
 } // End of function displayRegInfo()
 
-function sys_signIn()
+function displayLoginName()
 {
- // Objective: For navigating to the login page after successful sign-in
- // ------------------------------------------------------------------------
+  // [LOGIN NAME]
+  // ------------
+     let loginProfileName =  window.localStorage.getItem("loginName"); 
+     loginProfileName = loginProfileName.toLowerCase(); // Change all the data value to lowercase.
+     
+  // [LOGIN PICTURE]
+  // ------------------   
+     let imgSource1 = document.querySelector("#account-image");
 
-    window.location.href="./login.html";
+ if((loginProfileName === "admin") || (loginProfileName === "administrator"))
+ {
+   imgSource1.src = "./assets/images/Admin_Profile_Picture.png"; // Displays Administrator Profile Picture
+ }
+ else // For non-administrator login
+ {
+   // imgSource1.src = "./assets/images/Customer_Profile_Picture.png"; // Displays Customer Profle Picture
+   imgSource1.src = "./assets/images/Customer_Profile_Picture.png"; // Displays Customer Profle Picture
+   // imgSource1.src = "./assets/images/Customer_Profile_Picture_1a.png"; // Displays Customer Profle Picture
+ } // End of if-else statement
 
-} // End of function sys_signIn()
+} // End of function displayLoginName()
+
+function displayProfileName()
+{
+// Objective: For displaying the logged in username at the My Accounts Dashboard.
+// -------------------------------------------------------------------------------
+  
+// [PROFILE NAME]
+// ---------------
+   let loginProfileName =  window.localStorage.getItem("loginName"); 
+   loginProfileName = loginProfileName.toLowerCase(); // Change all the data value to lowercase.
+   document.querySelector("#dvUsername").innerText = loginProfileName; // Displaye the stored login name.
+
+// [PROFILE PICTURE]
+// ------------------   
+   let imgSource2 = document.querySelector("#profile-image");
+   
+   if((loginProfileName === "admin") || (loginProfileName === "administrator"))
+    {
+      imgSource2.src = "./assets/images/Admin_Profile_Picture.png"; // Displays Administrator Profile Picture
+    }
+    else // For non-administrator login
+    {
+      // imgSource1.src = "./assets/images/Customer_Profile_Picture.png"; // Displays Customer Profle Picture
+      imgSource2.src = "./assets/images/Customer_Profile_Picture.png"; // Displays Customer Profle Picture
+      // imgSource2.src = "./assets/images/Customer_Profile_Picture_1a.png"; // Displays Customer Profle Picture
+      document.getElementById("categoryLink").style.display = 'none';
+      document.getElementById("productLink").style.display = 'none'; 
+      
+      document.getElementById("categoryLink").removeAttribute("enabled","");
+      document.getElementById("categoryLink").setAttribute("disabled","");
+      
+      document.getElementById("productLink").removeAttribute("enabled","");
+      document.getElementById("productLink").setAttribute("disabled",""); // Disables the Product Hyperlink.
+            
+
+    } // End of if-else statement
+   
+} // End of function displayProfileName()
+
+function verify_signIn()
+{
+ // Objective: For verification of the provided crentials. (Customer Mode)
+ // -------------------------------------------------------
+
+    let signInUsername = window.localStorage.getItem("loginName");
+    let signInPassword = window.localStorage.getItem("loginPassword");
+    
+    if((signInUsername !== "admin") && (signInPassword === "123456")) // Pre-defined user password: 123456
+    {
+      window.location.href="./loginSuccess.html";
+    }
+    else
+    { 
+      window.location.href="./loginFailed.html";
+    } // End of if-else statement
+
+} // End of function verify_signIn()
+
+// [ADMINISTRATORS]
+// -----------------
+function getAdminLoginName() 
+{
+  // Objective: Receives the provided login name data.
+  // -------------------------------------------------
+     let _loginName = document.getElementById("txtAdminLoginName").value;
+     window.localStorage.setItem("loginName",_loginName); // Stores the login name.
+
+} // End of function getAdminLoginName
+
+function getAdminSignUpName() 
+{
+  // Objective: Receives the provided signup name information data.
+  // ---------------------------------------------------------------
+     let _signUpName = document.getElementById("txtAdminSignUpName").value;
+     window.localStorage.setItem("signUpName", _signUpName); // Stores the login name.
+} // End of function getAdminSignUpName()
+
+function getAdminLoginEmail() 
+{
+  // Objective: Receives the provided login email information data.
+  // --------------------------------------------------------------
+     let _loginEmail = document.getElementById("txtAdminLoginEmail").value;
+     window.localStorage.setItem("loginEmail",_loginEmail); // Stores the login email.
+
+} // End of function getAdminLoginEmail()
+
+function getAdminSignUpEmail() 
+{
+  // Objective: Receives the provided signUp email information data.
+  // ---------------------------------------------------------------
+     let _signUpEmail = document.getElementById("txtAdminSignUpEmail").value;
+     window.localStorage.setItem("signUpEmail", _signUpEmail); // Stores the signUp email.
+
+} // End of function getLoginEmail()
+
+function getAdminLoginPassword() 
+{    
+  // Objective: Receives the provided login password information data.
+  // ------------------------------------------------------------------
+     let _loginPassword = document.getElementById("txtAdminPassword").value;
+     window.localStorage.setItem("loginPassword",_loginPassword); // Stores the login password.
+
+} // End of function getAdminLoginPassword()
+
+function getAdminSignUpPassword() 
+{    
+  // Objective: Receives the provided signup password information data.
+  // ------------------------------------------------------------------
+     let _signUpPassword = document.getElementById("txtAdminSignUpPassword").value;
+     window.localStorage.setItem("signUpPassword", _signUpPassword); // Stores the signUp password.
+} // End of function getAdminSignUpPassword()
+
+function getAdminContact() 
+{
+  // Objective: Receives the provided contact information data.
+  // ----------------------------------------------------------
+     name = document.getElementById("txtAdminProfileContact").value;
+} // End of function function getAdminContact() 
+
+function displayAdminLoginName()
+{
+  // [LOGIN NAME]
+  // ------------
+     let loginProfileName =  window.localStorage.getItem("loginName"); 
+     loginProfileName = loginProfileName.toLowerCase(); // Change all the data value to lowercase.
+     
+  // [LOGIN PICTURE]
+  // ------------------   
+     let imgSource1 = document.querySelector("#account-image");
+
+ if((loginProfileName === "admin") || (loginProfileName === "administrator"))
+ {
+  document.getElementById("categoryLink").style.display = 'block';
+  document.getElementById("productLink").style.display = 'block'; 
+  imgSource1.src = "./assets/images/Admin_Profile_Picture.png"; // Displays Administrator Profile Picture
+    
+ }
+ else // For non-administrator login
+ {
+   // imgSource1.src = "./assets/images/Customer_Profile_Picture.png"; // Displays Customer Profle Picture
+   imgSource1.src = "./assets/images/Customer_Profile_Picture.png"; // Displays Customer Profle Picture
+   // imgSource1.src = "./assets/images/Customer_Profile_Picture_1a.png"; // Displays Customer Profle Picture
+ } // End of if-else statement
+
+} // End of function displayAdminLoginName()
+
+function displayAdminProfileName()
+{
+// Objective: For displaying the logged in username at the My Accounts Dashboard.
+// -------------------------------------------------------------------------------
+  
+// [PROFILE NAME]
+// ---------------
+   let loginProfileName =  window.localStorage.getItem("loginName"); 
+   loginProfileName = loginProfileName.toLowerCase(); // Change all the data value to lowercase.
+   document.querySelector("#dvUsername").innerText = loginProfileName; // Displaye the stored login name.
+
+// [PROFILE PICTURE]
+// ------------------   
+   let imgSource2 = document.querySelector("#profile-image");
+   
+   if((loginProfileName === "admin") || (loginProfileName === "administrator"))
+    {
+      imgSource2.src = "./assets/images/Admin_Profile_Picture.png"; // Displays Administrator Profile Picture
+    }
+    else // For non-administrator login
+    {
+      // imgSource1.src = "./assets/images/Customer_Profile_Picture.png"; // Displays Customer Profle Picture
+      imgSource2.src = "./assets/images/Customer_Profile_Picture.png"; // Displays Customer Profle Picture
+      // imgSource2.src = "./assets/images/Customer_Profile_Picture_1a.png"; // Displays Customer Profle Picture
+    } // End of if-else statement
+   
+} // End of function displayAdminProfileName()
+
+function verify_admin_signIn()
+{
+ // Objective: For verification of the provided crentials. (Administrator Mode)
+ // -------------------------------------------------------
+
+  let signInUsername = window.localStorage.getItem("loginName");
+  let signInPassword = window.localStorage.getItem("loginPassword");
+    
+ if((signInUsername === "admin") && (signInPassword === "Admin@1234"))
+ {
+   window.location.href = "./loginAdminSuccess.html";
+ }
+ else
+ {
+   window.location.href = "./loginAdminFailed.html";
+ } // End of if-else statement
+
+} // End of function verify_admin_signIn()
+
+function updateLoginLogoutState()
+{
+// Objective: Clears all Web Browsers Storage variables and navigate to the appropriate page accordingly.
+// -------------------------------------------------------------------------------------------------------
+    
+   window.localStorage.clear(); // Requests for service to clear all localstorage web brower's variables.
+   window.sessionStorage.clear(); // Requests for service to clear all sessionstorage web brower's variables. 
+   window.location.href = "./login.html";
+   
+} // End of function setLoginLogoutState()
 
 function getLoginStatus()
 {
  // Objective: Reads the login status from Web browser memory and displays the login/logout link accordingly
  // ----------------------------------------------------------------------------------------------------------
+   
+   // window.localStorage.setItem("_loginState","success"); // Change the link to Logout, if sign-in is succesful.   
     loginStatus = window.localStorage.getItem('_loginState');
 
     if(loginStatus === "success")
@@ -127,25 +375,21 @@ function getLoginStatus()
   
 } // End of function getLoginStatus()
 
-function updateLoginStatus(loginMode)
+function updateLoginStatus(loginState)
 {
   
  // Objective: Stores the login state based on the current login status (Login State: SUCCESS:Logout; FAILED:Login) 
  // ----------------------------------------------------------------------------------------------------------------
 
-   if(loginMode === "success")
+   if(loginState === "success")
    {
-     window.localStorage.setItem("_loginState","success"); // Change the link to Logout, if sign-in is succesful.
-     // window.location.replace("./logout.html"); // Changes the Login link to logout link.
-     window.location.href = "./accountDashboard.html";
+     window.location.href = "./logout.html";  
    }
    else
    {
-    window.localStorage.setItem("_loginState","failed"); // Otherwise remain as it is.    
-    window.location.replace("./login.html"); // Reverts back to the login page again for re-entry
+      window.location.href = "./login.html";         
    } // End of if-else statement
 
-  
 } // End of function updateLoginStatus()
 
 function loginSuccessRoute(userMode)
@@ -153,13 +397,13 @@ function loginSuccessRoute(userMode)
 // Objective: To display the appropriate login message based on the user mode login -> based on User Mode
 // -------------------------------------------------------------------------------------------------------
   
-  if(userMode === "customer")
+  if(userMode === "customer") // For Customer Mode
     {
      window.location.href = "./loginSuccess.html";
     }
-    else
+    else // For Administrator Mode
     {
-     window.location.href = "loginAdminSuccess.html";
+     window.location.href = "./loginAdminSuccess.html";
     } // End of if-else statement
 
     document.querySelector("#lnkLogin").textContent = "Logout";
@@ -171,14 +415,13 @@ function loginFailedRoute(userMode)
 // Objective: For routing back to the login page for failed login attempt. -> based on User Mode
 // -----------------------------------------------------------------------------------------------
 
-alert("Login Failed. Please Try Again.");
-
- if(userMode === "customer")
+ if(userMode === "customer") // For Customer Mode
  {
   window.location.href = "./login.html";
  }
- else
+ else // For Administrator Mode
  {
+  window.localStorage.removeItem("loginPassword");
   window.location.href = "./loginAdmin.html";
  } // End of if-else statement
 
@@ -222,17 +465,28 @@ function signUpFailedRoute(userMode)
 
 } // End of function signUpFailedRoute(userMode)
   
+function dashboardRoute(profileUser)
+{
+// Objective: Performs routing of dashboard routes based on logged in user profile.
+// ----------------------------------------------------------------------------------
+   if((profileUser === "admin") || (profileUser === "Admin") || (profileUser === "administrator") || (profileUser === "Administrator"))
+    {
+       window.location.href="./admin-account1.html";
+    } // End of if statement
+
+} // End of function dashboardRoute(profileUser)
+
+// *********************************************
+// * PRODUCTS PURCHASE EVENT HANDLING ROUTINES *
+// *********************************************
+
 function displayWishListMessage()
 {
  // Objective: Displays the product Wishlist messasge
  // --------------------------------------------------
 
    alert("Your selected product item has been added to the Wishlist Successsully. ");
-} // End of const displayWishListMessage =()
-
-// *********************************************
-// * PRODUCTS PURCHASE EVENT HANDLING ROUTINES *
-// *********************************************
+} // End of function displayWishListMessage()
 
 // First Product
 //---------------
@@ -444,14 +698,24 @@ function captureEighthProductInfo(productDisplayMode)
 
 // Nineth Product
 // ---------------
-function captureNinethProductInfo(productDisplayMode)
+function captureNinethProductInfo(productNum, productDisplayMode)
 {
 // Objective: Extracts the ninth listed product's posted information on the Products Listing page.
 // ------------------------------------------------------------------------------------------------
-   prod_image = document.querySelector("#ninethProductImage").attributes[0].textContent // Captures nineth product image
-   prod_name = document.getElementById("ninethProductName").textContent; // Captures nineth product name
-   prod_price = document.getElementById("ninethProductPrice").textContent; // Captures nineth product price
- 
+   
+  if(productNum === "9")
+  {
+    prod_image = document.querySelector("#ninethProductImage").attributes[0].textContent // Captures nineth product image
+    prod_name = document.getElementById("ninethProductName").textContent; // Captures nineth product name
+    prod_price = document.getElementById("ninethProductPrice").textContent; // Captures nineth product price
+ }
+ else if(productNum === "10")
+ {
+   prod_image = document.querySelector("#tenthProductImage").attributes[0].textContent // Captures tenth product image
+   prod_name = document.getElementById("tenthProductName").textContent; // Captures tenth product name
+   prod_price = document.getElementById("tenthProductPrice").textContent; // Captures tenth product price
+ } // End of if-else statement
+
    window.localStorage.setItem("prodImage",prod_image); // Stores nineth product name in localstorage.
    window.localStorage.setItem("prodName",prod_name); // Stores nineth product name in localstorage.
    window.localStorage.setItem("prodPrice",prod_price); // Stores nineth product price in localstorage.
@@ -467,20 +731,24 @@ function captureNinethProductInfo(productDisplayMode)
 
 } // End of function captureNinethProductInfo()
 
-// Tenth Product
+// Tenth Product => **Buggy / NOT WORKING 
 // ---------------
-function captureTenthProductInfo(productDisplayMode)
+function captureTenthProductInfo(productNum, productDisplayMode)
 {
   // Objective: Extracts the tenth listed product's posted information on the Products Listing page.
   // ------------------------------------------------------------------------------------------------
 
+  if(productNum === "10")
+  { 
    prod_image = document.querySelector("#tenthProductImage").attributes[0].textContent // Captures tenth product image
-   prod_name = document.getElementById("tenthProductName").textContent; // Captures eighth product name
-   prod_price = document.getElementById("tenhthProductPrice").textContent; // Captures eighth product price
- 
+   prod_name = document.getElementById("tenthProductName").textContent; // Captures tenth product name
+   prod_price = document.getElementById("tenhthProductPrice").textContent; // Captures tenth product price
+  }
    window.localStorage.setItem("prodName",prod_image); // Stores tenth product name in localstorage.
    window.localStorage.setItem("prodName",prod_name); // Stores tenth product name in localstorage.
    window.localStorage.setItem("prodPrice",prod_price); // Stores tenth product price in localstorage.
+
+   alert("Navigating to the Products Details page.");
 
    if(productDisplayMode === "ProductDetail") // If the display mode is "Product Detail"
    {
@@ -489,7 +757,7 @@ function captureTenthProductInfo(productDisplayMode)
    else // Alternative: Add To Cart Mode
    {
      window.location.href = "./addToCart.html"; // Displays information in the Add To Cart page.
-   } // End of if-slse statement
+   } // End of if-slse statement 
 
 } // End of function captureTenthProductInfo()
 
@@ -502,7 +770,7 @@ function captureEleventhProductInfo(productDisplayMode)
 
    prod_image = document.querySelector("#eleventhProductImage").attributes[0].textContent // Captures eleventh product image
    prod_name = document.getElementById("eleventhProductName").textContent; // Captures eleventh product name
-   prod_price = document.getElementById("eleventhProductPrice").textContent; // Captures eleventh product price
+   prod_price = document.getElementById("eleventhProductPrice").textContent; // Captures eleventh product price*
  
    window.localStorage.setItem("prodName",prod_image); // Stores eleventh product name in localstorage.
    window.localStorage.setItem("prodName",prod_name); // Stores eleventh product name in localstorage.
@@ -771,8 +1039,9 @@ function displayShoppingCart()  // Targets Add to Cart page
   
       // Simulate fetching username dynamically.
       // ---------------------------------------
-         const username = "Somename"; // Replace this with actual user data
-         document.getElementById("username").textContent = username; // Dynamically Assigned.   
+         // const username = "Somename"; // Replace this with actual user data
+         const username = window.localStorage.getItem("loginName");
+         document.getElementById("dvUsername").textContent = username; // Dynamically Assigned.   
 
   } // End of function displayDashboard()
 
@@ -810,7 +1079,6 @@ function displayShoppingCart()  // Targets Add to Cart page
       } // End of if-else statement
 
   } // End of function deleteCategory()
-
 
   function updateProduct()
   {

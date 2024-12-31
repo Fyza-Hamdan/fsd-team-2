@@ -6,11 +6,11 @@
      * Date: 04/12/2024                                                                      *
      ***************************************************************************************** -->
 
-<!DOCTYPE public html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    
- <!-- SITE TITLE -->
+
+<!-- SITE TITLE -->
 <title>PetPurely - Products Listing</title>
 
 <!-- Meta -->
@@ -24,25 +24,46 @@
 
 <!-- [CASCADING STYLE SHEETS (CSS)] -->
 
+<!-- Animation CSS -->
+<link rel="stylesheet" href="assets/css/animate.css">	
+
 <!-- Latest Bootstrap min CSS -->
-<link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
 
-<!-- Customized Style CSS -->
-<link rel="stylesheet" href="./assets/css/petpurely/css/pets_styles.css" type="text/css">
+<!-- Icon Font CSS -->
+<link rel="stylesheet" href="assets/css/all.min.css">
+<link rel="stylesheet" href="assets/css/ionicons.min.css">
+<link rel="stylesheet" href="assets/css/themify-icons.css">
+<link rel="stylesheet" href="assets/css/linearicons.css">
+<link rel="stylesheet" href="assets/css/flaticon.css">
+<link rel="stylesheet" href="assets/css/simple-line-icons.css">
+
+<!--- owl carousel CSS-->
+<link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.min.css">
+<link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.css">
+<link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.default.min.css">
+
+<!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+<!-- jquery-ui CSS -->
+<link rel="stylesheet" href="assets/css/jquery-ui.css">
+
+<!-- Slick CSS -->
+<link rel="stylesheet" href="assets/css/slick.css">
+<link rel="stylesheet" href="assets/css/slick-theme.css">
 
 <!-- Style CSS -->
-<link rel="stylesheet" href="./assets/css/style.css">
-<link rel="stylesheet" href="./assets/css/responsive.css">
-
-<!-- End of Cascading Style Sheet -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
 
-<body onload="getLoginStatus();">
+<body onload="getLoginStatus();displayLoginName();">
 
 <!-- LOADER -->
 <div class="preloader">
@@ -56,20 +77,23 @@
 
 <!-- START HEADER -->
 <header class="header_wrap fixed-top header_with_topbar">
-	<div class="bottom_header dark_skin main_menu_uppercase">
+	<!--<div class="top-header">
+    </div> -->
+    <div class="bottom_header dark_skin main_menu_uppercase">
     	<div class="container">
             <nav class="navbar navbar-expand-lg"> 
+                
                 <a class="navbar-brand" href="index.html">
-                   
-                    <!-- [HEADER LOGO] -->  
+                      <!-- [HEADER LOGO] -->  
                         <img class="logo_light" src="./assets/images/petperks_logo.png" alt="Pet Perks Logo" />
                         <img class="logo_dark" src="./assets/images/petperks_logo.png" alt="Pet Perks Logo" />
-                    <!-- End of Header Logo -->    
-                     
+                      <!-- End of Header Logo -->    
                 </a>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-expanded="false"> 
                     <span class="ion-android-menu"></span>
                 </button>
+                
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
 
@@ -153,28 +177,31 @@
 
                                </div>
                         </li>
-                        
+                   
                         <li class="dropdown">
-                            <li><a class="nav-link nav_item" href="#">Services</a></li> 
-                        </li>
-                        <!--<li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li> -->
+                            <li><a class="nav-link nav_item" href="#" onclick="alert('Sorry,this feature is still under development.');">Services</a></li> 
+                        </li>                        
                     </ul>
+
                     <ul class="header_list">
-                        <li><a href="./login.html"><i class="ti-user"></i><span id="lnkLogin">Login</span></a></li>
+                        <span><img id="account-image" src="./assets/images/accountPicture.png" alt="Avatar" width="30px" height="30px" onclick="window.location.href='./accountDashboard.html'"></span>
+                        <li><a href="./login.html"><!--<i class="ti-user"></i>--><span id="lnkLogin">Login</span></a></li>
+
                     </ul>
                 </div>
-                <ul class="navbar-nav attr-nav align-items-center">
-                    <li><a href="javascript:;" class="nav-link search_trigger"><i class="linearicons-magnifier"></i></a>
-                        <div class="search_wrap">
-                            <span class="close-search"><i class="ion-ios-close-empty"></i></span>
-                            <form>
-                                <input type="text" placeholder="Search" class="form-control" id="search_input">
-                                <button type="submit" class="search_icon"><i class="ion-ios-search-strong"></i></button>
-                            </form>
-                        </div><div class="search_overlay"></div>
-                    </li>
+               
+                   <ul class="navbar-nav attr-nav align-items-center">
+                        <li><a href="javascript:;" class="nav-link search_trigger"><i class="linearicons-magnifier"></i></a>
+                            <div class="search_wrap">
+                                <span class="close-search"><i class="ion-ios-close-empty"></i></span>
+                                <form>
+                                    <input type="text" placeholder="Search" class="form-control" id="search_input">
+                                    <button type="submit" class="search_icon"><i class="ion-ios-search-strong"></i></button>
+                                </form>
+                            </div><div class="search_overlay"></div>
+                        </li>
 
-                  <!-- Dropdown Cart List View -->  
+                    <!-- Dropdown Cart List View -->     
                     <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">1</span></a>
                         <div class="cart_box dropdown-menu dropdown-menu-right">
                             <ul class="cart_list">
@@ -195,7 +222,7 @@
                             </div>
                         </div>
                     </li>
-                </ul>
+                    </ul>                                        
             </nav>
         </div>
     </div>
@@ -247,7 +274,7 @@
                             </div>
                             <div class="product_header_right">
                             	<div class="products_view">
-                                    <!-- <a href="javascript:;" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
+                                    <!--<a href="javascript:;" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
                                     <a href="javascript:;" class="shorting_icon list"><i class="ti-layout-list-thumb"></i></a>-->
                                 </div>
                                 <div class="custom_select">
@@ -262,70 +289,61 @@
                         </div>
                     </div>
                 </div> 
+                
                 <!-- data-item to show the total number of product images per page -->
                 <!-- data-item-show to show how many product images per row --> 
+                <!--<div class="row shop_container loadmore" data-item="8" data-item-show="4" data-finish-message="No More Item to Show" data-btn="Load More">-->
                 <div class="row shop_container loadmore" data-item="8" data-item-show="4" data-finish-message="No More Item to Show" data-btn="Load More">
                     <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        
-                     <!-- First Product -->   
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="productDetails.html">
-                                    <img src="assets/images/product_img1.jpg" alt="product_img1" id="firstProductImage">
-                                </a>
 
-                            <!-- Hovered Over Product Action Box -->   
-                                <div class="product_action_box">
-                                    <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#" onclick="captureFirstProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                      <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                        <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                    </ul>
-                                </div>
-                            <!-- Hovered Over Product Action Box -->    
-                            
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="firstProductName" onclick="captureFirstProductInfo('ProductDetail');" ><a href="#">Dog Food #1</a></h6>
-                                <div class="product_price">
-                                    <span class="price" id="firstProductPrice">$18.00</span>
-                                </div>
-                               
-                                <!-- Brief Product description -->
-                                <div>
-                                   <span>
-                                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                   </span> 
-                                </div>
-                                <!-- End of Brief Product Description --> 
+                 <!-- First Product -->   
+                 <div class="product">
+                    <div class="product_img">
+                        <a href="productDetails.html">
+                            <img src="assets/images/product_img1.jpg" alt="product_img1" id="firstProductImage">
+                        </a>
 
-                                <center>
-                                       <!-- Insert a "Add to Cart Button Here" -->
-                                        <div class="cart_btn">
-                                            <!--<button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>-->                                    
-                                            <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureFirstProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                        </div>
-                                    
-                                </center>
-
-                                <!-- Hovered Over Product Action Box (For Product Details) -->
-                                <div class="list_product_action_box">
-                                    <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#" onclick="captureFirstProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                     <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                        <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                    </ul>
-                                </div>
-                             <!-- End of Hovered Over Product Action Box (For Product Details) -->
-
-                            </div>
+                    <!-- Hovered Over Product Action Box -->   
+                        <div class="product_action_box">
+                            <ul class="list_none pr_action_btn">
+                                <li class="add-to-cart"><a href="#" onclick="captureFirstProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                              <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                                <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                                <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                            </ul>
                         </div>
+                    <!-- Hovered Over Product Action Box -->    
+                    
                     </div>
-               <!-- End of First Product -->        
-               
-               <!-- Second Product -->  
+                    <div class="product_info">
+                        <h6 class="product_title" id="firstProductName" onclick="captureFirstProductInfo('ProductDetail');" ><a href="#">Dog Food #1</a></h6>
+                        <div class="product_price">
+                            <span class="price" id="firstProductPrice">$18.00</span>
+                        </div>
+                       
+                        <!-- Brief Product description -->
+                        <div>
+                           <span>
+                               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                           </span> 
+                        </div>
+                        <!-- End of Brief Product Description --> 
+
+                        <center>
+                               <!-- Insert a "Add to Cart Button Here" -->
+                                <div class="cart_btn">
+                                    <!--<button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>-->                                    
+                                    <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureFirstProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                                </div>
+                            
+                        </center>
+                    </div>
+                    <!-- End of product-info -->
+                </div>
+            </div>
+            <!-- End of First Product -->       
+       
+            <!-- Second Product -->  
                     <div class="col-lg-3 col-md-4 col-6 grid_item">
                         <div class="product">
                             <div class="product_img">
@@ -367,817 +385,651 @@
                                         </div>
                                     
                                 </center> 
-
-                              <!-- Hovered Over Product Action Box (For Product Details) -->
-                              <div class="list_product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#" onclick="captureSecondProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                 <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                    <li><a href="#"><i class="icon-heart"></i></a></li>
-                                </ul>
-                            </div>
-                             <!-- End of Hovered Over Product Action Box (For Product Details) -->
                             </div>
                         </div>
                     </div>
-                 <!-- End of Second Product -->        
+                <!-- End of Second Product -->        
+                <!-- Third Product --> 
+                <div class="col-lg-3 col-md-4 col-6 grid_item">
+                    <div class="product">
+                        <div class="product_img">
+                            <a href="./productDetails.html">
+                                <img src="assets/images/product_img3.jpg" alt="product_img3" id="thirdProductImage">
+                            </a>
+                    
+                          <!-- Hovered Over Product Action Box -->   
+                            <div class="product_action_box">
+                                <ul class="list_none pr_action_btn">
+                                    <li class="add-to-cart"><a href="#"onclick="captureThirdProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                                  <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                                    <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- Hovered Over Product Action Box --> 
 
-                 <!-- Third Product --> 
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="./productDetails.html">
-                                    <img src="assets/images/product_img3.jpg" alt="product_img3" id="thirdProductImage">
-                                </a>
-                        
-                              <!-- Hovered Over Product Action Box -->   
-                                <div class="product_action_box">
+                        </div>
+                        <div class="product_info">
+                            <h6 class="product_title" id="thirdProductName" onclick="captureThirdProductInfo('ProductDetail');" ><a href="#">Cat Food #1</a></h6>
+                            
+                            <div class="product_price">
+                                <span class="price" id="thirdProductPrice">$8.00</span>
+                            </div>
+                            
+                            <!-- Brief Product description -->
+                            <div>
+                                <span>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </span> 
+                             </div>
+                            <!-- End of Brief Product Description --> 
+                            
+
+                            <center>
+                                <!-- Insert a "Add to Cart Button Here" -->
+                                 <div class="cart_btn">
+                                     <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureThirdProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                                 </div>
+                             
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Third Product -->    
+                <!-- Fourth Product -->
+                <div class="col-lg-3 col-md-4 col-6 grid_item">
+                    <div class="product">
+                        <div class="product_img">
+                            <a href="shop-product-detail.html">
+                                <img src="assets/images/product_img4.jpg" alt="product_img4" id="fourthProductImage">
+                            </a>
+                          
+                                 <!-- Hovered Over Product Action Box -->   
+                                 <div class="product_action_box">
                                     <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#"onclick="captureThirdProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                                        <li class="add-to-cart"><a href="#"onclick="captureFourthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
                                       <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
                                         <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
                                         <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
                                     </ul>
                                 </div>
                                 <!-- Hovered Over Product Action Box --> 
-
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="thirdProductName" onclick="captureThirdProductInfo('ProductDetail');" ><a href="#">Cat Food #1</a></h6>
-                                
-                                <div class="product_price">
-                                    <span class="price" id="thirdProductPrice">$8.00</span>
-                                </div>
-                                
-                                <!-- Brief Product description -->
-                                <div>
-                                    <span>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </span> 
-                                 </div>
-                                <!-- End of Brief Product Description --> 
-                                
-
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureThirdProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                 
-                                  </center>
-                              
-                              <!-- Hovered Over Product Action Box (For Product Details) -->
-                              <div class="list_product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#" onclick="captureThirdProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                 <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                    <li><a href="#"><i class="icon-heart"></i></a></li>
-                                </ul>
-                             </div>
-                               <!-- End of Hovered Over Product Action Box (For Product Details) --> 
-                            </div>
                         </div>
-                    </div>
-                    <!-- End of Third Product -->    
-                    <!-- Fourth Product -->
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img4.jpg" alt="product_img4" id="fourthProductImage">
-                                </a>
-                              
-                                     <!-- Hovered Over Product Action Box -->   
-                                     <div class="product_action_box">
-                                        <ul class="list_none pr_action_btn">
-                                            <li class="add-to-cart"><a href="#"onclick="captureFourthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                          <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                            <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                            <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- Hovered Over Product Action Box --> 
+                        <div class="product_info">
+                            <h6 class="product_title" id="fourthProductName" onclick="captureFourthProductInfo('ProductDetail');" ><a href="#">Cat Treat #1</a></h6>
+                            
+                            <div class="product_price">
+                                <span class="price" id="fourthProductPrice">$6.80</span>
                             </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="fourthProductName" onclick="captureFourthProductInfo('ProductDetail');" ><a href="#">Cat Treat #1</a></h6>
-                                
-                                <div class="product_price">
-                                    <span class="price" id="fourthProductPrice">$6.80</span>
-                                </div>
 
-                                <!-- Brief Product description -->
-                                <div>
-                                    <span>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </span> 
-                                 </div>
-                                <!-- End of Brief Product Description -->  
-
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureFourthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                 </center>
-                              
-                              <!-- Hovered Over Product Action Box (For Product Details) -->
-                              <div class="list_product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#" onclick="captureFourthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                 <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                    <li><a href="#"><i class="icon-heart"></i></a></li>
-                                </ul>
+                            <!-- Brief Product description -->
+                            <div>
+                                <span>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </span> 
                              </div>
-                               <!-- End of Hovered Over Product Action Box (For Product Details) --> 
+                            <!-- End of Brief Product Description -->  
 
-                            </div>
-                        </div>
-                    </div>
-                  <!-- End of Fourth Product -->
-
-                  <!-- Fifth Product -->
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img5.jpg" alt="product_img5" id="fifthProductImage">
-                                </a>
-                                <!-- Hovered Over Product Action Box -->   
-                                <div class="product_action_box">
-                                    <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#" onclick="captureFifthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                      <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                        <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- Hovered Over Product Action Box -->
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="fifthProductName" onclick="captureFifthProductInfo('ProductDetail');" ><a href="#">Blue Dress For Woman</a></h6>
-                                
-                                <div class="product_price">
-                                    <span class="price" id="fifthProductPrice">$45.00</span>
-                                </div>
-
-                                <!-- Brief Product description -->
-                                <div>
-                                    <span>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </span> 
-                                 </div>
-                                <!-- End of Brief Product Description -->  
-
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureFifthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                 
-                                </center>
-                              
-                              <!-- Hovered Over Product Action Box (For Product Details) -->
-                              <div class="list_product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#" onclick="captureFifthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                 <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                    <li><a href="#"><i class="icon-heart"></i></a></li>
-                                </ul>
-                             </div>
-                               <!-- End of Hovered Over Product Action Box (For Product Details) -->                                 
-                                
-                            </div>
-                        </div>
-                    </div>
-                <!-- End of Fifth Product -->    
-                <!-- Sixth Product --> 
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product"> 
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img6.jpg" alt="product_img6" id="sixthProductImage">
-                                </a>
-                               
-                               <!-- Hovered Over Product Action Box -->   
-                               <div class="product_action_box">
-                                    <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#" onclick="captureSixthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                    <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                        <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="sixthProductName" onclick="captureSixthProductInfo('ProductDetail');" ><a href="#">Blue casual check shirt</a></h6>
-                                
-                                <div class="product_price">
-                                    <span class="price" id="sixthProductPrice">$55.00</span>                                    
-                                </div>                                
-
-                                <!-- Brief Product description -->
-                                <div>
-                                    <span>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </span> 
-                                 </div>
-                                <!-- End of Brief Product Description -->  
-                                
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureSixthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                 </center>
-                              
-                              <!-- Hovered Over Product Action Box (For Product Details) -->
-                              <div class="list_product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#" onclick="captureSixthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                 <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                    <li><a href="#"><i class="icon-heart"></i></a></li>
-                                </ul>
-                             </div>
-                               <!-- End of Hovered Over Product Action Box (For Product Details) -->                                            
-                            </div>
-                        </div>
-                    </div>
-                   <!-- End of Sixth Product -->
-                   
-                   <!-- Seventh Product -->
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img7.jpg" alt="product_img7" id="seventhProductImage">
-                                </a>
-
-                               <!-- Hovered Over Product Action Box -->   
-                               <div class="product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#" onclick="captureSeventhProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                    <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                </ul>
-                               </div>
-
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="seventhProductName" onclick="captureSeventhProductInfo('ProductDetail');" ><a href="#">white black line dress</a></h6>
-                                
-                                <div class="product_price">
-                                    <span class="price" id="seventhProductPrice">$68.00</span>
-                                </div>
-
-                                  <!-- Brief Product description -->
-                                  <div>
-                                    <span>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </span> 
-                                 </div>
-                                <!-- End of Brief Product Description -->  
-                                
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureSeventhProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                 </center>
-                              
-                              <!-- Hovered Over Product Action Box (For Product Details) -->
-                              <div class="list_product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#" onclick="captureSeventhProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                 <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                    <li><a href="#"><i class="icon-heart"></i></a></li>
-                                </ul>
-                             </div>
-                               <!-- End of Hovered Over Product Action Box (For Product Details) -->                                            
-                            </div>
-                        </div>
-                    </div>
-                <!-- End of Seventh Product -->    
-
-                <!-- Eighth Product -->
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img8.jpg" alt="product_img8" id="eighthProductImage">
-                                </a>
-                                
-                               <!-- Hovered Over Product Action Box -->   
-                               <div class="product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#" onclick="captureEighthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                    <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                </ul>
-                               </div>
-
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="eighthProductName" onclick="captureEighthProductInfo('ProductDetail');"><a href="#">Men blue jins Shirt</a></h6>
-                                
-                                <div class="product_price">
-                                    <span class="price" id="eighthProductPrice">$69.00</span>                                    
-                                </div>
-
-                                  <!-- Brief Product description -->
-                                  <div>
-                                    <span>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </span> 
-                                 </div>
-                                <!-- End of Brief Product Description -->  
-                                
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureEighthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                 </center>
-                        
-                              <!-- Hovered Over Product Action Box (For Product Details) -->
-                              <div class="list_product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#" onclick="captureEighthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                 <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                    <li><a href="#"><i class="icon-heart"></i></a></li>
-                                </ul>
-                             </div>
-                               <!-- End of Hovered Over Product Action Box (For Product Details) -->                                   
-                            </div>
-                        </div>
-                    </div>
-                <!-- End of Eighth Product -->    
-
-                <!-- Nineth Product --> 
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img9.jpg" alt="product_img9" id="ninethProductImage">
-                                </a>
-
-                                <!-- Hovered Over Product Action Box -->   
-                               <div class="product_action_box">
-                                  <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#" onclick="captureNinethProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                    <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                        <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                    </ul>
-                               </div>
-
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="ninethProductName" onclick="captureNinethProductInfo('ProductDetail');"><a href="#">T-Shirt Form Girls</a></h6>
-                                <div class="product_price">
-                                    <span class="price" id="ninethProductPrice">$45.00</span>
-                                    <del>$55.25</del>
-                                    <div class="on_sale">
-                                        <span>35% Off</span>
-                                    </div>
-                                </div>
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:80%"></div>
-                                    </div>
-                                    <span class="rating_num">(21)</span>
-                                </div>
-
-                                <center>
+                            <center>
                                 <!-- Insert a "Add to Cart Button Here" -->
                                  <div class="cart_btn">
-                                     <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureNinethProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                                     <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureFourthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
                                  </div>
-                               </center>
-
-                              <!-- Hovered Over Product Action Box (For Product Details) -->
-                              <div class="list_product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#" onclick="captureNinethProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                 <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                    <li><a href="#"><i class="icon-heart"></i></a></li>
-                                </ul>
-                             </div>
-                               <!-- End of Hovered Over Product Action Box (For Product Details) -->             
-
-                            </div>
+                             </center>
                         </div>
                     </div>
-                  <!-- End of Nineth Product -->  
+                </div>
+               <!-- End of Fourth Product -->
+               <!-- Fifth Product -->
+               <div class="col-lg-3 col-md-4 col-6 grid_item">
+                <div class="product">
+                    <div class="product_img">
+                        <a href="shop-product-detail.html">
+                            <img src="assets/images/product_img5.jpg" alt="product_img5" id="fifthProductImage">
+                        </a>
+                        <!-- Hovered Over Product Action Box -->   
+                        <div class="product_action_box">
+                            <ul class="list_none pr_action_btn">
+                                <li class="add-to-cart"><a href="#" onclick="captureFifthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                              <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                                <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                                <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Hovered Over Product Action Box -->
+                    </div>
+                    <div class="product_info">
+                        <h6 class="product_title" id="fifthProductName" onclick="captureFifthProductInfo('ProductDetail');" ><a href="#">Dog Food #2</a></h6>
+                        
+                        <div class="product_price">
+                            <span class="price" id="fifthProductPrice">$45.00</span>
+                        </div>
+
+                        <!-- Brief Product description -->
+                        <div>
+                            <span>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </span> 
+                         </div>
+                        <!-- End of Brief Product Description -->  
+
+                        <center>
+                            <!-- Insert a "Add to Cart Button Here" -->
+                             <div class="cart_btn">
+                                 <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureFifthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                             </div>
+                         
+                        </center>  
+                    </div>
+                </div>
+            </div>
+        <!-- End of Fifth Product -->    
+        <!-- Sixth Product --> 
+            <div class="col-lg-3 col-md-4 col-6 grid_item">
+                <div class="product"> 
+                    <div class="product_img">
+                        <a href="shop-product-detail.html">
+                            <img src="assets/images/product_img6.jpg" alt="product_img6" id="sixthProductImage">
+                        </a>
+                       
+                       <!-- Hovered Over Product Action Box -->   
+                       <div class="product_action_box">
+                            <ul class="list_none pr_action_btn">
+                                <li class="add-to-cart"><a href="#" onclick="captureSixthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                            <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                                <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                                <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="product_info">
+                        <h6 class="product_title" id="sixthProductName" onclick="captureSixthProductInfo('ProductDetail');" ><a href="#">Dog Treat #2</a></h6>
+                        
+                        <div class="product_price">
+                            <span class="price" id="sixthProductPrice">$55.00</span>                                    
+                        </div>                                
+
+                        <!-- Brief Product description -->
+                        <div>
+                            <span>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </span> 
+                         </div>
+                        <!-- End of Brief Product Description -->  
+                        
+                        <center>
+                            <!-- Insert a "Add to Cart Button Here" -->
+                             <div class="cart_btn">
+                                 <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureSixthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                             </div>
+                         </center>                                    
+                    </div>
+                </div>
+            </div>
+           <!-- End of Sixth Product --> 
+           <!-- Seventh Product -->
+            <div class="col-lg-3 col-md-4 col-6 grid_item">
+                <div class="product">
+                    <div class="product_img">
+                        <a href="shop-product-detail.html">
+                            <img src="assets/images/product_img7.jpg" alt="product_img7" id="seventhProductImage">
+                        </a>
+
+                       <!-- Hovered Over Product Action Box -->   
+                       <div class="product_action_box">
+                        <ul class="list_none pr_action_btn">
+                            <li class="add-to-cart"><a href="#" onclick="captureSeventhProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                        <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                            <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                            <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                        </ul>
+                       </div>
+
+                    </div>
+                    <div class="product_info">
+                        <h6 class="product_title" id="seventhProductName" onclick="captureSeventhProductInfo('ProductDetail');" ><a href="#">Cat Food #1</a></h6>
+                        
+                        <div class="product_price">
+                            <span class="price" id="seventhProductPrice">$68.00</span>
+                        </div>
+
+                          <!-- Brief Product description -->
+                          <div>
+                            <span>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </span> 
+                         </div>
+                        <!-- End of Brief Product Description -->  
+                        
+                        <center>
+                            <!-- Insert a "Add to Cart Button Here" -->
+                             <div class="cart_btn">
+                                 <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureSeventhProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                             </div>
+                         </center>                         
+                    </div>
+                </div>
+            </div>
+        <!-- End of Seventh Product -->    
+
+        <!-- Eighth Product -->
+            <div class="col-lg-3 col-md-4 col-6 grid_item">
+                <div class="product">
+                    <div class="product_img">
+                        <a href="shop-product-detail.html">
+                            <img src="assets/images/product_img8.jpg" alt="product_img8" id="eighthProductImage">
+                        </a>
+                        
+                       <!-- Hovered Over Product Action Box -->   
+                       <div class="product_action_box">
+                        <ul class="list_none pr_action_btn">
+                            <li class="add-to-cart"><a href="#" onclick="captureEighthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                        <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                            <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                            <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                        </ul>
+                       </div>
+
+                    </div>
+                    <div class="product_info">
+                        <h6 class="product_title" id="eighthProductName" onclick="captureEighthProductInfo('ProductDetail');"><a href="#">Cat Treat #2</a></h6>
+                        
+                        <div class="product_price">
+                            <span class="price" id="eighthProductPrice">$69.00</span>                                    
+                        </div>
+
+                          <!-- Brief Product description -->
+                          <div>
+                            <span>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </span> 
+                          </div>
+                          <!-- End of Brief Product Description -->  
+                        
+                        <center>
+                            <!-- Insert a "Add to Cart Button Here" -->
+                             <div class="cart_btn">
+                                 <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureEighthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                             </div>
+                         </center>                         
+                    </div>
+                </div>
+            </div>
+           <!-- End of Eighth Product -->    
+
+           <!-- Nineth Product --> 
+           <div class="col-lg-3 col-md-4 col-6 grid_item">
+            <div class="product">
+                <div class="product_img">
+                    <a href="shop-product-detail.html">
+                        <img src="assets/images/product_img9.jpg" alt="product_img9" id="ninethProductImage">
+                    </a>
+
+                    <!-- Hovered Over Product Action Box -->   
+                   <div class="product_action_box">
+                      <ul class="list_none pr_action_btn">
+                            <li class="add-to-cart"><a href="#" onclick="captureNinethProductInfo('9','AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                        <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                            <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                            <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                        </ul>
+                   </div>
+
+                </div>
+                <div class="product_info">
+                    <h6 class="product_title" id="ninethProductName" onclick="captureNinethProductInfo('9','ProductDetail');"><a href="#">Parrot Food #1</a></h6>
+                    
+                    <div class="product_price">
+                        <span class="price" id="ninethProductPrice">$16.00</span>
+                    </div>
+
+                      <!-- Brief Product description -->
+                      <div>
+                        <span>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </span> 
+                      </div>
+                      <!-- End of Brief Product Description -->  
+                    
+                    <center>
+                    <!-- Insert a "Add to Cart Button Here" -->
+                     <div class="cart_btn">
+                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureNinethProductInfo('9','AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                     </div>
+                   </center>
+                </div>
+            </div>
+        </div>
+      <!-- End of Nineth Product -->  
+
+      <!-- Tenth Product --> 
+      <div class="col-lg-3 col-md-4 col-6 grid_item">
+        <div class="product">
+            <div class="product_img">
+                <a href="shop-product-detail.html">
+                    <img src="assets/images/product_img10.jpg" alt="product_img10" id="tenthProductImage">
+                </a>
+
+                <!-- Hovered Over Product Action Box -->   
+               <div class="product_action_box">
+                  <ul class="list_none pr_action_btn">
+                        <li class="add-to-cart"><a href="#" onclick="captureNinethProductInfo('10','AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                    <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                        <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                    </ul>
+               </div>
+
+            </div>
+            <div class="product_info">
+                <!--<h6 class="product_title" id="tenthProductName" onclick="captureTenthProductInfo('ProductDetail');"><a href="#">Parrot Treat #1</a></h6>-->
+                <h6 class="product_title" id="tenthProductName" onclick="captureNinethProductInfo('10','ProductDetail');"><a href="#">Parrot Treat #1</a></h6>
+                
+                <div class="product_price">
+                    <span class="price" id="tenthProductPrice">$6.00</span>
+                </div>
+
+                  <!-- Brief Product description -->
+                  <div>
+                    <span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </span> 
+                  </div>
+                  <!-- End of Brief Product Description -->  
+                
+                <center>
+                <!-- Insert a "Add to Cart Button Here" -->
+                 <div class="cart_btn">
+                     <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureNinethProductInfo('10','AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                 </div>
+               </center>
+            </div>
+        </div>
+    </div>
+    <!-- End of Tenth Product -->  
+      
+      <!-- Eleventh Product --> 
+        <div class="col-lg-3 col-md-4 col-6 grid_item">
+            <div class="product">
+                <div class="product_img">
+                    <a href="shop-product-detail.html">
+                        <img src="assets/images/product_img11.jpg" alt="product_img11" id="eleventhProductImage">
+                    </a>
+                    
+                 <!-- Hovered Over Product Action Box -->   
+                   <div class="product_action_box">
+                    <ul class="list_none pr_action_btn">
+                          <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded" onclick="captureEleventhProductInfo('AddToCart');"></i> Add To Cart</a></li>
+                      <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                          <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                          <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                      </ul>
+                   </div>
+
+                </div>
+                <div class="product_info">
+                    <h6 class="product_title" id="eleventhProductName" onclick="captureEleventhProductInfo('ProductDetail');"><a href="#">Dog Food #3</a></h6>
+                    
+                    <div class="product_price">
+                        <span class="price" id="eleventhProductPrice">$28.00</span>
+                    </div>
+
+                      <!-- Brief Product description -->
+                      <div>
+                        <span>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </span> 
+                      </div>
+                      <!-- End of Brief Product Description -->  
+                
+                    <center>
+                        <!-- Insert a "Add to Cart Button Here" -->
+                         <div class="cart_btn">
+                             <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureEleventhProductInf('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                         </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+      <!-- End of Eleventh Product -->  
+      
+      <!-- Twelveth Product --> 
+        <div class="col-lg-3 col-md-4 col-6 grid_item">
+            <div class="product">
+                <div class="product_img">
+                    <a href="shop-product-detail.html">
+                        <img src="assets/images/product_img12.jpg" alt="product_img7" id="twelvethProductImage">
+                    </a>
+                    
+                    <!-- Hovered Over Product Action Box -->   
+                   <div class="product_action_box">
+                    <ul class="list_none pr_action_btn">
+                          <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded" onclick="captureTwelvethProductInfo('AddToCart');"></i> Add To Cart</a></li>
+                      <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                          <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                          <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                      </ul>
+                   </div>
+
+                </div>
+                <div class="product_info">
+                    <h6 class="product_title" id="twelvethProductName" onclick="captureTwelvethProductInfo('ProductDetail');"><a href="#">Dog Treat #3</a></h6>
+                    
+                    <div class="product_price">
+                        <span class="price" id="twelvethProductPrice">$18.00</span>                        
+                    </div>
+
+                      <!-- Brief Product description -->
+                      <div>
+                        <span>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </span> 
+                      </div>
+                      <!-- End of Brief Product Description -->  
+                    
+                    <center>
+                        <!-- Insert a "Add to Cart Button Here" -->
+                         <div class="cart_btn">
+                             <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureTwelvethProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                         </div>
+                    </center>                      
+                </div>
+            </div>
+        </div>
+        <!-- End of Twelveth Product -->
+
+        <!-- Thirteenth Product --> 
+        <div class="col-lg-3 col-md-4 col-6 grid_item">
+            <div class="product">
+                <div class="product_img">
+                    <a href="shop-product-detail.html">
+                        <img src="assets/images/product_img13.jpg" alt="product_img13" id="thirdteenthProductImage">
+                    </a>
+
+                 <!-- Hovered Over Product Action Box -->   
+                   <div class="product_action_box">
+                    <ul class="list_none pr_action_btn">
+                          <li class="add-to-cart"><a href="./addToCart.html"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                      <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                          <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                          <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                      </ul>
+                   </div>
+                    
+                </div>
+                <div class="product_info">
+                    <h6 class="product_title" id="thirteenthProductName" onclick="captureThirdteenthProductInfo();"><a href="#">Cat Food #3</a></h6>
+                    
+                    <div class="product_price">
+                        <span class="price" id="thirteenthProductPrice">$38.00</span>
+                    </div>
+
+                      <!-- Brief Product description -->
+                      <div>
+                        <span>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </span> 
+                      </div>
+                      <!-- End of Brief Product Description -->  
+                    
+                    <center>
+                        <!-- Insert a "Add to Cart Button Here" -->
+                         <div class="cart_btn">
+                             <button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                         </div>
+                    </center>
+                    
+                </div>
+            </div>
+        </div>
+       <!-- End of Thirteenth Product -->  
+
+      <!-- Fourteenth Product -->
+        <div class="col-lg-3 col-md-4 col-6 grid_item">
+            <div class="product">
+                <div class="product_img">
+                    <a href="shop-product-detail.html">
+                        <img src="assets/images/product_img14.jpg" alt="product_img14" id="fourteenthProductImage">
+                    </a>
                   
-                  <!-- Tenth Product --> 
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">      
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img10.jpg" alt="product_img10" id="tenthProductImage">
-                                </a>
-                     
-                                <!-- Hovered Over Product Action Box -->   
-                               <div class="product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                      <li class="add-to-cart"><a href="#" onclick="captureTenthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                  <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                      <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                      <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                  </ul>
-                               </div>
-                            
-                            </div>
- 
-                            <div class="product_info">
-                                <h6 class="product_title" id="tenthProductName" onclick="captureTenthProductInfo('ProductDetail');"><a href="#">Red &amp; Black check shirt</a></h6>
-                                <div class="product_price">
-                                    <span class="price" id="tenthProductPrice">$55.00</span>
-                                    <del>$95.00</del>
-                                    <div class="on_sale">
-                                        <span>25% Off</span>
-                                    </div>
-                                </div>
- 
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:68%"></div>
-                                    </div>
-                                    <span class="rating_num">(15)</span>
-                                </div>
-                               
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="captureTenthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                </center>
-
-                              <!-- Hovered Over Product Action Box (For Product Details) -->
-                              <div class="list_product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#" onclick="captureTenthProductInfo('AddToCart');"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                 <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                    <li><a href="#"><i class="icon-heart"></i></a></li>
-                                </ul>
-                             </div>
-                               <!-- End of Hovered Over Product Action Box (For Product Details) -->       
-
-                            </div>
-                        </div>
-                    </div>
-                  <!-- End of Tenth Product -->  
-
-                  <!-- Eleventh Product --> 
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img11.jpg" alt="product_img11" id="eleventhProductImage">
-                                </a>
-                                
-                             <!-- Hovered Over Product Action Box -->   
-                               <div class="product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                      <li class="add-to-cart"><a href="./addToCart.html"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                  <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                      <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                      <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                  </ul>
-                               </div>
-
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="eleventhProductName" onclick="captureEleventhProductInfo();"><a href="#">Black dress for woman</a></h6>
-                                <div class="product_price">
-                                    <span class="price" id="eleventhProductPrice">$68.00</span>
-                                    <del>$99.00</del>
-                                    <div class="on_sale">
-                                        <span>20% Off</span>
-                                    </div>
-                                </div>
-                               
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:87%"></div>
-                                    </div>
-                                    <span class="rating_num">(25)</span>
-                                </div>
-                                
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                </center>
-
-                              <!-- Hovered Over Product Action Box (For Product Details) -->
-                              <div class="list_product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                    <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                 <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                    <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                    <li><a href="#"><i class="icon-heart"></i></a></li>
-                                </ul>
-                             </div>
-                               <!-- End of Hovered Over Product Action Box (For Product Details) -->    
-
-                            </div>
-                        </div>
-                    </div>
-                  <!-- End of Eleventh Product -->  
-                  
-                  <!-- Twelveth Product --> 
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img12.jpg" alt="product_img7" id="twelvethProductImage">
-                                </a>
-                                
-                                <!-- Hovered Over Product Action Box -->   
-                               <div class="product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                      <li class="add-to-cart"><a href="./addToCart.html"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                  <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                      <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                      <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                  </ul>
-                               </div>
-
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="twelvethProductName"onclick="captureTwelvethProductInfo();"><a href="#">Black T-shirt for woman</a></h6>
-                                
-                                <div class="product_price">
-                                    <span class="price" id="twelvethProductPrice">$68.00</span>
-                                    <del>$99.00</del>
-                                    <div class="on_sale">
-                                        <span>20% Off</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:87%"></div>
-                                    </div>
-                                    <span class="rating_num">(25)</span>
-                                </div>
-
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                </center>
-    
-                                  <!-- Hovered Over Product Action Box (For Product Details) -->
-                                  <div class="list_product_action_box">
-                                    <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                     <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
-                                    </ul>
-                                 </div>
-                                   <!-- End of Hovered Over Product Action Box (For Product Details) -->    
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of Twelveth Product -->
+                 <!-- Hovered Over Product Action Box -->   
+                   <div class="product_action_box">
+                    <ul class="list_none pr_action_btn">
+                          <li class="add-to-cart"><a href="./addToCart.html"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                      <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                          <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                          <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                      </ul>
+                   </div>    
                     
-                    <!-- Thirteenth Product --> 
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img13.jpg" alt="product_img13" id="thirdteenthProductImage">
-                                </a>
-
-                             <!-- Hovered Over Product Action Box -->   
-                               <div class="product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                      <li class="add-to-cart"><a href="./addToCart.html"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                  <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                      <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                      <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                  </ul>
-                               </div>
-                                
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="thirteenthProductName" onclick="captureThirdteenthProductInfo();"><a href="#">Pink Dress For Woman</a></h6>
-                                <div class="product_price">
-                                    <span class="price" id="thirteenthProductPrice">$65.00</span>
-                                    <del>$80.00</del>
-                                    <div class="on_sale">
-                                        <span>30% Off</span>
-                                    </div>
-                                </div>
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:68%"></div>
-                                    </div>
-                                    <span class="rating_num">(28)</span>
-                                </div>
-                                
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                </center>
-
-                                 <!-- Hovered Over Product Action Box (For Product Details) -->
-                                 <div class="list_product_action_box">
-                                   <ul class="list_none pr_action_btn">
-                                       <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                    <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                       <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                       <li><a href="#"><i class="icon-heart"></i></a></li>
-                                   </ul>
-                                </div>
-                                  <!-- End of Hovered Over Product Action Box (For Product Details) -->    
-                               
-                            </div>
-                        </div>
-                    </div>
-                   <!-- End of Thirteenth Product -->  
-
-                  <!-- Fourteenth Product -->
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img14.jpg" alt="product_img14" id="fourteenthProductImage">
-                                </a>
-                              
-                             <!-- Hovered Over Product Action Box -->   
-                               <div class="product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                      <li class="add-to-cart"><a href="./addToCart.html"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                  <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                      <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                      <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                  </ul>
-                               </div>    
-                                
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="fourteenthProductName" onclick="captureFourteenthProductInfo();"><a href="#">White shirt for man</a></h6>
-                                <div class="product_price">
-                                    <span class="price" id="fourteenthProductPrice">$55.00</span>
-                                    <del>$60.00</del>
-                                </div>
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:68%"></div>
-                                    </div>
-                                    <span class="rating_num">(15)</span>
-                                </div>
-
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                </center>
-   
-                                 <!-- Hovered Over Product Action Box (For Product Details) -->
-                                 <div class="list_product_action_box">
-                                   <ul class="list_none pr_action_btn">
-                                       <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                    <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                       <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                       <li><a href="#"><i class="icon-heart"></i></a></li>
-                                   </ul>
-                                </div>
-                                  <!-- End of Hovered Over Product Action Box (For Product Details) -->    
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of Fourteenth Product -->
+                </div>
+                <div class="product_info">
+                    <h6 class="product_title" id="fourteenthProductName" onclick="captureFourteenthProductInfo();"><a href="#">Cat Treat #3</a></h6>
                     
-                    <!-- Fifteenth Product --> 
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img15.jpg" alt="product_img14" id="fifthteenthProductImage">
-                                </a>
-                                
-                                <!-- Hovered Over Product Action Box -->   
-                               <div class="product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                      <li class="add-to-cart"><a href="./addToCart.html"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                  <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                      <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                      <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                  </ul>
-                               </div>    
-
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="fifteenthProductName" onclick="captureFifteenthProductInfo();"><a href="shop-product-detail.html">Pink Dress for Baby Kids</a></h6>
-                                <div class="product_price">
-                                    <span class="price" id="fifteenthProductPrice">$55.00</span>
-                                    <del>$60.00</del>
-                                </div>
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:68%"></div>
-                                    </div>
-                                    <span class="rating_num">(15)</span>
-                                </div>
-                                
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                </center>
-   
-                                 <!-- Hovered Over Product Action Box (For Product Details) -->
-                                 <div class="list_product_action_box">
-                                   <ul class="list_none pr_action_btn">
-                                       <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                    <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                       <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                       <li><a href="#"><i class="icon-heart"></i></a></li>
-                                   </ul>
-                                </div>
-                                  <!-- End of Hovered Over Product Action Box (For Product Details) -->   
-                            </div>
-                        </div>
+                    <div class="product_price">
+                        <span class="price" id="fourteenthProductPrice">$28.00</span>
                     </div>
-                   <!-- End of Fifteenth Product --> 
+
+                      <!-- Brief Product description -->
+                      <div>
+                        <span>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </span> 
+                      </div>
+                      <!-- End of Brief Product Description -->  
                     
-                  <!-- Sixteenth Product -->
-                    <div class="col-lg-3 col-md-4 col-6 grid_item">
-                        <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
-                                    <img src="assets/images/product_img9.jpg" alt="product_img12" id="sixteenthProductImage">
-                                </a>
-                                
-                                <!-- Hovered Over Product Action Box -->   
-                               <div class="product_action_box">
-                                <ul class="list_none pr_action_btn">
-                                      <li class="add-to-cart"><a href="./addToCart.html"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                  <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                      <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
-                                      <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
-                                  </ul>
-                               </div>    
+                    <center>
+                        <!-- Insert a "Add to Cart Button Here" -->
+                         <div class="cart_btn">
+                             <button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                         </div>
+                    </center>
 
-                            </div>
-                            <div class="product_info">
-                                <h6 class="product_title" id="sixteenthProductName" onclick="captureSixteenthProductInfo();"><a href="#">White T-shirt for woman</a></h6>
-                                <div class="product_price" id="sixteenthProductPrice">
-                                    <span class="price">$69.00</span>
-                                    <del>$89.00</del>
-                                </div>
-                                <div class="rating_wrap">
-                                    <div class="rating">
-                                        <div class="product_rate" style="width:68%"></div>
-                                    </div>
-                                    <span class="rating_num">(22)</span>
-                                </div>
-                                
-                                <center>
-                                    <!-- Insert a "Add to Cart Button Here" -->
-                                     <div class="cart_btn">
-                                         <button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
-                                     </div>
-                                </center>
-   
-                                 <!-- Hovered Over Product Action Box (For Product Details) -->
-                                 <div class="list_product_action_box">
-                                   <ul class="list_none pr_action_btn">
-                                       <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                    <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                       <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
-                                       <li><a href="#"><i class="icon-heart"></i></a></li>
-                                   </ul>
-                                </div>
-                                  <!-- End of Hovered Over Product Action Box (For Product Details) -->   
+                </div>
+            </div>
+        </div>
+        <!-- End of Fourteenth Product -->
+        
+        <!-- Fifteenth Product --> 
+        <div class="col-lg-3 col-md-4 col-6 grid_item">
+            <div class="product">
+                <div class="product_img">
+                    <a href="shop-product-detail.html">
+                        <img src="assets/images/product_img15.jpg" alt="product_img14" id="fifthteenthProductImage">
+                    </a>
+                    
+                    <!-- Hovered Over Product Action Box -->   
+                   <div class="product_action_box">
+                    <ul class="list_none pr_action_btn">
+                          <li class="add-to-cart"><a href="./addToCart.html"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                      <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                          <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                          <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                      </ul>
+                   </div>    
 
-                            <!-- End of Sixteenth Product-->
-                            </div>
+                </div>
+                <div class="product_info">
+                    <h6 class="product_title" id="fifteenthProductName" onclick="captureFifteenthProductInfo();"><a href="shop-product-detail.html">Parrot Food #2</a></h6>
+                    
+                    <div class="product_price">
+                        <span class="price" id="fifteenthProductPrice">$26.00</span>                        
+                    </div>
+
+                      <!-- Brief Product description -->
+                      <div>
+                        <span>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </span> 
+                      </div>
+                      <!-- End of Brief Product Description -->  
+                    
+                    <center>
+                        <!-- Insert a "Add to Cart Button Here" -->
+                         <div class="cart_btn">
+                             <button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                         </div>
+                    </center>
+
+                     <!-- Hovered Over Product Action Box (For Product Details) -->
+                     <div class="list_product_action_box">
+                       <ul class="list_none pr_action_btn">
+                           <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                        <!--   <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                           <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>  -->
+                           <li><a href="#"><i class="icon-heart"></i></a></li>
+                       </ul>
+                    </div>
+                      <!-- End of Hovered Over Product Action Box (For Product Details) -->   
+                </div>
+            </div>
+        </div>
+       <!-- End of Fifteenth Product --> 
+        
+      <!-- Sixteenth Product -->
+        <div class="col-lg-3 col-md-4 col-6 grid_item">
+            <div class="product">
+                <div class="product_img">
+                    <a href="shop-product-detail.html">
+                        <img src="assets/images/product_img9.jpg" alt="product_img12" id="sixteenthProductImage">
+                    </a>
+                    
+                    <!-- Hovered Over Product Action Box -->   
+                   <div class="product_action_box">
+                    <ul class="list_none pr_action_btn">
+                          <li class="add-to-cart"><a href="./addToCart.html"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
+                      <!-- <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
+                          <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li> -->
+                          <li><a href="#"><i class="icon-heart" onclick="displayWishListMessage();"></i></a></li>
+                      </ul>
+                   </div>    
+
+                </div>
+                <div class="product_info">
+                    <h6 class="product_title" id="sixteenthProductName" onclick="captureSixteenthProductInfo();"><a href="#">Parrot Treat #2</a></h6>
+                    
+                    <div class="product_price" id="sixteenthProductPrice">
+                        <span class="price">$16.00</span>                        
+                    </div>
+
+                      <!-- Brief Product description -->
+                      <div>
+                        <span>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </span> 
+                      </div>
+                      <!-- End of Brief Product Description -->  
+                
+                    <center>
+                        <!-- Insert a "Add to Cart Button Here" -->
+                         <div class="cart_btn">
+                             <button class="btn btn-fill-out btn-addtocart" type="button" onclick="window.location.href='./addToCart.html'"><i class="icon-basket-loaded"></i> Add to cart</button>                                    
+                         </div>
+                    </center>
+
+                <!-- End of Sixteenth Product-->   
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -1186,7 +1038,7 @@
     </div>
 </div>
 <!-- END SECTION SHOP -->
- 
+
 </div>
 <!-- END MAIN CONTENT -->
 
@@ -1285,30 +1137,59 @@
 </footer>
 <!-- END FOOTER -->
 
+
 <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
 
-<!-- [JAVASCRIPT] -->
- 
-<!-- Bootstrap Bundle JS -->
-<script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- Latest jQuery --> 
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+
+<!-- jquery-ui --> 
+<script src="assets/js/jquery-ui.js"></script>
+
+<!-- popper min js -->
+<script src="assets/js/popper.min.js"></script>
+
+<!-- Latest compiled and minified Bootstrap --> 
+<script src="assets/bootstrap/js/bootstrap.min.js"></script> 
+
+<!-- owl-carousel min js  --> 
+<script src="assets/owlcarousel/js/owl.carousel.min.js"></script> 
+
+<!-- magnific-popup min js  --> 
+<script src="assets/js/magnific-popup.min.js"></script> 
+
+<!-- waypoints min js  --> 
+<script src="assets/js/waypoints.min.js"></script> 
+
+<!-- parallax js  --> 
+<script src="assets/js/parallax.js"></script> 
+
+<!-- countdown js  --> 
+<script src="assets/js/jquery.countdown.min.js"></script> 
+
+<!-- imagesloaded js --> 
+<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+
+<!-- isotope min js --> 
+<script src="assets/js/isotope.min.js"></script>
+
+<!-- jquery.dd.min js -->
+<script src="assets/js/jquery.dd.min.js"></script>
+
+<!-- slick js -->
+<script src="assets/js/slick.min.js"></script>
+
+<!-- elevatezoom js -->
+<script src="assets/js/jquery.elevatezoom.js"></script>
+
+<!-- isotope-loadmore js -->
+<script src="assets/js/isotope-loadmore.js"></script>
+
+<!-- scripts js --> 
+<script src="assets/js/scripts.js"></script>
 
 <!-- Custom Javascript -->
 <script defer src="./assets/js/pets_scripts.js"></script>
-
-<!-- Latest jQuery --> 
-<script src="./assets/js/jquery-3.7.1.min.js"></script>
-
-<!-- jquery-ui --> 
-<script src="./assets/js/jquery-ui.js"></script>
-
-<!-- scripts js --> 
-<script src="./assets/js/scripts.js"></script>  
-
-<!-- Custom Javascript -->
-<script defer src="./assets/js/petpurely/js/pets_scripts.js"></script>
-
-<!-- End of Javascript -->
-
 
 </body>
 </html>

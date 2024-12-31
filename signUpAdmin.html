@@ -31,17 +31,22 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
 
-<!-- Customized Style CSS -->
-<link rel="stylesheet" href="./assets/css/petpurely/css/pets_styles.css" type="text/css">
+<!-- Icon Font CSS -->
+<link rel="stylesheet" href="./assets/css/all.min.css">
+<link rel="stylesheet" href="./assets/css/ionicons.min.css">
+<link rel="stylesheet" href="./assets/css/themify-icons.css">
+<link rel="stylesheet" href="./assets/css/linearicons.css">
+<link rel="stylesheet" href="./assets/css/flaticon.css">
+<link rel="stylesheet" href="./assets/css/simple-line-icons.css">
 
 <!-- Style CSS -->
 <link rel="stylesheet" href="./assets/css/style.css">
 <link rel="stylesheet" href="./assets/css/responsive.css">
 
-<!-- End of Cascading Style Sheet -->
+<!-- Customized Style CSS -->
+<link rel="stylesheet" href="./assets/css/pets_styles.css" type="text/css">
 
-<!-- Custom Javascript -->
- <script src="./assets/js/pets_scripts.js"></script>
+<!-- End of Cascading Style Sheet -->
 
 </head>
 
@@ -158,7 +163,7 @@
                         </li>
                         
                         <li class="dropdown">
-                            <li><a class="nav-link nav_item" href="#">Services</a></li> 
+                            <li><a class="nav-link nav_item" href="#" onclick="alert('Sorry,this feature is still under development.');">Services</a></li> 
                         </li>
                         <!--<li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li> -->
                     </ul>
@@ -241,22 +246,22 @@
 
                              <!-- Name--> 
                            <div class="form-group mb-3">
-                            <input type="text" required="" id="txtSignUpName" name="txtSignUpName" class="form-control"  placeholder="Enter Your Name" onchange="getName();" title="Please provide your name here.">
+                            <input type="text" required="" id="txtAdminSignUpName" name="txtAdminSignUpName" class="form-control"  placeholder="Enter Your Name" onchange="getName();" title="Please provide your name here.">
                            </div>
 
                             <!-- Email--> 
                             <div class="form-group mb-3">
-                                <input type="text" required="" id="txtSignUpEmail" name="txtSignUpEmail" class="form-control" placeholder="Enter Your Email" onchange="getEmail();" title="Please provide your email here.">
+                                <input type="text" required="" id="txtAdminSignUpEmail" name="txtAdminSignUpEmail" class="form-control" placeholder="Enter Your Email" onchange="getEmail();" title="Please provide your email here.">
                             </div>
 
                            <!-- Password --> 
                             <div class="form-group mb-3">
-                                <input class="form-control" id="txtSignUpPassword" name="txtSignUpPassword" required="" type="password" placeholder="Password" onchange="getPassword();" title="Please provide your password here.">
+                                <input class="form-control" id="txtAdminSignUpPassword" name="txtAdminSignUpPassword" required="" type="password" placeholder="Password" onchange="getPassword();" title="Please provide your password here.">
                             </div>
                           
                             <!-- Confirm Password -->
                             <div class="form-group mb-3">
-                                <input class="form-control" required="" id="txtSignUpConfirmedPassword" name="txtSignUpConfirmedPassword" type="password" placeholder="Confirm Password" onchange="getPassword();" title="Please provide your confirmed password here.">
+                                <input class="form-control" required="" id="txtAdminSignUpConfirmedPassword" name="txtAdminSignUpConfirmedPassword" type="password" placeholder="Confirm Password" onchange="getPassword();" title="Please provide your confirmed password here.">
                             </div>
 
                            <!-- Terms Agreement --> 
@@ -272,7 +277,7 @@
                                 <!--<button type="submit" class="btn btn-fill-out btn-block" name="register">Register</button>-->
                                 <button type="button" class="btn btn-fill-out btn-block" name="register" onclick="displayRegInfo();">Register</button>
                             </div>
-                            <div class="form-note text-center">Already have an account? <a href="./login.html">Log in</a></div>
+                            <div class="form-note text-center">Already have an account? <a href="./loginAdmin.html">Log in</a></div>
                         </form>
                     </div>
                 </div>
@@ -425,6 +430,9 @@
 
 <!-- scripts js --> 
 <script src="./assets/js/scripts.js"></script>
+
+<!-- Custom Javascript -->
+<script defer src="./assets/js/pets_scripts.js"></script>
 
 <!-- End of Javascript -->
 
