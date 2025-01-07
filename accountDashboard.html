@@ -45,7 +45,7 @@
   <!-- End of Cascading Style Sheet -->
 
 </head>
-<body onload="displayDashboard();displayProfileName();">
+<body onload="displayDashboard();displayProfileName();displayEmptyCart();">
 
   <!-- LOADER  (For Spinner) -->
   <div class="preloader">
@@ -102,7 +102,7 @@
           <a class="nav-link text-white" data-target="orders">Orders</a> <!-- Orders -->
           <a class="nav-link text-white" href="./admin-account1.html"><span id="categoryLink" name="categoryLink">Category</span></a> <!-- Category -->
           <a class="nav-link text-white" href="./admin-account1.html"><span id="productLink" name="productLink" >Product</span></a> <!-- Product -->
-          <a class="nav-link text-white" href="#" onclick="updateLoginLogoutState();">Logout</a> <!-- Logout -->
+          <a class="nav-link text-white" href="#" onclick="updateLoginLogoutState(document.getElementById('dvUsername').textContent)">Logout</a> <!-- Logout -->
         </nav>
       </div>
 

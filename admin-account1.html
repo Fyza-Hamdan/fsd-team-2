@@ -1,5 +1,5 @@
 <!-- ************************************************************************************************************************ 
-     * Filename: admin-account.html                                                                                         *
+     * Filename: admin-account1.html                                                                                        *
      * Objective: A multi-view Dashboard for Administrators to manage product categories, products and view order history.  *
      * Remarks: Generation SG Full Stack Developer FSD05 Capstone Project                                                   *
      * Developer: Raizal                                                                                                    *
@@ -22,7 +22,10 @@
         <link rel="shortcut icon" type="image/x-icon" href="./assets/images/petperks_favicon.png">
         
         <!-- [CASCADING STYLE SHEETS (CSS)] -->
-  
+
+        <!-- Animation CSS -->
+        <link rel="stylesheet" href="./assets/css/animate.css">	
+
         <!-- Latest Bootstrap min CSS -->
         <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
 
@@ -38,17 +41,35 @@
         <link rel="stylesheet" href="./assets/css/flaticon.css">
         <link rel="stylesheet" href="./assets/css/simple-line-icons.css">
 
-        <!-- STYLE CSS -->
+        <!--- owl carousel CSS-->
+        <link rel="stylesheet" href="./assets/owlcarousel/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./assets/owlcarousel/css/owl.theme.css">
+        <link rel="stylesheet" href="./assets/owlcarousel/css/owl.theme.default.min.css">
+
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="./assets/css/magnific-popup.css">
+
+        <!-- Slick CSS -->
+        <link rel="stylesheet" href="./assets/css/slick.css">
+        <link rel="stylesheet" href="assets/css/slick-theme.css">
+
+        <!-- Style CSS -->
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="stylesheet" href="./assets/css/responsive.css">
 
-        <!-- Customized Style CSS -->
-        <link rel="stylesheet" href="./assets/css/petpurely/css/pets_styles.css" type="text/css">
+         <!-- Customized Style CSS -->
+         <link rel="stylesheet" href="./assets/css/pets_styles.css" type="text/css">
 
-        <!-- End of Cascading Style Sheet -->
+        <!-- End of CASCADING STYLE SHEETS (CSS) -->
+
+        <style>
+            body {
+          /* padding: 2rem; */
+            }
+          </style>
                         
         </head>
-<body>
+<body onload="displayEmptyCart();displayLoginName();getLoginStatus();">
 
 <!-- START HEADER -->
 <header class="header_wrap fixed-top header_with_topbar">
@@ -156,7 +177,8 @@
                         <!--<li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li> -->
                     </ul>
                     <ul class="header_list">
-                        <li><a href="login.html"><i class="ti-user"></i><span>Login</span></a></li>
+                        <span><img id="account-image" src="./assets/images/accountPicture.png" alt="Avatar" width="30px" height="30px" onclick="window.location.href='./accountDashboard.html'"></span>
+                        <li><a href="#"><!--<i class="ti-user"></i>--><span id="lnkLogin" onclick="window.localStorage.clear();window.location.href='./loginAdmin.html'">Login</span></a></li>
                     </ul>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">
@@ -169,26 +191,39 @@
                             </form>
                         </div><div class="search_overlay"></div>
                     </li>
-                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">1</span></a>
-                        <div class="cart_box dropdown-menu dropdown-menu-right">
-                            <ul class="cart_list">
-                                <li>
-                                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb1.jpg" alt="cart_thumb1"><span id="drpDwnProductName">Variable product 001</span></a>
-                                    <span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="cart_amount"></span> <span class="price_symbole">$</span><span id="drpDwnProductPrice">78.00</span>
-                                </li>
-                                <!--<li>
-                                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed consequat</a>
-                                    <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>81.00</span>
-                                </li> -->
-                            </ul>
-                            <div class="cart_footer">
-                                <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"></span> <span class="price_symbole">$</span><span id="drpDwnFooterProductPrice">78.00</span></p>
-                                <p class="cart_buttons"><a href="./addToCart.html" class="btn btn-fill-line view-cart">View Cart</a><a href="./checkout.html" class="btn btn-fill-out checkout">Checkout</a></p>
-                            </div>
-                        </div>
-                    </li>
+                    
+                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">0</span></a>
+                            
+                      <!-- Cart Box Dropdown Menu -->   
+                         <div class="cart_box dropdown-menu dropdown-menu-right" id="viewCartItems">
+                         
+                           <!-- Cart List -->  
+                             <ul class="cart_list">
+                                 <li>
+                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
+                                     <a href="#"><img src="assets/images/cart_thamb1.jpg" id="imgListCart" alt="cart_thumb1"><span id="viewListCart">Variable product 001</span></a>
+                                     <!--<span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="cart_amount"></span> <span class="price_symbole">$</span><span id="drpDwnProductPrice">78.00</span>-->
+                                     <span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="price_symbole">$</span><span class="cart-amount" id="drpDwnProductPrice">78.00</span>
+                                 </li>
+                                 <!--<li>
+                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
+                                     <a href="#"><img src="assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed consequat</a>
+                                     <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>81.00</span>
+                                 </li> -->
+                             </ul>
+                           <!-- End of Cart List -->    
+                         
+                           <!-- Cart Footer -->
+                             <div class="cart_footer" >
+                                 <p class="cart_total" id="cartListSubTotal"><strong>Subtotal:</strong><span class="price_symbole">$</span><span class="cart-price" id="drpDwnFooterProductPrice">78.00</span></p>
+                                 <p class="cart_buttons"><a href="./addToCart.html" class="btn btn-fill-line view-cart">View Cart</a><a href="./checkout.html" class="btn btn-fill-out checkout">Checkout</a></p>
+                             </div>
+                           <!-- End of Cart Footer --> 
+                             
+                         </div>
+                      <!-- End of Cart Box Dropdown Menu -->      
+                     
+                     </li>     
                 </ul>
             </nav>
         </div>
@@ -202,7 +237,7 @@
     
     <div class="container-fluid">
         <!-- START CONTAINER -->
-        <div class="row align-items-center justify-content-center">
+        <div class="row">
         	<div class="col-md-6">
                 <div class="page-title">
             		<h1>Admin Dashboard</h1>
@@ -212,203 +247,119 @@
     </div>
 </div>
 
-<!-- START OF ADMINISTRATOR DASHBOARD -->
-    <main>
-        <!-- ADD NEW CATEGORY -->
-        <div class="category-section col-md-8 offset-md-4">
-            
-            <h6 class="text-start"><u><span onclick="window.location.href='./accountDashboard.html';">Account Dashboard</u></span>&nbsp;&nbsp;<u><span onclick="window.location.href='./addCategory.html';">Add New Category</span></u></h6>
-            
-            <table class="table table-bordered table-striped" width="100%">
-                <thead class="bg-primary text-white"> <!-- Category Table Header -->
-                    <tr> <!-- Centralize all the header's title -->
-                        <th class="text-center bg-primary text-white">Item</th>
-                        <th class="text-center bg-primary text-white">Name</th>
-                        <th class="text-center bg-primary text-white">Description</th>
-                        <th class="text-center bg-primary text-white">Active</th>
-                        <th colspan="2" class="text-center bg-primary text-white">Command</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr> <!-- Category Content -->
-                        <td>1.</td>
-                        <td>Pet Food</td>
-                        <td>Lorem ipsum dolor sit amet</td>
-                        <td><i class="fa fa-check"></i></td>
-                        <td>
-                            <button id="btnCategoryUpdate" name="btnCategoryUpdate" class="btn btn-sm btn-success" title="Please click this button to upadate the current product category." onclick="updateCategory();">Update</button>
-                        </td>
-                        <td>
-                            <button id="btnCategoryDelete" name="btnCategoryDelete" class="btn btn-sm btn-danger" title="Please click this button to delete the current product category." onclick="deleteCategory();">Delete</button>
-                        </td>
-                        <td><i class="bi bi-check-circle-fill text-success"></i></td>
-                    </tr>
+<div class="container-fluid m4-4">
 
-                    <tr>
-                        <td>2.</td>
-                        <td>Pet Accessories</td>
-                        <td>Lorem ipsum dolor sit amet</td>
-                        <td><i class="fa fa-check"></i></td>
-                        <td>
-                            <button id="btnCategoryUpdate" name="btnCategoryUpdate" class="btn btn-sm btn-success" title="Please click this button to upadate the current product category." onclick="updateCategory();">Update</button>                            
-                        </td>
-                        <td>
-                            <button id="btnCategoryDelete" name="btnCategoryDelete" class="btn btn-sm btn-danger" title="Please click this button to delete the current product category." onclick="deleteCategory();">Delete</button>
-                        </td>
-                        <td><i class="bi bi-check-circle-fill text-success"></i></td>
-                    </tr>
-                    
-                    <tr>
-                        <td>3.</td>
-                        <td>Pet Toys</td>
-                        <td>Lorem ipsum dolor sit amet</td>
-                        <td><i class="fa fa-check"></i></td>
-                        <td>
-                            <button id="btnCategoryUpdate" name="btnCategoryUpdate" class="btn btn-sm btn-success" title="Please click this button to upadate the current product category." onclick="updateCategory();">Update</button>                            
-                        </td>
-                        <td>
-                            <button id="btnCategoryDelete" name="btnCategoryDelete" class="btn btn-sm btn-danger" title="Please click this button to delete the current product category." onclick="deleteCategory();">Delete</button>
-                        </td>
-                        <td><i class="bi bi-check-circle-fill text-success"></i></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<!-- PRODUCT CATEGORY  -->
+   <!-- Categories Section -->
+   <div class="d-flex justify-content-between align-items-center mb-3">
+     <h4 id="prodCatTitle"><span onclick="window.location.href='./accountDashboard.html';">Account Dashboard</span>&nbsp;&nbsp;<span>Products Category</span></h4>
+    <a href="./addProductCategory.html" class="btn btn-primary" title="Please click on this button to add a new Product Category.">Add New Category</a>
+  </div>
+  
+  <!-- SUCCESS ALERT (initially hidden) for Category Deletions -->
+  <div class="alert alert-success d-none" role="alert" id="deleteCategoryAlert">
+    <!-- The success message will be inserted dynamically -->
+  </div>
 
-        <!-- ADD NEW PRODUCT -->
-        <div class="product-section col-md-8 offset-md-4">
-    
-            <h6 class="text-start"><u><span onclick="window.location.href='./accountDashboard.html';">Account Dashboard</u></span>&nbsp;&nbsp;<u><span onclick="window.location.href='./addProduct.html';">Add New Product</span></u></h6>
-            
-            <table class="table table-bordered table-striped">
-                <thead> <!-- Product Table Header -->
-                    <tr> <!-- Centralize all the header's title -->
-                        <th class="text-center bg-primary text-white">Item</th>
-                        <th class="text-center bg-primary text-white">Image</th>
-                        <th class="text-center bg-primary text-white">Name</th>
-                        <th class="text-center bg-primary text-white">Description</th>
-                        <th class="text-center bg-primary text-white">Category</th>
-                        <th class="text-center bg-primary text-white">Price</th>
-                        <th colspan="2" class="text-center bg-primary text-white">Command</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr> <!-- Product Content -->
-                        <td>1.</td>
-                        <td><img src="product1.png" alt="Product 1"></td>
-                        <td>Product A</td>
-                        <td>Lorem ipsum dolor sit amet</td>
-                        <td>Pets Food</td>
-                        <td>$15.00</td>
-                        <td>
-                            <button id="btnProductUpdate" name="btnProductUpdate" class="btn btn-sm btn-success" title="Please click this button to update the current product information" onclick="updateProduct();">Update</button>                            
-                        </td>
-                        <td>
-                            <button id="btnProductDelete" name="btnProductDelete" class="btn btn-sm btn-danger" title="Please click this button to delete the current produt information." onclick="deleteProduct();">Delete</button>
-                        </td>
-                        <td><i class="bi bi-check-circle-fill text-success"></i></td>
-                    </tr>
+  <!-- Categories Table -->
+  <table class="table table-bordered mb-5" id="categoryTable">
+    <thead class="table-light">
+      <tr>
+        <th>Item</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Active</th>
+        <th>Command</th>
+      </tr>
+    </thead>
+    <tbody id="categoryTableBody">
+      <!-- Dynamically inserted from localStorage -->
+    </tbody>
+  </table>
+<!-- END OF PRODUCT CATEGORY -->
 
-                    <tr>
-                        <td>2.</td>
-                        <td><img src="product2.png" alt="Product 2"></td>
-                        <td>Product B</td>
-                        <td>Lorem ipsum dolor sit amet</td>
-                        <td>Pets Food</td>
-                        <td>$18.00</td>
-                        <td>
-                            <button id="btnProductUpdate" class="btn btn-sm btn-success" title="Please click this button to update the current product information" onclick="updateProduct();">Update</button>                            
-                        </td>
-                        <td>
-                            <button id="btnProductDelete" class="btn btn-sm btn-danger" title="Please click this button to delete the current produt information." onclick="deleteProduct();">Delete</button>
-                        </td>
-                        <td><i class="bi bi-check-circle-fill text-success"></i></td>
-                    </tr>
+<!-- PRODUCTS -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 id="prodCatTitle"><span onclick="window.location.href='./accountDashboard.html';">Account Dashboard</span>&nbsp;&nbsp;<span>Products Details</span></h4>
 
-                    <tr>
-                        <td>3.</td>
-                        <td><img src="product3.png" alt="Product 3"></td>
-                        <td>Product C</td>
-                        <td>Lorem ipsum dolor sit amet</td>
-                        <td>Pets Food</td>
-                        <td>$28.00</td>
-                        <td>
-                            <button id="btnProductUpdate" class="btn btn-sm btn-success" title="Please click this button to update the current product information" onclick="updateProduct();">Update</button>                            
-                        </td>
-                        <td>
-                            <button id="btnProductDelete" class="btn btn-sm btn-danger" title="Please click this button to delete the current produt information." onclick="deleteProduct();">Delete</button>
-                        </td>
-                        <td><i class="bi bi-check-circle-fill text-success"></i></td>
-                    </tr>
-                    </tbody>
-            </table>            
-            <!-- Pagination Control -->
-            <nav aria-label="Page navigation"> 
-                <ul class="pagination justify-content-end">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">»</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Link to the Add New Products page -->
+    <a href="./addNewProduct.html" class="btn btn-primary">
+      Add New Product
+    </a>
+  </div>
 
-        <!-- ORDER HISTORY -->
-        <div class="order-section col-md-8 offset-md-4">
-            <h4>Order History</h4>
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th class="text-center">Item</th>
-                        <th class="text-center">Order ID</th>
-                        <th class="text-center">Date</th>
-                        <th class="text-center">Image</th>
-                        <th class="text-center">Name</th>
-                        <th class="text-center">Quantity</th>
-                        <th class="text-center">Amount</th>
-                        <th class="text-center">User</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Order 123</td>
-                        <td>2024-12-17</td>
-                        <td><img src="product1.png" alt="Product 1"></td>
-                        <td>ABC</td>
-                        <td>1</td>
-                        <td>$18.00</td>
-                        <td>UserA</td>
-                    </tr>
-                    </tbody>
-            </table>
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-end">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">»</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </main>
+  <!-- SUCCESS ALERT (initially hidden) -->
+  <div class="alert alert-success d-none" role="alert" id="deleteAlert">
+    <!-- The success message will be inserted dynamically -->
+  </div>
 
-    <!-- END OF ADMINISTRATOR DASHBOARD -->
-    
+  <!-- Product Details Table -->
+  <table class="table table-bordered" id="productTable">
+    <thead class="table-light">
+      <tr>
+        <th>Item</th>
+        <th>Image</th>
+        <th>SKU</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Weight</th>
+        <th>Price</th>
+        <th>Supplier</th>
+        <th>Command</th>
+      </tr>
+    </thead>
+    <tbody id="productTableBody">
+      <!-- Default or stored products will be inserted here by JavaScript -->
+    </tbody>
+  </table>
+<!-- END OF PRODUCTS -->
+
+ <!-- ORDER HISTORY -->
+<h4>Order History</h4>
+    <table class="table table-bordered table-striped text-start">
+        <thead>
+            <tr>
+                <th class="text-center">Item</th>
+                <th class="text-center">Order ID</th>
+                <th class="text-center">Date</th>
+                <th class="text-center">Image</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Amount</th>
+                <th class="text-center">User</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Order 123</td>
+                <td>2024-12-17</td>
+                <td><img src="product1.png" alt="Product 1"></td>
+                <td>ABC</td>
+                <td>1</td>
+                <td>$18.00</td>
+                <td>UserA</td>
+            </tr>
+            </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">»</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
     <!-- START FOOTER -->
 <footer class="footer_dark">
 	<div class="footer_top">
@@ -486,23 +437,389 @@
 </footer>
 <!-- END FOOTER -->
 
-<a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
+  <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
 
     <!-- [JAVASCRIPT] -->
 
-    <!-- Latest jQuery --> 
-    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script>
 
-    <!-- jquery-ui --> 
-    <script src="./assets/js/jquery-ui.js"></script>
+      // [PRODUCT CATEGORY]
+      //-------------------
 
-    <!-- scripts js --> 
-    <script src="./assets/js/scripts.js"></script>  
+      // ================================================
+      // 1) On page load, load categories from localStorage
+      // ================================================
+      
+      window.addEventListener("load", () => 
+      {
+        const defaultCategories = [
+          {
+            name: "Pet Food",
+            description: "Lorem ipsum dolor sit amet",
+            active: true
+          },
+          {
+            name: "Pet Accessories",
+            description: "Lorem ipsum dolor sit amet",
+            active: true
+          },
+          {
+            name: "Pet Toys",
+            description: "Lorem ipsum dolor sit amet",
+            active: true
+          }
+        ];
+    
+        // Fetch categories
+        let storedCategories = JSON.parse(localStorage.getItem("categories"));
+        
+        if(!storedCategories || storedCategories.length === 0) 
+        {
+          storedCategories = defaultCategories;
+          localStorage.setItem("categories", JSON.stringify(storedCategories));
+        } // End of if statement
+        
+        // Display categories
+        displayCategories(storedCategories);
+    
+        // (Optional) Also load products if needed:
+        // ...
+      }); // End of window.addEventListener()
+    
+      // ================================================
+      // 2) Display categories in the categories table
+      // ================================================
+      
+      function displayCategories(categoryList) 
+      {
+        const categoryTableBody = document.getElementById("categoryTableBody");
+        categoryTableBody.innerHTML = "";
+    
+        categoryList.forEach((cat, index) => {
+          const itemNumber = index + 1;
+          const row = document.createElement("tr");
+    
+          // ITEM
+          const tdItem = document.createElement("td");
+          tdItem.textContent = itemNumber + ".";
+          row.appendChild(tdItem);
+    
+          // NAME
+          const tdName = document.createElement("td");
+          tdName.textContent = cat.name || "";
+          row.appendChild(tdName);
+    
+          // DESCRIPTION
+          const tdDescription = document.createElement("td");
+          tdDescription.textContent = cat.description || "";
+          row.appendChild(tdDescription);
+    
+          // ACTIVE
+          const tdActive = document.createElement("td");
+          tdActive.innerHTML = cat.active
+            ? '<span style="font-size: 1.5rem;">&#10003;</span>'
+            : "";
+          row.appendChild(tdActive);
+    
+          // COMMAND
+          const tdCommand = document.createElement("td");
+          tdCommand.innerHTML = `
+            <button class="btn btn-success btn-update-category" data-index="${index}">Update</button>
+            <button class="btn btn-danger btn-delete-category" data-index="${index}">Delete</button>
+          `;
+          row.appendChild(tdCommand);
+    
+          categoryTableBody.appendChild(row);
+        });
+    
+        attachCategoryEventListeners();
+      } // End of function displayCategories(categoryList) 
+    
+      // ================================================
+      // 3) Attach events for Update and Delete
+      // ================================================
+      function attachCategoryEventListeners() 
+      {
+        // Update
+        const updateButtons = document.querySelectorAll(".btn-update-category");
+        updateButtons.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const categoryIndex = e.target.getAttribute("data-index");
+            localStorage.setItem("updateCategoryIndex", categoryIndex);
+            window.location.href = "./updateProductCategory.html";
+          });
+        });
+    
+        // Delete
+        const deleteButtons = document.querySelectorAll(".btn-delete-category");
+        deleteButtons.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const categoryIndex = e.target.getAttribute("data-index");
+            handleDeleteCategory(categoryIndex);
+          });
+        });
+      } // End of function attachCategoryEventListeners() 
+    
+      // ================================================
+      // 4) Handle Delete with confirmation
+      // ================================================
+      function handleDeleteCategory(index) 
+      {
+        let storedCategories = JSON.parse(localStorage.getItem("categories")) || [];
+        const categoryToDelete = storedCategories[index];
+    
+        if(!categoryToDelete) 
+        {
+          alert("Category not found or invalid index.");
+          return;
+        } // End of if statement
+    
+        // Confirm deletion from user
+        const confirmDelete = confirm(
+          `Are you sure you want to delete the category "${categoryToDelete.name}"?`
+        );
+        
+        if(!confirmDelete) 
+        {
+          return; // user canceled
+        } // End of if statement
+    
+        // Remove category from array
+        storedCategories.splice(index, 1);
+        localStorage.setItem("categories", JSON.stringify(storedCategories));
+    
+        // Update the table display
+        displayCategories(storedCategories);
+    
+        // Show success alert for category deletion
+        const deleteCatAlert = document.getElementById("deleteCategoryAlert");
+        deleteCatAlert.textContent = `Category "${categoryToDelete.name}" has been successfully deleted!`;
+        deleteCatAlert.classList.remove("d-none");
+      } // End of function handleDeleteCategory(index) 
 
-    <!-- Custom Javascript -->
-    <script defer src="./assets/js/pets_scripts.js"></script>
+  // 1) On page load, retrieve stored products or use default
+  window.addEventListener("load", () => {
+    const defaultProducts = [
+      {
+        imageURL: "https://via.placeholder.com/50",
+        sku: "PET1234",
+        name: "Product A",
+        description: "Lorem ipsum dolor sit amet",
+        category: "Pets Food",
+        weight: "200 g",
+        price: "$15.00",
+        supplier: "ABC Company Pte. Ltd."
+      },
+      {
+        imageURL: "https://via.placeholder.com/50",
+        sku: "PET1235",
+        name: "Product B",
+        description: "Lorem ipsum dolor sit amet",
+        category: "Pets Food",
+        weight: "500 g",
+        price: "$18.00",
+        supplier: "DEF Company Pte. Ltd."
+      },
+      {
+        imageURL: "https://via.placeholder.com/50",
+        sku: "PET1236",
+        name: "Product C",
+        description: "Lorem ipsum dolor sit amet",
+        category: "Pets Food",
+        weight: "1 kg",
+        price: "$28.00",
+        supplier: "GHI Company Pte. Ltd."
+      }
+    ];
 
-    <!-- End of Javascript -->  
+    let storedProducts = JSON.parse(localStorage.getItem("products"));
+    if (!storedProducts || storedProducts.length === 0) {
+      storedProducts = defaultProducts;
+      localStorage.setItem("products", JSON.stringify(storedProducts));
+    }
+
+    displayProducts(storedProducts);
+  });
+
+  // 2) Display function for all products
+  function displayProducts(productList) {
+    const productTableBody = document.getElementById("productTableBody");
+    productTableBody.innerHTML = "";
+
+    productList.forEach((product, index) => {
+      const itemNumber = index + 1;
+      const row = document.createElement("tr");
+
+      // ITEM
+      const tdItem = document.createElement("td");
+      tdItem.textContent = itemNumber + ".";
+      row.appendChild(tdItem);
+
+      // IMAGE
+      const tdImage = document.createElement("td");
+      if (product.imageURL) {
+        tdImage.innerHTML = `
+          <img src="${product.imageURL}" alt="${product.name}" width="50" height="50" />
+          <br/>
+          ${product.name}
+        `;
+      } else {
+        tdImage.innerHTML = `No Image <br/> ${product.name}`;
+      }
+      row.appendChild(tdImage);
+
+      // SKU
+      const tdSKU = document.createElement("td");
+      tdSKU.textContent = product.sku || "";
+      row.appendChild(tdSKU);
+
+      // Name
+      const tdName = document.createElement("td");
+      tdName.textContent = product.name || "";
+      row.appendChild(tdName);
+
+      // Description
+      const tdDescription = document.createElement("td");
+      tdDescription.textContent = product.description || "";
+      row.appendChild(tdDescription);
+
+      // Category
+      const tdCategory = document.createElement("td");
+      tdCategory.textContent = product.category || "";
+      row.appendChild(tdCategory);
+
+      // Weight
+      const tdWeight = document.createElement("td");
+      tdWeight.textContent = product.weight || "";
+      row.appendChild(tdWeight);
+
+      // Price
+      const tdPrice = document.createElement("td");
+      tdPrice.textContent = product.price || "";
+      row.appendChild(tdPrice);
+
+      // Supplier
+      const tdSupplier = document.createElement("td");
+      tdSupplier.textContent = product.supplier || "";
+      row.appendChild(tdSupplier);
+
+      // Command (Update / Delete)
+      const tdCommand = document.createElement("td");
+      tdCommand.innerHTML = `
+        <button class="btn btn-success btn-update" data-index="${index}">Update</button>
+        <button class="btn btn-danger btn-delete" data-index="${index}">Delete</button>
+      `;
+      row.appendChild(tdCommand);
+
+      productTableBody.appendChild(row);
+    });
+
+    // After rendering, attach event listeners for Update and Delete
+    attachEventListeners();
+  }
+
+  // 3) Attach event listeners to Update and Delete buttons
+  function attachEventListeners() {
+    // -- Update Buttons (existing behavior) --
+    const updateButtons = document.querySelectorAll(".btn-update");
+    updateButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const productIndex = e.target.getAttribute("data-index");
+        localStorage.setItem("updateIndex", productIndex);
+        window.location.href = "./updateProduct.html";
+      });
+    });
+
+    // -- Delete Buttons --
+    const deleteButtons = document.querySelectorAll(".btn-delete");
+    deleteButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const productIndex = e.target.getAttribute("data-index");
+        handleDelete(productIndex);
+      });
+    });
+  }
+
+  // 4) Handle Delete with confirmation
+  function handleDelete(index) {
+    const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    const productToDelete = storedProducts[index];
+
+    if (!productToDelete) {
+      alert("Product not found or invalid index.");
+      return;
+    }
+
+    // Confirm deletion from user
+    const confirmDelete = confirm(
+      `Are you sure you want to delete "${productToDelete.name}"?`
+    );
+    if (!confirmDelete) {
+      return; // user cancelled
+    }
+
+    // Remove product from array
+    storedProducts.splice(index, 1);
+    localStorage.setItem("products", JSON.stringify(storedProducts));
+
+    // Update the table display
+    displayProducts(storedProducts);
+
+    // Show success alert
+    const deleteAlert = document.getElementById("deleteAlert");
+    deleteAlert.textContent = `Product "${productToDelete.name}" has been successfully deleted!`;
+    deleteAlert.classList.remove("d-none");
+  }
+ 
+  </script>
+
+<!-- Latest jQuery --> 
+<script src="./assets/js/jquery-3.7.1.min.js"></script>
+
+<!-- popper min js -->
+<script src="./assets/js/popper.min.js"></script>
+
+<!-- Latest compiled and minified Bootstrap --> 
+<script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- owl-carousel min js  --> 
+<script src="./assets/owlcarousel/js/owl.carousel.min.js"></script>
+
+<!-- magnific-popup min js  --> 
+<script src="./assets/js/magnific-popup.min.js"></script>
+
+<!-- waypoints min js  --> 
+<script src="./assets/js/waypoints.min.js"></script>
+
+<!-- parallax js  --> 
+<script src="./assets/js/parallax.js"></script>
+
+<!-- countdown js  --> 
+<script src="./assets/js/jquery.countdown.min.js"></script>
+
+<!-- imagesloaded js --> 
+<script src="./assets/js/imagesloaded.pkgd.min.js"></script>
+
+<!-- isotope min js --> 
+<script src="./assets/js/isotope.min.js"></script>
+
+<!-- jquery.dd.min js -->
+<script src="./assets/js/jquery.dd.min.js"></script>
+
+<!-- slick js -->
+<script src="./assets/js/slick.min.js"></script>
+
+<!-- elevatezoom js -->
+<script src="./assets/js/jquery.elevatezoom.js"></script>
+
+<!-- scripts js --> 
+<script src="./assets/js/scripts.js"></script>
+
+<!-- Custom Javascript -->
+<script defer src="./assets/js/pets_scripts.js"></script>
+
+<!-- End of Javascript -->
+
   
    </body>
 </html>

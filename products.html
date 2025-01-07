@@ -63,7 +63,7 @@
 
 </head>
 
-<body onload="getLoginStatus();displayLoginName();">
+<body onload="displayEmptyCart();getLoginStatus();displayLoginName()">
 
 <!-- LOADER -->
 <div class="preloader">
@@ -202,25 +202,35 @@
                         </li>
 
                     <!-- Dropdown Cart List View -->     
-                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">1</span></a>
+                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">0</span></a>
                         <div class="cart_box dropdown-menu dropdown-menu-right">
-                            <ul class="cart_list">
+
+                             <!-- Cart List -->  
+                             <ul class="cart_list">
                                 <li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb1.jpg" alt="cart_thumb1"><span id="drpDwnProductName">Variable product 001</span></a>
-                                    <span class="cart_quantity"> 1 x </span><span class="cart_amount"></span> <span class="price_symbole">$</span><span id="drpDwnProductPrice">78.00</span>
+                                    <a href="#"><img src="assets/images/cart_thamb1.jpg" id="imgListCart" alt="cart_thumb1"><span id="viewListCart">Variable product 001</span></a>
+                                    <!--<span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="cart_amount"></span> <span class="price_symbole">$</span><span id="drpDwnProductPrice">78.00</span>-->
+                                    <span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="price_symbole">$</span><span class="cart-amount" id="drpDwnProductPrice">78.00</span>
                                 </li>
-                               <!-- <li>
+                                <!--<li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
                                     <a href="#"><img src="assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed consequat</a>
                                     <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>81.00</span>
                                 </li> -->
                             </ul>
-                            <div class="cart_footer">
-                                <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"></span> <span class="price_symbole">$</span><span id="drpDwnFooterProductPrice">78.00</span></p>
+                          <!-- End of Cart List -->    
+                        
+                          <!-- Cart Footer -->
+                            <div class="cart_footer" >
+                                <p class="cart_total" id="cartListSubTotal"><strong>Subtotal:</strong><span class="price_symbole">$</span><span class="cart-price" id="drpDwnFooterProductPrice">78.00</span></p>
                                 <p class="cart_buttons"><a href="./addToCart.html" class="btn btn-fill-line view-cart">View Cart</a><a href="./checkout.html" class="btn btn-fill-out checkout">Checkout</a></p>
                             </div>
+                          <!-- End of Cart Footer --> 
+                            
                         </div>
+                     <!-- End of Cart Box Dropdown Menu -->      
+                      
                     </li>
                     </ul>                                        
             </nav>
