@@ -345,14 +345,22 @@ function verify_admin_signIn()
 
 } // End of function verify_admin_signIn()
 
-function updateLoginLogoutState()
+function updateLoginLogoutState(profileName)
 {
 // Objective: Clears all Web Browsers Storage variables and navigate to the appropriate page accordingly.
 // -------------------------------------------------------------------------------------------------------
     
    window.localStorage.clear(); // Requests for service to clear all localstorage web brower's variables.
    window.sessionStorage.clear(); // Requests for service to clear all sessionstorage web brower's variables. 
-   window.location.href = "./login.html";
+   
+   if(profileName !== "admin")
+   {
+     window.location.href = "./login.html";
+   }
+   else
+   {
+     window.location.href = "./loginAdmin.html";
+   } // End of if-else statement
    
 } // End of function setLoginLogoutState()
 
@@ -479,6 +487,34 @@ function dashboardRoute(profileUser)
 // *********************************************
 // * PRODUCTS PURCHASE EVENT HANDLING ROUTINES *
 // *********************************************
+
+function displayEmptyCart()
+{
+  
+// Objective: For dislaying an empty Shopping Cart Information.
+// -------------------------------------------------------------
+  document.querySelector("#imgListCart").style.display = "none"; // Hides the product item image picture
+  document.querySelector("#viewListCart").textContent = "Your PetPurely Cart is EMPTY";
+  document.querySelector("#drpDwnProductQuantity").textContent = "0 x";
+  document.querySelector("#drpDwnProductPrice").textContent = "0.00";
+  document.querySelector("#drpDwnFooterProductPrice").textContent = "0.00";
+  document.querySelector(".cart_buttons").style.display = "none"; // Hides the cart buttons.
+
+} // End of function displayEmptyCart()
+
+function displayCartItems()
+{
+  
+// Objective: For displaying the Shopping Cart with all the purchased items
+// --------------------------------------------------------------------------
+  document.querySelector("#imgListCart").style.display = "block"; // Displays the product item image picture.
+  // document.querySelector("#viewListCart").textContent = "Your PetPurely Cart is EMPTY";
+  document.querySelector("#drpDwnProductQuantity").textContent = "";
+  document.querySelector("#drpDwnProductPrice").textContent = "";
+  document.querySelector("#drpDwnFooterProductPrice").textContent = "";
+  document.querySelector(".cart_buttons").style.display = "block"; // Displays the cart buttons.
+
+} // End of function displayCartItems()
 
 function displayWishListMessage()
 {

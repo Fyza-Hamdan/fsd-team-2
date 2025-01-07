@@ -66,7 +66,7 @@
 
 </head>
 
-<body onload="getLoginStatus();displayLoginName();">
+<body onload="displayEmptyCart();getLoginStatus();displayLoginName();">
 
 <!-- LOADER -->
 <div class="preloader">
@@ -198,25 +198,37 @@
                             </form>
                         </div><div class="search_overlay"></div>
                     </li>
-                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">1</span></a>
-                        <div class="cart_box dropdown-menu dropdown-menu-right">
-                            <ul class="cart_list">
-                                <li>
-                                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb1.jpg" alt="cart_thumb1"><span id="drpDwnProductName">Variable product 001</span></a>
-                                    <span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="cart_amount"></span> <span class="price_symbole">$</span><span id="drpDwnProductPrice">78.00</span>
-                                </li>
-                                <!--<li>
-                                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed consequat</a>
-                                    <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>81.00</span>
-                                </li> -->
-                            </ul>
-                            <div class="cart_footer">
-                                <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"></span> <span class="price_symbole">$</span><span id="drpDwnFooterProductPrice">78.00</span></p>
-                                <p class="cart_buttons"><a href="./addToCart.html" class="btn btn-fill-line view-cart">View Cart</a><a href="./checkout.html" class="btn btn-fill-out checkout">Checkout</a></p>
-                            </div>
-                        </div>
+                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">0</span></a>
+                        
+                        <!-- Cart Box Dropdown Menu -->   
+                        <div class="cart_box dropdown-menu dropdown-menu-right" id="viewCartItems">
+                            
+                            <!-- Cart List -->  
+                              <ul class="cart_list">
+                                  <li>
+                                      <a href="#" class="item_remove"><i class="ion-close"></i></a>
+                                      <a href="#"><img src="assets/images/cart_thamb1.jpg" id="imgListCart" alt="cart_thumb1"><span id="viewListCart">Variable product 001</span></a>
+                                      <!--<span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="cart_amount"></span> <span class="price_symbole">$</span><span id="drpDwnProductPrice">78.00</span>-->
+                                      <span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="price_symbole">$</span><span class="cart-amount" id="drpDwnProductPrice">78.00</span>
+                                  </li>
+                                  <!--<li>
+                                      <a href="#" class="item_remove"><i class="ion-close"></i></a>
+                                      <a href="#"><img src="assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed consequat</a>
+                                      <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>81.00</span>
+                                  </li> -->
+                              </ul>
+                            <!-- End of Cart List -->    
+                          
+                            <!-- Cart Footer -->
+                              <div class="cart_footer" >
+                                  <p class="cart_total" id="cartListSubTotal"><strong>Subtotal:</strong><span class="price_symbole">$</span><span class="cart-price" id="drpDwnFooterProductPrice">78.00</span></p>
+                                  <p class="cart_buttons"><a href="./addToCart.html" class="btn btn-fill-line view-cart">View Cart</a><a href="./checkout.html" class="btn btn-fill-out checkout">Checkout</a></p>
+                              </div>
+                            <!-- End of Cart Footer --> 
+                              
+                          </div>
+                       <!-- End of Cart Box Dropdown Menu -->      
+                      
                     </li>
                 </ul>
             </nav>
@@ -231,7 +243,7 @@
         <div class="row align-items-center">
         	<div class="col-md-6">
                 <div class="page-title">
-            		<h1>Pure, Natural Care For Your Beloved Fur Babies</h1>
+            		<h1>About Us</h1>
                 </div>
             </div>
             <div class="col-md-6">
@@ -261,12 +273,11 @@
             </div>
             <div class="col-lg-6">
                 <div class="heading_s1">
-                    <h2>Welcome to PetPurely</h2>
+                    <h2>Who We are</h2>
                 </div>
                 <p>At PetPurely, we’re passionate fur parents who truly understand the joys and challenges of caring for our fur babies. We know how frustrating it can be to find the perfect products that are safe, natural, and environmentally friendly—especially for pets with sensitivities.</p>
                 <p>That’s why we’ve made it our mission to source only the best of the best. Every product we offer is 100% safe, crafted with natural ingredients, and completely free of harmful chemicals. From grooming essentials to wholesome treats and everything in between, we ensure you can give your fur babies the love and care they deserve.</p>
                 <p>Explore our carefully curated selection and rest assured—you’re giving your fur babies nothing less than the purest care. Because at PetPurely, we believe happy tails start with healthy choices.</p>        
-
             </div>
         </div>
     </div>

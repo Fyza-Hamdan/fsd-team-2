@@ -33,18 +33,26 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> 
 
-<!-- Customized Style CSS -->
-<link rel="stylesheet" href="./assets/css/petpurely/css/pets_styles.css" type="text/css">
+<!-- Icon Font CSS -->
+<link rel="stylesheet" href="./assets/css/all.min.css">
+<link rel="stylesheet" href="./assets/css/ionicons.min.css">
+<link rel="stylesheet" href="./assets/css/themify-icons.css">
+<link rel="stylesheet" href="./assets/css/linearicons.css">
+<link rel="stylesheet" href="./assets/css/flaticon.css">
+<link rel="stylesheet" href="./assets/css/simple-line-icons.css">
 
 <!-- Style CSS -->
 <link rel="stylesheet" href="./assets/css/style.css">
 <link rel="stylesheet" href="./assets/css/responsive.css">
 
+<!-- Customized Style CSS -->
+<link rel="stylesheet" href="./assets/css/pets_styles.css" type="text/css">
+
 <!-- End of Cascading Style Sheet -->
 
 </head>
 
-<body>
+<body onload="displayEmptyCart();">
 
 <!-- LOADER -->
 <div class="preloader">
@@ -157,7 +165,7 @@
                         </li>
                         
                         <li class="dropdown">
-                            <li><a class="nav-link nav_item" href="#">Services</a></li> 
+                            <li><a class="nav-link nav_item" href="#" onclick="alert('Sorry,this feature is still under development.');">Services</a></li> 
                         </li>
                         <!--<li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li> -->
                     </ul>
@@ -177,11 +185,14 @@
                     </li>
                     <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">2</span></a>
                         <div class="cart_box dropdown-menu dropdown-menu-right">
-                            <ul class="cart_list">
+
+                             <!-- Cart List -->  
+                             <ul class="cart_list">
                                 <li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb1.jpg" alt="cart_thumb1">Variable product 001</a>
-                                    <span class="cart_quantity" id="drpDwnProductQuantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span id="drpDwnProductPrice"></span>78.00</span>
+                                    <a href="#"><img src="assets/images/cart_thamb1.jpg" id="imgListCart" alt="cart_thumb1"><span id="viewListCart">Variable product 001</span></a>
+                                    <!--<span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="cart_amount"></span> <span class="price_symbole">$</span><span id="drpDwnProductPrice">78.00</span>-->
+                                    <span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="price_symbole">$</span><span class="cart-amount" id="drpDwnProductPrice">78.00</span>
                                 </li>
                                 <!--<li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
@@ -189,11 +200,18 @@
                                     <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>81.00</span>
                                 </li> -->
                             </ul>
-                            <div class="cart_footer">
-                                <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"></span> <span class="price_symbole">$</span><span id="drpDwnFooterProductPrice">78.00</span></p>
-                                <p class="cart_buttons"><a href="#" class="btn btn-fill-line view-cart">View Cart</a><a href="#" class="btn btn-fill-out checkout">Checkout</a></p>
+                          <!-- End of Cart List -->    
+                        
+                          <!-- Cart Footer -->
+                            <div class="cart_footer" >
+                                <p class="cart_total" id="cartListSubTotal"><strong>Subtotal:</strong><span class="price_symbole">$</span><span class="cart-price" id="drpDwnFooterProductPrice">78.00</span></p>
+                                <p class="cart_buttons"><a href="./addToCart.html" class="btn btn-fill-line view-cart">View Cart</a><a href="./checkout.html" class="btn btn-fill-out checkout">Checkout</a></p>
                             </div>
+                          <!-- End of Cart Footer --> 
+                            
                         </div>
+                     <!-- End of Cart Box Dropdown Menu -->      
+
                     </li>
                 </ul>
             </nav>

@@ -1547,10 +1547,13 @@ button:focus:not(:focus-visible) {
 .navbar .navbar-nav > li > .nav-link.cart_trigger i {
 	font-size: 20px;
 }
-.cart_list li {
+.cart_list li 
+{
 	list-style: outside none none;
 }
-.cart_count, .wishlist_count {
+
+.cart_count, .wishlist_count 
+{
 	position: relative;
 	top: -3px;
 	left: 0;
@@ -1568,13 +1571,18 @@ button:focus:not(:focus-visible) {
 	margin-left: -5px;
 	margin-right: -5px;
 }
-.cart_trigger .amount {
+
+.cart_trigger .amount 
+{
 	margin-left: 8px;
 	font-weight: 600;
 	vertical-align: top;
 	margin-right: -10px;
 }
-.navbar-nav .dropdown-menu.cart_box {
+
+/*.navbar-nav .dropdown-menu.cart_box */
+.navbar-nav .cart_box.dropdown-menu 
+{
 	width: 320px;
 	position: absolute !important;
 	-webkit-transform: scale(0) !important;
@@ -1588,11 +1596,16 @@ button:focus:not(:focus-visible) {
 	left: auto !important;
 	right: 0;
 }
-.navbar-nav .dropdown-menu.cart_box.show {
+
+/*.navbar-nav .dropdown-menu.cart_box.show */
+.navbar-nav .cart_box.dropdown-menu.show
+{
 	-webkit-transform: scale(1) !important;
 	transform: scale(1) !important;
 }
-.cart_list li {
+
+.cart_list li 
+{
 	border-bottom: 1px solid #3f3f3f;
 	padding: 15px;
 	width: 100%;

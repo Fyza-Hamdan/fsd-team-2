@@ -1,0 +1,230 @@
+<!-- **************************************************************************************************
+     * Filename: updateProduct.html                                                                   *
+     * Objective: A product category form for allowing the updating of existing product information.  *
+     * Remarks: Generation SG Full Stack Developer FSD05 Capstone Project                             *
+     * Developer: Raizal                                                                              *
+     * Date: 20/12/2024                                                                               *
+     ************************************************************************************************** -->
+
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Update Product</title>
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1 class="mb-4">Update Product</h1>
+
+  <!-- Alert (initially hidden) -->
+  <div
+    class="alert alert-success d-none"
+    role="alert"
+    id="successAlert"
+  >
+    Product record has been successfully updated!
+  </div>
+
+  <!-- Update Product Form -->
+  <form id="updateProductForm" class="row g-3 border p-4 mb-4">
+    <h4 class="mb-3">Edit Product Information</h4>
+    <div class="col-md-4">
+      <label for="productImage" class="form-label">Image URL</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productImage"
+        placeholder="e.g. https://example.com/image.png"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="productSKU" class="form-label">SKU</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productSKU"
+        placeholder="e.g. PET1234"
+        required
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="productName" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productName"
+        placeholder="e.g. Product A"
+        required
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="productDescription" class="form-label"
+        >Description</label
+      >
+      <textarea
+        class="form-control"
+        id="productDescription"
+        rows="3"
+        placeholder="Lorem ipsum dolor sit amet..."
+      ></textarea>
+    </div>
+    <div class="col-md-3">
+      <label for="productCategory" class="form-label">Category</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productCategory"
+        placeholder="e.g. Pets Food"
+      />
+    </div>
+    <div class="col-md-3">
+      <label for="productWeight" class="form-label">Weight</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productWeight"
+        placeholder="e.g. 200 g"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="productPrice" class="form-label">Price</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productPrice"
+        placeholder="e.g. $15.00"
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="productSupplier" class="form-label">Supplier</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productSupplier"
+        placeholder="e.g. ABC Company Pte. Ltd."
+      />
+    </div>
+    <div class="col-md-4 d-flex align-items-end">
+      <button
+        type="button"
+        class="btn btn-primary w-100"
+        id="saveUpdateBtn"
+      >
+        Save Changes
+      </button>
+    </div>
+  </form>
+
+  <a href="./admin-account1.html" class="btn btn-secondary">Back to Product List</a>
+</div>
+
+<!-- Bootstrap 5 JS (includes Popper) -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+></script>
+
+<script>
+  // 1) On page load, read the selected product index from localStorage
+  window.addEventListener("load", () => {
+    const updateIndex = localStorage.getItem("updateIndex");
+    if (updateIndex === null) {
+      // If we don't have an index, possibly redirect back or handle error
+      alert("No product selected for update. Redirecting to list...");
+      window.location.href = "./admin-account1.html";
+      return;
+    }
+
+    // 2) Load the products array
+    const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+
+    // If the index is out of range, also handle the error
+    if (updateIndex < 0 || updateIndex >= storedProducts.length) {
+      alert("Invalid product index. Redirecting to list...");
+      window.location.href = "productDetails.html";
+      return;
+    }
+
+    // 3) Fetch the product we want to edit
+    const productToEdit = storedProducts[updateIndex];
+
+    // 4) Populate the form fields with the existing data
+    document.getElementById("productImage").value = productToEdit.imageURL || "";
+    document.getElementById("productSKU").value = productToEdit.sku || "";
+    document.getElementById("productName").value = productToEdit.name || "";
+    document.getElementById("productDescription").value =
+      productToEdit.description || "";
+    document.getElementById("productCategory").value =
+      productToEdit.category || "";
+    document.getElementById("productWeight").value = productToEdit.weight || "";
+    document.getElementById("productPrice").value = productToEdit.price || "";
+    document.getElementById("productSupplier").value =
+      productToEdit.supplier || "";
+  });
+
+  const saveUpdateBtn = document.getElementById("saveUpdateBtn");
+  const successAlert = document.getElementById("successAlert");
+
+  // 5) Handle the "Save Changes" button click
+  saveUpdateBtn.addEventListener("click", () => {
+    const updateIndex = localStorage.getItem("updateIndex");
+    if (updateIndex === null) {
+      alert("No product selected to update.");
+      return;
+    }
+
+    // 6) Read the updated values from the form
+    const updatedImageURL = document.getElementById("productImage").value.trim();
+    const updatedSKU = document.getElementById("productSKU").value.trim();
+    const updatedName = document.getElementById("productName").value.trim();
+    const updatedDescription = document
+      .getElementById("productDescription")
+      .value.trim();
+    const updatedCategory = document.getElementById("productCategory").value.trim();
+    const updatedWeight = document.getElementById("productWeight").value.trim();
+    const updatedPrice = document.getElementById("productPrice").value.trim();
+    const updatedSupplier = document.getElementById("productSupplier").value.trim();
+
+    // Basic validation
+    if (!updatedSKU || !updatedName) {
+      alert("SKU and Name fields are required.");
+      return;
+    }
+
+    // 7) Retrieve the array, update the product at that index
+    let storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    storedProducts[updateIndex] = {
+      imageURL: updatedImageURL,
+      sku: updatedSKU,
+      name: updatedName,
+      description: updatedDescription,
+      category: updatedCategory,
+      weight: updatedWeight,
+      price: updatedPrice,
+      supplier: updatedSupplier
+    };
+
+    // 8) Save the updated array back to localStorage
+    localStorage.setItem("products", JSON.stringify(storedProducts));
+
+    // 9) Show the success alert
+    successAlert.classList.remove("d-none");
+
+    // (Optional) Clear the localStorage updateIndex if you don't need it anymore
+    // localStorage.removeItem("updateIndex");
+
+    // (Optional) Redirect back to productDetails.html immediately
+    // window.location.href = "productDetails.html";
+  });
+</script>
+</body>
+</html>

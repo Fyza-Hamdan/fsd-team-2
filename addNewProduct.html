@@ -1,0 +1,191 @@
+<!-- ************************************************************************************ 
+     * Filename: addNewProduct.html                                                     *
+     * Objective: A Form to allow the creaation of new Product information.             *
+     * Remarks: Generation SG Full Stack Developer FSD05 Capstone Project               *
+     * Developer:                                                                       *
+     * Date: 09/12/2024                                                                 *
+     ************************************************************************************ -->
+
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+       <meta charset="UTF-8" />
+       <title>Add New Product</title>
+       <!-- Bootstrap 5 CSS -->
+       <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+       />
+       <style>
+         body {
+           padding: 2rem;
+         }
+       </style>
+     </head>
+     <body>
+     <div class="container">
+       <h1 class="mb-4">Add New Product</h1>
+     
+       <!-- Alert (initially hidden) -->
+       <div
+         class="alert alert-success d-none"
+         role="alert"
+         id="successAlert"
+       >
+         A new product record has been successfully created!
+       </div>
+     
+       <!-- Add New Product Form -->
+       <form id="addProductForm" class="row g-3 border p-4 mb-4">
+         <h4 class="mb-3">Product Information</h4>
+         <div class="col-md-4">
+           <label for="productImage" class="form-label">Image URL</label>
+           <input
+             type="text"
+             class="form-control"
+             id="productImage"
+             placeholder="e.g. https://example.com/image.png"
+           />
+         </div>
+         <div class="col-md-4">
+           <label for="productSKU" class="form-label">SKU</label>
+           <input
+             type="text"
+             class="form-control"
+             id="productSKU"
+             placeholder="e.g. PET1234"
+             required
+           />
+         </div>
+         <div class="col-md-4">
+           <label for="productName" class="form-label">Name</label>
+           <input
+             type="text"
+             class="form-control"
+             id="productName"
+             placeholder="e.g. Product A"
+             required
+           />
+         </div>
+         <div class="col-md-6">
+           <label for="productDescription" class="form-label"
+             >Description</label
+           >
+           <textarea
+             class="form-control"
+             id="productDescription"
+             rows="3"
+             placeholder="Lorem ipsum dolor sit amet..."
+           ></textarea>
+         </div>
+         <div class="col-md-3">
+           <label for="productCategory" class="form-label">Category</label>
+           <input
+             type="text"
+             class="form-control"
+             id="productCategory"
+             placeholder="e.g. Pets Food"
+           />
+         </div>
+         <div class="col-md-3">
+           <label for="productWeight" class="form-label">Weight</label>
+           <input
+             type="text"
+             class="form-control"
+             id="productWeight"
+             placeholder="e.g. 200 g"
+           />
+         </div>
+         <div class="col-md-4">
+           <label for="productPrice" class="form-label">Price</label>
+           <input
+             type="text"
+             class="form-control"
+             id="productPrice"
+             placeholder="e.g. $15.00"
+           />
+         </div>
+         <div class="col-md-4">
+           <label for="productSupplier" class="form-label">Supplier</label>
+           <input
+             type="text"
+             class="form-control"
+             id="productSupplier"
+             placeholder="e.g. ABC Company Pte. Ltd."
+           />
+         </div>
+         <div class="col-md-4 d-flex align-items-end">
+           <button
+             type="button"
+             class="btn btn-primary w-100"
+             id="saveBtn"
+           >
+             Save
+           </button>
+         </div>
+       </form>
+     
+       <!-- Optional link to return to the Product Details page -->
+       <a href="./admin-account1.html" class="btn btn-secondary">Back to Dashboard</a>
+     </div>
+     
+     <!-- Bootstrap 5 JS (includes Popper) -->
+     <script
+       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+     ></script>
+     
+     <script>
+     // Grab references
+     const saveBtn = document.getElementById("saveBtn");
+     const successAlert = document.getElementById("successAlert");
+     
+     // On save button click, we store the new record in localStorage
+     saveBtn.addEventListener("click", function () {
+       const productImage = document.getElementById("productImage").value.trim();
+       const productSKU = document.getElementById("productSKU").value.trim();
+       const productName = document.getElementById("productName").value.trim();
+       const productDescription = document
+         .getElementById("productDescription")
+         .value.trim();
+       const productCategory = document.getElementById("productCategory").value.trim();
+       const productWeight = document.getElementById("productWeight").value.trim();
+       const productPrice = document.getElementById("productPrice").value.trim();
+       const productSupplier = document.getElementById("productSupplier").value.trim();
+     
+       // Basic validation for required fields
+       if (!productSKU || !productName) {
+         alert("Please provide at least the SKU and Name.");
+         return;
+       }
+     
+       // 1) Retrieve existing product array from localStorage or create empty
+       const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+     
+       // 2) Create a new product object
+       const newProduct = {
+         imageURL: productImage,
+         sku: productSKU,
+         name: productName,
+         description: productDescription,
+         category: productCategory,
+         weight: productWeight,
+         price: productPrice,
+         supplier: productSupplier,
+       };
+     
+       // 3) Push the new product to the array
+       storedProducts.push(newProduct);
+     
+       // 4) Save the updated array back to localStorage
+       localStorage.setItem("products", JSON.stringify(storedProducts));
+     
+       // Show success alert
+       successAlert.classList.remove("d-none");
+     
+       // Optionally, clear the form
+       document.getElementById("addProductForm").reset();
+     });
+     </script>
+     </body>
+     </html>
+     
