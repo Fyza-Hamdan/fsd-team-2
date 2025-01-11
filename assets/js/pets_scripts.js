@@ -484,13 +484,18 @@ function dashboardRoute(profileUser)
 
 } // End of function dashboardRoute(profileUser)
 
+// Other User Account Management Function Here
+// --------------------------------------------
+
+
+
 // *********************************************
 // * PRODUCTS PURCHASE EVENT HANDLING ROUTINES *
 // *********************************************
 
 function displayEmptyCart()
 {
-  
+ 
 // Objective: For dislaying an empty Shopping Cart Information.
 // -------------------------------------------------------------
   document.querySelector("#imgListCart").style.display = "none"; // Hides the product item image picture
@@ -538,8 +543,13 @@ function captureFirstProductInfo(productDisplayMode)
    window.localStorage.setItem("prodImage",prod_image); // Stores first product name in localstorage.
    window.localStorage.setItem("prodName",prod_name); // Stores first product name in localstorage.
    window.localStorage.setItem("prodPrice",prod_price); // Stores first product price in localstorage.
+   window.localStorage.setItem("prodSKU", "PET1234");
+   window.localStorage.setItem("prodCategory","Dog Food");
+   window.localStorage.setItem("prodTag1","Dog Food");
+   window.localStorage.setItem("prodTag2","Animal Food");
+   window.localStorage.setItem("prodTag3","Animal Food Consumable");
+   window.localStorage.setItem("prodTag4","Dog Food Consumable");
   
-
  if(productDisplayMode === "ProductDetail") // If the display mode is "Product Detail"
  {
    window.location.href = "./productDetails.html"; // Displays information in Product Details page.
@@ -958,8 +968,8 @@ function captureProductImage()
 
 // Objective: For capturing the exact absolute path of the current image in use.
 // -------------------------------------------------------------------------------
-   let prod_image = document.querySelector("#picProductImage").attributes[1].textContent // Captures sixteenth product name
-   alert("Product Image Path: " + prod_image);
+ //  let prod_image = document.querySelector("#picProductImage").attributes[1].textContent // Captures sixteenth product name
+ //  alert("Product Image Path: " + prod_image);
 } // End of const captureProductImage =()
 
 function updateProductDetails()
@@ -967,8 +977,16 @@ function updateProductDetails()
 
  // Objective: Update the selected product with the detailed information
  // ---------------------------------------------------------------------
-   document.querySelector("#product_title_details").innerText = window.localStorage.getItem("prodName");
-   document.querySelector("#product_price_details").innerText = window.localStorage.getItem("prodPrice");
+
+   document.querySelector("#product_img").src = window.localStorage.getItem("prodImage"); // Simple Product Image
+   document.querySelector("#product_title_details").innerText = window.localStorage.getItem("prodName"); // Product Title
+   document.querySelector("#product_price_details").innerText = window.localStorage.getItem("prodPrice"); // Product Price
+   document.querySelector("#prodSKU").innerText = window.localStorage.getItem("prodSKU"); // Product SKU
+   document.querySelector("#prodCategory").innerText = window.localStorage.getItem("prodCategory"); // Product Category
+   document.querySelector("#prodTag1").innerText = window.localStorage.getItem("prodTag1"); // Product Tag #1
+   document.querySelector("#prodTag2").innerText = window.localStorage.getItem("prodTag2"); // Product Tag #2
+   document.querySelector("#prodTag3").innerText = window.localStorage.getItem("prodTag3"); // Product Tag #3
+   document.querySelector("#prodTag4").innerText = window.localStorage.getItem("prodTag4"); // Product Tag #4
  
 } // End of const updateProductDetails =()
 
@@ -976,12 +994,12 @@ function displayShoppingCart()  // Targets Add to Cart page
 {
  // Objective: Display the list of purchased products information inside the shopping cart.
  // ----------------------------------------------------------------------------------------
-    document.querySelector("#tblProductImage").innerText = window.localStorage.getItem("prodImage"); 
-    document.querySelector("#tblProductName").innerText = window.localStorage.getItem("prodName");
-    document.querySelector("#tblProductPrice").innerText = window.localStorage.getItem("prodPrice");
-    document.querySelector("#tblProductTotalCost").innerText = window.localStorage.getItem("prodPrice");
-    document.querySelector("#lblCartSubTotal").innerText = window.localStorage.getItem("prodPrice");
-    document.querySelector("#lblCartGrandTotal").innerText = window.localStorage.getItem("prodPrice");
+     document.querySelector("#tblProductImage").src = window.localStorage.getItem("prodImage");  
+     document.querySelector("#tblProductName").innerText = window.localStorage.getItem("prodName");
+     document.querySelector("#tblProductPrice").innerText = window.localStorage.getItem("prodPrice");
+     document.querySelector("#tblProductTotalCost").innerText = window.localStorage.getItem("prodPrice");
+     document.querySelector("#lblCartSubTotal").innerText = window.localStorage.getItem("prodPrice");
+     document.querySelector("#lblCartGrandTotal").innerText = window.localStorage.getItem("prodPrice");
 
    // For Dropdown Product Cart List
    // -------------------------------
@@ -1002,6 +1020,7 @@ function displayShoppingCart()  // Targets Add to Cart page
       prod_quantity = document.querySelector("#txtProductQuantity").value; // Extracts the default quantity value.
       prod_quantity = Number(prod_quantity); // Converts the product quantity to another data type.
       
+      
       prod_price = document.querySelector("#tblProductPrice").innerText.toString();
       prod_price = Number(prod_price.slice(1,prod_price.length));
 
@@ -1014,7 +1033,7 @@ function displayShoppingCart()  // Targets Add to Cart page
         prod_quantity-=1;
       } // End of if-else statement
 
-      prod_total_cost = prod_quantity * prod_price
+      prod_total_cost = (prod_quantity * prod_price);
       prod_total_cost = "$" + prod_total_cost.toFixed(2).toString();
 
       document.querySelector("#tblProductTotalCost").innerText = prod_total_cost;
@@ -1023,7 +1042,8 @@ function displayShoppingCart()  // Targets Add to Cart page
 
      // Saves the comuputed Grand Total price in localstorage
      // ------------------------------------------------------
-        window.localStorage.setItem("prodGrandTotal", prod_total_cost);
+        window.localStorage.setItem("prodQuantity","2"); // Quantity
+        window.localStorage.setItem("prodGrandTotal", document.querySelector("#tblProductTotalCost").innerText); // Grand-Total
 
   } // End of function updateShoppingCart()
 
@@ -1032,9 +1052,12 @@ function displayShoppingCart()  // Targets Add to Cart page
     // Objective: Provide and upate the actually total product purchases expenditure at Checkout page.
     // ------------------------------------------------------------------------------------------------
    
-    document.querySelector("#tblCheckoutProductName").innerText = window.localStorage.getItem("prodName");
-    document.querySelector("#tblCheckoutProductPrice").innerText = window.localStorage.getItem("prodGrandTotal");
-    document.querySelector("#tblCheckoutSubTotal").innerText = window.localStorage.getItem("prodGrandTotal");
+    document.querySelector("#tblCheckoutProductName").innerText = window.localStorage.getItem("prodName"); // Product Name
+    document.querySelector("#tblCheckoutProductName").innerText = document.querySelector("#tblCheckoutProductName").innerText + " ";
+    document.querySelector("#tblCheckoutProductQuantity").innerText = window.localStorage.getItem("prodQuantity"); // Product Quantity
+    document.querySelector("#tblCheckoutProductQuantity").innerText = document.querySelector("#tblCheckoutProductQuantity").innerText + " x";
+    document.querySelector("#tblCheckoutProductPrice").innerText = window.localStorage.getItem("prodGrandTotal"); // Product Grand Total
+    document.querySelector("#tblCheckoutSubTotal").innerText = window.localStorage.getItem("prodGrandTotal"); 
     document.querySelector("#tblCheckoutGrandTotal").innerText = window.localStorage.getItem("prodGrandTotal");
     
   } // End of function updateCheckout()

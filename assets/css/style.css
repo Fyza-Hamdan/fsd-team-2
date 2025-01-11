@@ -5175,7 +5175,7 @@ footer .widget_title {
 }
 .product_rate::before {
 	font-size: 12px;
-	content: "\f005\f005\f005\f005\f005";
+	content: "\f005\f005\f005\f005\f005\f005";
 	top: 0;
 	position: absolute;
 	left: 0;
