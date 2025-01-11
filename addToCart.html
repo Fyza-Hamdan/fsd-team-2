@@ -48,9 +48,15 @@
 
 <!-- End of Cascading Style Sheet -->
 
+<script>
+
+   
+
+</script>
+
 </head>
 
-<body onload="displayEmptyCart();displayLoginName();getLoginStatus();displayShoppingCart();">
+<body onload="displayEmptyCart();displayShoppingCart();displayLoginName();getLoginStatus();">
 
 <!-- LOADER -->
 <div class="preloader">
@@ -70,8 +76,8 @@
                 <a class="navbar-brand" href="index.html">
                   
                    <!-- HEADER LOGO--> 
-                    <img class="logo_light" src="./assets/images/petperks_logo.png" alt="Pet Perks Logo" />
-                    <img class="logo_dark" src="./assets/images/petperks_logo.png" alt="Pet Perks Logo" />
+                      <img class="logo_light" src="./assets/images/logos/Logo side name - 310 x 220.png" alt="PetPurely Header Logo" />
+                      <img class="logo_dark" src="./assets/images/logos/Logo side name - 310 x 220.png" alt="PetPurely Header Logo" />
                    <!-- End of Header Logo -->  
                     
                 </a>
@@ -251,25 +257,38 @@
                         </div><div class="search_overlay"></div>
                     </li>
                     <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-bs-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">0</span></a>
-                        <div class="cart_box dropdown-menu dropdown-menu-right">
-                            <ul class="cart_list">
-                                <li>
-                                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb1.jpg" alt="cart_thumb1"><span id="drpDwnProductName">Variable product 001</span></a>
-                                    <span class="cart_quantity"> 1 x </span><span class="cart_amount"></span> <span class="price_symbole">$</span><span id="drpDwnProductPrice">78.00</span>
-                                </li>
-                               <!-- <li>
-                                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed consequat</a>
-                                    <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>81.00</span>
-                                </li> -->
-                            </ul>
-                            <div class="cart_footer">
-                                <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"></span> <span class="price_symbole">$</span><span id="drpDwnFooterProductPrice">78.00</span></p>
-                                <p class="cart_buttons"><a href="./addToCart.html" class="btn btn-fill-line view-cart">View Cart</a><a href="./checkout.html" class="btn btn-fill-out checkout">Checkout</a></p>
-                            </div>
-                        </div>
-                    </li>
+                 
+                    <!-- Cart Box Dropdown Menu -->   
+                    <div class="cart_box dropdown-menu dropdown-menu-right" id="viewCartItems">
+                            
+                        <!-- Cart List -->  
+                          <ul class="cart_list">
+                              <li>
+                                  <a href="#" class="item_remove"><i class="ion-close"></i></a>
+                                  <a href="#"><img src="assets/images/cart_thamb1.jpg" id="imgListCart" alt="cart_thumb1"><span id="viewListCart">Variable product 001</span></a>
+                                  <!--<span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="cart_amount"></span> <span class="price_symbole">$</span><span id="drpDwnProductPrice">78.00</span>-->
+                                  <span class="cart_quantity" id="drpDwnProductQuantity"> 1 x </span><span class="price_symbole">$</span><span class="cart-amount" id="drpDwnProductPrice">78.00</span>
+                              </li>
+                              <!--<li>
+                                  <a href="#" class="item_remove"><i class="ion-close"></i></a>
+                                  <a href="#"><img src="assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed consequat</a>
+                                  <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>81.00</span>
+                              </li> -->
+                          </ul>
+                        <!-- End of Cart List -->    
+                      
+                        <!-- Cart Footer -->
+                          <div class="cart_footer" >
+                              <p class="cart_total" id="cartListSubTotal"><strong>Subtotal:</strong><span class="price_symbole">$</span><span class="cart-price" id="drpDwnFooterProductPrice">78.00</span></p>
+                              <p class="cart_buttons"><a href="./addToCart.html" class="btn btn-fill-line view-cart">View Cart</a><a href="./checkout.html" class="btn btn-fill-out checkout">Checkout</a></p>
+                          </div>
+                        <!-- End of Cart Footer --> 
+                          
+                      </div>
+                   <!-- End of Cart Box Dropdown Menu -->      
+                     
+                   </li>
+            
                 </ul>
             </nav>
         </div>
@@ -322,7 +341,8 @@
                         </thead>
                         <tbody>
                         	<tr>
-                            	<td class="product-thumbnail" id="tblProductImage"><a href="#"><img src="assets/images/product_img1.jpg" alt="product1"></a></td>
+                            	<td class="product-thumbnail"><a href="#"><img src="assets/images/product_img1.jpg"  id="tblProductImage" alt="Simple Product Image"></a></td>
+                                <!--<td class="product-thumbnail" id="tblProductImage"><a href="#"><img src="./assets/images/products/dogs/Stella & Chewy’s Freeze Dried Dinner Patties Dog Food (Pork).png" alt="Simple Product Image"></a></td>-->
                                 <td class="product-name" id="tblProductName" data-title="Product"><a href="#">Blue Dress For Woman</a></td>
                                 <td class="product-price" id="tblProductPrice" data-title="Price">$45.00</td>
                                 <td class="product-quantity" data-title="Quantity"><div class="quantity">
@@ -681,8 +701,8 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-12">
                 	<div class="widget">
-                        <div class="footer_logo">
-                            <a href="#"><img src="assets/images/logo_light.png" alt="logo"/></a>
+                        <div class="footer_logo">   
+                            <a href="#"><img src="assets/images/logos/Logo bottom name - 100 x 100.png" alt="PetPurely Footer logo"/></a>
                         </div>
                         <p>If you are going to use of Lorem Ipsum need to be sure there isn't hidden of text</p>
                     </div>
@@ -808,7 +828,7 @@
 <script src="./assets/js/scripts.js"></script>
 
 <!-- Custom Javascript -->
-<script defer src="./assets/js/petpurely/js/pets_scripts.js"></script>
+<script defer src="./assets/js/pets_scripts.js"></script>
 
 <!-- End of Javascript -->
 
