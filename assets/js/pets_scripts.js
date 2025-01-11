@@ -1042,8 +1042,8 @@ function displayShoppingCart()  // Targets Add to Cart page
 
      // Saves the comuputed Grand Total price in localstorage
      // ------------------------------------------------------
-        window.localStorage.setItem("prodQuantity","2"); // Quantity
-        window.localStorage.setItem("prodGrandTotal", document.querySelector("#tblProductTotalCost").innerText); // Grand-Total
+        window.localStorage.setItem("prodQuantity", prod_quantity); // Quantity
+        window.localStorage.setItem("prodGrandTotal", prod_total_cost); // Grand-Total
 
   } // End of function updateShoppingCart()
 
