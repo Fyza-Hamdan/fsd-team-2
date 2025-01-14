@@ -483,7 +483,7 @@ button:focus:not(:focus-visible) {
 .btn-group-sm > .btn, .btn-sm 
 {
     padding: 8px 25px;
-	margin-top: 10px;
+	margin-top: 0px;
 }
 
 .btn-group-lg > .btn, .btn-lg 
@@ -5422,6 +5422,7 @@ footer .widget_title {
 }
 .pr_detail .pr_desc {
     display: inline-block;
+	padding-top: 30px;
 }
 .pr_detail .pr_desc p {
     margin-bottom: 15px;
@@ -5499,7 +5500,7 @@ footer .widget_title {
 .product_size_switch span {
 	cursor: pointer;
 	text-transform: uppercase;
-	width: 32px;
+	width: auto;
 	display: inline-block;
 	border: 2px solid #ddd;
 	text-align: center;

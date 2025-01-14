@@ -279,9 +279,9 @@
                         <h4 class="product_title" id="product_title_details"><a href="#">Blue Dress For Woman</a></h4>
                         <div class="product_price">
                             <span class="price" id="product_price_details">$45.00</span>
-                            <del>$56.00</del>
+                            <del id="prod_retail_price">$56.00</del>
                             <div class="on_sale">
-                                <span>12.22% Off</span>
+                                <span id="prod_sales_price">12.22% Off</span>
                             </div>
                         </div>
 
@@ -291,8 +291,12 @@
                                 </div>
                                 <span class="rating_num">(21)</span>
                             </div>
-                        <div class="pr_desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
+                        <div class="pr_desc">                          
+                                <p><u><b>Guaranteed Analysis</b></u></p>
+                                <p id="prodGA1"></p>
+                                <p id="prodGA2"></p>
+                                <p id="prodGA3"></p>
+                                <p id="prodGA4"></p>                            
                         </div>
 
                        <!-- Product Sort Info --> 
@@ -305,26 +309,11 @@
                         </div>
                        <!-- End of Product Sort Info --> 
 
-                         <!-- Size Swatches -->
-                         <div class="pr_switch_wrap">
-                            <span class="switch_lable">Size</span>
-                            <div class="product_size_switch">
-                                <span>xs</span>
-                                <span>s</span>
-                                <span>m</span>
-                                <span>l</span>
-                                <span>xl</span>
-                            </div>
-                        </div>
-                        <!-- End of Size Swatches -->  
-
                         <!-- Weight Swatches -->
                         <div class="pr_switch_wrap">
                             <span class="switch_lable">Weight</span>
                             <div class="product_size_switch">
-                                <span>lb</span>
-                                <span>g</span>
-                                <span>kg</span>
+                                <span id="prodWeightInfo">kg</span>
                             </div>
                         </div>
                        <!-- End of Weight Swatches -->
@@ -378,18 +367,21 @@
 						<li class="nav-item">
 							<a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description" role="tab" aria-controls="Description" aria-selected="true">Description</a>
                       	</li>
-                      	<li class="nav-item">
+                     <!-- 	<li class="nav-item">
                         	<a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info" role="tab" aria-controls="Additional-info" aria-selected="false">Additional info</a>
                       	</li>
                       	<li class="nav-item">
                         	<a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews" role="tab" aria-controls="Reviews" aria-selected="false">Reviews (2)</a>
-                      	</li>
+                      	</li> -->
                     </ul>
+
                 	<div class="tab-content shop_info_tab">
-                      	<div class="tab-pane fade show active" id="Description" role="tabpanel" aria-labelledby="Description-tab">
-                        	<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Vivamus bibendum magna Lorem ipsum dolor sit amet, consectetur adipiscing elit.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-                        	<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-                      	</div>
+                      	
+                        <div class="tab-pane fade show active" id="Description" role="tabpanel" aria-labelledby="Description-tab">
+                        	<p id="prodDescription">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Vivamus bibendum magna Lorem ipsum dolor sit amet, consectetur adipiscing elit.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+                        </div>
+
+                        <!-- Additional Information -->
                       	<div class="tab-pane fade" id="Additional-info" role="tabpanel" aria-labelledby="Additional-info-tab">
                         	<table class="table table-bordered">
                             	<tr>
@@ -410,6 +402,8 @@
                                 </tr>
                         	</table>
                       	</div>
+                       <!-- End of Additional Information --> 
+                       <!-- Reviews Tab --> 
                       	<div class="tab-pane fade" id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
                         	<div class="comments">
                             	<h5 class="product_tab_title">2 Review For <span>Blue Dress For Woman</span></h5>
@@ -454,6 +448,8 @@
                                     </li>
                                 </ul>
                         	</div>
+
+                            <!-- End of Reviews Tab -->
                             <div class="review_form field_form">
                                 <h5>Add a review</h5>
                                 <form class="row mt-3">
@@ -750,7 +746,7 @@
                             </li>
                             <li>
                                 <i class="ti-email"></i>
-                                <a href="mailto:info@petpurely.pets">info@petpurely.pets</a>
+                                <a href="mailto:sales@petpurely.pets">sales@petpurely.pets</a>
                             </li>
                             <li>
                                 <i class="ti-mobile"></i>
